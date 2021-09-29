@@ -1,0 +1,57 @@
+\documentclass[a4paper]{article}
+\usepackage{calc}
+\usepackage[x11names]{xcolor}
+\usepackage{schedule} 
+
+\begin{document}
+
+\pagestyle{empty}
+
+\SubUnits{60}
+\CellHeight{1.5cm}
+\CellWidth{3.5cm}
+\TimeRange{8:00-17:00}
+\BeginOn{Monday}
+\TextSize{\small}
+\FiveDay
+\TwentyFourHour
+\NewAppointment{TASCN}{Tomato3}{black}
+\NewAppointment{TCP}{Goldenrod3}{black}
+\NewAppointment{TDAA}{PaleGreen3}{black}
+\NewAppointment{TESR}{MediumPurple3}{black}
+\NewAppointment{TMFES}{SteelBlue3}{black}
+\NewAppointment{TRAS}{RosyBrown3}{black}
+
+\NewAppointment{ASCN}{Tomato1}{black}
+\NewAppointment{CP}{Goldenrod1}{black}
+\NewAppointment{DAA}{PaleGreen1}{black}
+\NewAppointment{ESR}{MediumPurple1}{black}
+\NewAppointment{MFES}{SteelBlue1}{black}
+\NewAppointment{RAS}{RosyBrown1}{black}
+\begin{schedule}[MEI - 1st year - 1st semester - 2021/2022]
+
+    %%  MONDAYS
+    \TMFES{\textbf{  MFES}}{\\ T1 \; [Ed. 1 - 0.08]}{M}{08:00-10:00}
+    \TASCN{\textbf{  ASCN}}{\\ T1 \; [Ed. 1 - 0.08]}{M}{10:00-11:00}
+    \ASCN{\textbf{  ASCN}}{\\ PL6 \; [Ed. 7 - 0.11]}{M}{11:00-13:00}
+    \MFES{\textbf{  MFES}}{\\ TP2 \; [Ed. 1 - 1.21]}{M}{14:00-15:00}
+    
+    
+    %%  TUESDAY
+    \TESR{\textbf{  ESR}}{\\ T1 \; [Ed. 1 - 0.08]}{T}{8:00-9:00}
+    \ESR{\textbf{  ESR}}{\\ PL2 \; [Ed. 7 - 0.09]}{T}{9:00-11:00}
+    \TRAS{\textbf{  RAS}}{\\ T1 \; [Ed. 1 - 0.08]}{T}{13:00-14:00}
+    \RAS{\textbf{  RAS}}{\\ PL4 \; [Ed. 7 - 0.08]}{T}{14:00-16:00}
+
+    %%  WEDNESDAY
+    \CP{\textbf{  CP}}{\\ PL4 \; [Ed. 7 - 1.10]}{W}{9:00-11:00}
+
+    %%THURSDAY
+    \TDAA{\textbf{  DAA}}{\\ T1 \; [Ed. 1 - 0.08]}{Th}{8:00-9:00}
+    \DAA{\textbf{  DAA}}{\\ PL3 \; [Ed. 7 - 1.10]}{Th}{9:00-11:00}
+    \TCP{\textbf{  CP}}{\\ T1 \; [Ed. 1 - 0.08]}{Th}{13:00-14:00}
+
+\end{schedule}
+    
+
+\end{document}
