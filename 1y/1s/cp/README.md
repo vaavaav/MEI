@@ -1,5 +1,5 @@
 
-**[MEI](../../../) - CP** : **C**omputação **P**aralela
+**CP** : **C**omputação **P**aralela
 # Parallel Computing 
 
 ## Summaries

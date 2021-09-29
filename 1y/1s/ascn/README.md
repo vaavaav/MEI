@@ -1,4 +1,4 @@
-**[MEI](../../../) - ASCN** : **A**plicações e **S**erviços de **C**omputação em **N**uvem 
+**ASCN** : **A**plicações e **S**erviços de **C**omputação em **N**uvem 
 # Cloud Computing Applications and Services 
 
 ## Summaries

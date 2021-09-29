@@ -1,4 +1,4 @@
-**[MEI](../../../) - ESR** : **E**ngenharia de **S**erviços em **R**ede
+**ESR** : **E**ngenharia de **S**erviços em **R**ede
 # Network Services Engineering
 
 ## Summaries

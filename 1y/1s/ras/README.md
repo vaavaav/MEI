@@ -1,4 +1,4 @@
-**[MEI](../../../) - RAS** : **R**equisitos e **A**rquiteturas de **S**oftware
+**RAS** : **R**equisitos e **A**rquiteturas de **S**oftware
 # Software Requirements and Architectures
 
 ## Summaries

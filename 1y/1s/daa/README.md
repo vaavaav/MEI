@@ -1,4 +1,4 @@
-**[MEI](../../../) - DAA** : **D**ados e **A**prendizagem **A**utomática
+**DAA** : **D**ados e **A**prendizagem **A**utomática
 # Data and Automatic Learning
 
 ## Summaries
