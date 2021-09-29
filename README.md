@@ -10,7 +10,7 @@ This personal repository contains information about my overall progress in the c
 
 ### [1<sup>st</sup> Semester](https://github.com/vaavaav/MEI/tree/main/1y/1s)
 
-[Click here to see the schedule](https://github.com/vaavaav/MEI/blob/main/1y/1s/schedule/schedule_1y_1s.pdf)
+[Click here to see my weekly schedule](https://github.com/vaavaav/MEI/blob/main/1y/1s/schedule/schedule_1y_1s.pdf)
 
 #### Curricular Units
 
