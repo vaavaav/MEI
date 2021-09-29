@@ -6,11 +6,11 @@ Master in Computer Engineering
 
 This personal repository contains information about my overall progress in the course, along with solved exercices and some work related files of group projects.
 
-## [1<sup>st</sup> Year](https://github.com/vaavaav/MEI/tree/main/1y) (2021/2022)
+## [1<sup>st</sup> Year](1y) (2021/2022)
 
-### [1<sup>st</sup> Semester](https://github.com/vaavaav/MEI/tree/main/1y/1s)
+### [1<sup>st</sup> Semester](1y/1s)
 
-[Click here to see my weekly schedule](https://github.com/vaavaav/MEI/blob/main/1y/1s/schedule/schedule_1y_1s.pdf)
+[Click here to see my weekly schedule](1y/1s/schedule/schedule_1y_1s.pdf)
 
 #### Curricular Units
 
@@ -18,11 +18,11 @@ This personal repository contains information about my overall progress in the c
 
 | Initials| Description (PT)| Description (EN)| Final Grade|
 | :------:| :-----------| :-----------| :-----------:|
-| **ASCN** | Aplicações e Serviços de Computação em Nuvem | Cloud Computing Applications and Services | TBA |
-| **CP**   | Computação Paralela                          | Parallel Computing                        | TBA |
-| **DAA**  | Dados e Aprendizagem Automática              | Data and Automatic Learning               | TBA |
-| **ESR**  | Engenharia de Serviços em Rede               | Network Services Engineering              | TBA |
-| **MFES** | Métodos Formais em Engenharia de Software    | Formal Methods in Software Engineering    | TBA |
-| **RAS**  | Requisitos e Arquiteturas de Software        | Software Requirements and Architectures   | TBA |
+| [**ASCN**](1y/1s/ascn) | Aplicações e Serviços de Computação em Nuvem | Cloud Computing Applications and Services | TBA |
+| [**CP**](1y/1s/cp)   | Computação Paralela                          | Parallel Computing                        | TBA |
+| [**DAA**](1y/1s/daa)  | Dados e Aprendizagem Automática              | Data and Automatic Learning               | TBA |
+|[**ESR**](1y/1s/esr)  | Engenharia de Serviços em Rede               | Network Services Engineering              | TBA |
+| [**MFES**](1y/1s/mfes) | Métodos Formais em Engenharia de Software    | Formal Methods in Software Engineering    | TBA |
+| [**RAS**](1y/1s/ras)  | Requisitos e Arquiteturas de Software        | Software Requirements and Architectures   | TBA |
   
  </center>
