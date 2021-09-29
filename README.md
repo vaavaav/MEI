@@ -13,9 +13,7 @@ This personal repository contains information about my overall progress in the c
 
 #### Curricular Units
 
-<center>
-
-| Initials| Description (PT)| Description (EN)| Final Grade|
+| Initials| Designation (PT)| Designation (EN)| Final Grade|
 | :------:| :-----------| :-----------| :-----------:|
 | [**ASCN**](1y/1s/ascn) | Aplicações e Serviços de Computação em Nuvem | Cloud Computing Applications and Services | TBA |
 | [**CP**](1y/1s/cp)   | Computação Paralela                          | Parallel Computing                        | TBA |
@@ -23,5 +21,3 @@ This personal repository contains information about my overall progress in the c
 |[**ESR**](1y/1s/esr)  | Engenharia de Serviços em Rede               | Network Services Engineering              | TBA |
 | [**MFES**](1y/1s/mfes) | Métodos Formais em Engenharia de Software    | Formal Methods in Software Engineering    | TBA |
 | [**RAS**](1y/1s/ras)  | Requisitos e Arquiteturas de Software        | Software Requirements and Architectures   | TBA |
-  
- </center>
