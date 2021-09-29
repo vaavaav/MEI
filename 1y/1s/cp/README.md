@@ -1,5 +1,8 @@
-**CP** : **C**omputação **P**aralela
+
+**[MEI](../../../) - CP** : **C**omputação **P**aralela
 # Parallel Computing 
+
+## Summaries
 
 | Day | Summary (PT)| Summary (EN)| File(s)|
 | :------:| :-----------| :-----------| :-----------:|
@@ -10,3 +13,4 @@
 | Name | Email |
 | :------:| :-----------|
 | ... | ... |
+

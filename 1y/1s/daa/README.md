@@ -1,5 +1,7 @@
-**DAA** : **D**ados e **A**prendizagem **A**utomática
+**[MEI](../../../) - DAA** : **D**ados e **A**prendizagem **A**utomática
 # Data and Automatic Learning
+
+## Summaries
 
 | Day | Summary (PT)| Summary (EN)| File(s)|
 | :------:| :-----------| :-----------| :-----------:|
