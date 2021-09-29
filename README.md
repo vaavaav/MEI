@@ -8,9 +8,8 @@ This personal repository contains information about my overall progress in the c
 
 ## [1<sup>st</sup> Year](1y) (2021/2022)
 
-### [1<sup>st</sup> Semester](1y/1s)
+### [1<sup>st</sup> Semester](1y/1s) ( [Calendar](1y/1s/calendar/calendar.md) | [Weekly Schedule](1y/1s/schedule/schedule_1y_1s.pdf) )
 
-[Click here to see my weekly schedule](1y/1s/schedule/schedule_1y_1s.pdf)
 
 #### Curricular Units
 
