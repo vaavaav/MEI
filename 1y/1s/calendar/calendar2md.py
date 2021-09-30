@@ -1,7 +1,7 @@
 import sys
 import csv
-from calendar import Calendar, monthcalendar, month_name
-c = Calendar(6) # 6 : week starts at Sunday
+from calendar import Calendar, monthcalendar, month_name, setfirstweekday
+setfirstweekday(6) # Week starts at Sunday
 
 def event_to_string(d,m,y) -> str :
     t = []
@@ -11,7 +11,7 @@ def event_to_string(d,m,y) -> str :
     return '<br>------<br>'.join(t)
 
 
-def save_calendar( ofile : str):
+def print_calendar():
 
     # Start calendar at : 
     start_year  = 2021
@@ -21,31 +21,23 @@ def save_calendar( ofile : str):
     end_year  = 2022
     end_month = 2
 
-    # Open file
-    out = open(ofile, "w")
-
     for y in range(start_year,end_year+1):
         for m in range(start_month if y == start_year else 1, end_month+1 if y == end_year else 13):
-            out.write(f'# {month_name[m]} of {y}\n')
-            out.write("|Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|\n")
-            out.write("|:-:|:-:|:-:|:-:|:-:|:-:|:-:|\n")
+            print(f'# {month_name[m]} of {y}')
+            print("|Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|")
+            print("|:-:|:-:|:-:|:-:|:-:|:-:|:-:|")
             for w in monthcalendar(y,m): 
                 for d in w:
-                    out.write("|")
+                    print("|",end='')
                     if d > 0 :
-                        out.write(f"{d}")
-                out.write("|\n")
+                        print(f"{d}",end='')
+                print("|")
                 for d in w:
-                    out.write("|")
+                    print("|",end='')
                     if d > 0 :
-                        e = event_to_string(d,m,y)
-                        print(e)
-                        print(f'{d}-{m}-{y} : {e}')
-                        out.write(f"{e}")
-                out.write("|\n")
-            out.write("\n\n")
-
-    out.close()
+                        print(f"{event_to_string(d,m,y)}",end='')
+                print("|")
+            print("\n")
 
 
 # MAIN CODE
@@ -74,6 +66,6 @@ for entry in entries:
     [d,m,y] = map(int,entry[0].split('-'))
     events.setdefault(y,{}).setdefault(m,{}).setdefault(d,[]).append(entry[1:])
 
-save_calendar(sys.argv[2])
+print_calendar()
 
 
