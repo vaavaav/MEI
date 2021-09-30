@@ -23,19 +23,13 @@ def print_calendar():
 
     for y in range(start_year,end_year+1):
         for m in range(start_month if y == start_year else 1, end_month+1 if y == end_year else 13):
-            print(f'# {month_name[m]} of {y}')
-            print("|Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|")
-            print("|:-:|:-:|:-:|:-:|:-:|:-:|:-:|")
+            print(f'# {month_name[m]} of {y}\n|Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|\n|:-:|:-:|:-:|:-:|:-:|:-:|:-:|')
             for w in monthcalendar(y,m): 
                 for d in w:
-                    print("|",end='')
-                    if d > 0 :
-                        print(f"{d}",end='')
+                    print(f"|{d if d > 0 else ''}", end='')
                 print("|")
                 for d in w:
-                    print("|",end='')
-                    if d > 0 :
-                        print(f"{event_to_string(d,m,y)}",end='')
+                    print(f"|{event_to_string(d,m,y) if d > 0 else ''}",end='')
                 print("|")
             print("\n")
 
