@@ -3,7 +3,7 @@
 
 ## Contacts
 
-| Typology | Name | Email |
+| Shift | Name | Email |
 |:-:| :------ | :-----------|
 | T | António Luís Pinto Ferreira Sousa | als@di.uminho.pt |
 | PL1, PL2| João Tiago Medeiros Paulo|  	 	D4747@di.uminho.pt |
