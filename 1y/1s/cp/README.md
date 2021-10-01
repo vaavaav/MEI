@@ -6,7 +6,7 @@
 
 ## Contacts
 
-| Typology | Name | Email |
+| Shift | Name | Email |
 |:-:| :------ | :-----------|
 | T | Alberto José Proença | aproenca@di.uminho.pt |
 | PL| André Martins Pereira| ampereira@di.uminho.pt |
