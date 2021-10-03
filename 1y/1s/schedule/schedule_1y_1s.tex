@@ -2,6 +2,7 @@
 \usepackage{calc}
 \usepackage[x11names]{xcolor}
 \usepackage{schedule} 
+\usepackage[ddmmyyyy]{datetime} 
 
 \begin{document}
 
@@ -28,7 +29,7 @@
 \NewAppointment{ESR}{MediumPurple1}{black}
 \NewAppointment{MFES}{SteelBlue1}{black}
 \NewAppointment{RAS}{RosyBrown1}{black}
-\begin{schedule}[MEI - $1^{\textrm{\small st}}$ year - $1^{\textrm{\small st}}$ semester - 2021/2022 {\color{gray}\small(Edit: 03-10-2021 22:11)} ]
+\begin{schedule}[MEI - $1^{\textrm{\small st}}$ year - $1^{\textrm{\small st}}$ semester - 2021/2022 {\color{gray}\small(Edit: \today \; \currenttime)} ]
 
     %%  MONDAYS
     \TMFES{\textbf{  MFES}}{\\ T1 \; [Ed. 1 - 0.08]}{M}{08:00-10:00}
