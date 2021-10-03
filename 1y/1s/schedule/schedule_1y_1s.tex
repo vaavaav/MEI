@@ -3,15 +3,17 @@
 \usepackage[x11names]{xcolor}
 \usepackage{schedule} 
 \usepackage[ddmmyyyy]{datetime} 
+\fontfamily{cmss}\selectfont
+\renewcommand\familydefault{\sfdefault}
 
 \begin{document}
 
 \pagestyle{empty}
 
 \SubUnits{60}
-\CellHeight{1.5cm}
-\CellWidth{3.5cm}
-\TimeRange{8:00-17:00}
+\CellHeight{1.4cm}
+\CellWidth{3cm}
+\TimeRange{8:00-16:00}
 \BeginOn{Monday}
 \TextSize{\small}
 \FiveDay
@@ -29,7 +31,9 @@
 \NewAppointment{ESR}{MediumPurple1}{black}
 \NewAppointment{MFES}{SteelBlue1}{black}
 \NewAppointment{RAS}{RosyBrown1}{black}
-\begin{schedule}[MEI - $1^{\textrm{\small st}}$ year - $1^{\textrm{\small st}}$ semester - 2021/2022 {\color{gray}\small(Edit: \today \; \currenttime)} ]
+
+\begin{center}
+\begin{schedule}[MEI - $1^{\textrm{\small st}}$ year - $1^{\textrm{\small st}}$ semester - 2021/2022 \vspace{1cm}]
 
     %%  MONDAYS
     \TMFES{\textbf{  MFES}}{\\ T1 \; [Ed. 1 - 0.08]}{M}{08:00-10:00}
@@ -53,6 +57,8 @@
     \CP{\textbf{  CP}}{\\ PL2 \; [Ed. 7 - 0.09]}{Th}{14:00-16:00}
 
 \end{schedule}
+    Edit: \today \; \currenttime
+\end{center}
     
 
 \end{document}
