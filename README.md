@@ -13,7 +13,7 @@ This personal repository contains information about my overall progress in the c
 
 #### Curricular Units
 
-| Initials| Designation (PT)| Designation (EN)| Shift(s) | Final Grade|
+| Initials| Designation (PT)| Designation (EN)| Shifts | Final Grade|
 | :------:| :-----------| :-----------| :-: | :-----------:|
 | [**ASCN**](1y/1s/ascn) | Aplicações e Serviços de Computação em Nuvem | Cloud Computing Applications and Services | PL1 |TBA |
 | [**CP**](1y/1s/cp)   | Computação Paralela                          | Parallel Computing                          | PL2 |TBA |
