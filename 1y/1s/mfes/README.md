@@ -15,8 +15,9 @@
 | TP1, TP2,<br> TP3, TP4 | Renato Jorge Araújo Neves| nevrenato@di.uminho.pt|
 
 
-## Summaries
+## Assessments
 
-| Day | Summary (PT)| Summary (EN)| File(s)|
-| :------:| :-----------| :-----------| :-----------:|
-| 04/09/21 | ... | ... | ... |
+| Date | Hour | Description |
+|:-:| :-: | :-----------|
+| 14-01-2022 | ? | Final test |
+
