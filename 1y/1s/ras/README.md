@@ -10,8 +10,12 @@
 | PL5, PL6| "ConvidadoDI07" | ? |
 
 
-## Summaries
+## Assessments
 
-| Day | Summary (PT)| Summary (EN)| File(s)|
-| :------:| :-----------| :-----------| :-----------:|
-| 04/09/21 | ... | ... | ... |
+| Date | Hour | Description |
+|:-:| :-: | :-----------|
+| 07-01-2022 | ? | Final test |
+| Nov 15-19  | Until the end of the day | First deadline |
+| Dec 13-17  | Until the end of the day | Second deadline |
+| Dec 20  | ? | New requirements |
+
