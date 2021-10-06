@@ -51,7 +51,7 @@
 |||||||1|
 ||||||||
 |2|3|4|5|6|7|8|
-||||**CP**: Final test<br>evening<br>cantina (?)||||
+||||**CP**: Final test<br>evening<br>cantina (?)||**RAS**: Final test||
 |9|10|11|12|13|14|15|
 |||**ASCN**: Report|**ASCN**: Final test||**MFES**: Final test<br>||
 |16|17|18|19|20|21|22|
