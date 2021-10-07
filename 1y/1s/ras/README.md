@@ -19,3 +19,14 @@
 | Dec 13-17  | Until the end of the day | Second deadline |
 | Dec 20  | ? | New requirements |
 
+## Project : Bet House
+
+ - [Work Statement](project/RASBet-enunciado.pdf)
+
+## Results
+
+| Assessment | Grade |
+| :-:           | :-: |
+| Final Test    | TBA |
+| Project       | TBA |  
+

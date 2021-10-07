@@ -19,3 +19,9 @@
 | 17-12-2021 | ? | Final test |
 | 03-08 and/or 10-15 of Jan 2022 | ? | Presentation of work related to the class' project |
 
+## Results
+
+| Assessment | Grade |
+| :-:           | :-: |
+| Final Test    | TBA |
+| Project       | TBA |  

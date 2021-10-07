@@ -23,5 +23,9 @@
 | 12-01-2022 | ? | Final Test |
 | 17-01-2022 / 21-01-2022 | [During PL classes](../schedule/schedule_1y_1s.pdf) | Presentation of the project |
 
+## Results
 
-
+| Assessment | Grade |
+| :-:           | :-: |
+| Final Test    | TBA |
+| Project       | TBA |  
