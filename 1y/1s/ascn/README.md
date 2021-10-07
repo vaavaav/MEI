@@ -17,13 +17,15 @@
 
 ## Assessments
 
+### Calendar
+
 | Date | Hour | Description |
 |:-:| :-: | :-----------|
 | 11-01-2022 | Until the end of the day | Submission of project's report |
 | 12-01-2022 | ? | Final Test |
 | 17-01-2022 / 21-01-2022 | [During PL classes](../schedule/schedule_1y_1s.pdf) | Presentation of the project |
 
-## Results
+### Results
 
 | Assessment | Grade |
 | :-:           | :-: |
