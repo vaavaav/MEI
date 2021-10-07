@@ -20,7 +20,11 @@
 | 05-01-2022 | evening? | Final test |
 | 2<sup>nd</sup> and 3<sup>rd</sup> weeks of january | [During PL classes](../schedule/schedule_1y_1s.pdf) | Defense of works |
 
-## Results
+### Project
+
+- Groups of 2 peers (or pairs), **advised** to be in the same shift (but not obligated).
+
+### Results
 
 | Assessment | Grade |
 | :-:           | :-: |
