@@ -12,6 +12,8 @@
 
 ## Assessments
 
+### Calendar
+
 | Date | Hour | Description |
 |:-:| :-: | :-----------|
 | 07-01-2022 | ? | Final test |
@@ -19,11 +21,11 @@
 | Dec 13-17  | Until the end of the day | Second deadline |
 | Dec 20  | ? | New requirements |
 
-## Project : Bet House
+### Project : Bet House
  - Groups of 5 peers, **in the same shift**
  - [Work Statement](project/RASBet-enunciado.pdf)
 
-## Results
+### Results
 
 | Assessment | Grade |
 | :-:           | :-: |
