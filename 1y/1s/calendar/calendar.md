@@ -38,7 +38,7 @@
 |5|6|7|8|9|10|11|
 ||||||||
 |12|13|14|15|16|17|18|
-||||||||
+||||||**DAA**: Final test||
 |19|20|21|22|23|24|25|
 ||||||||
 |26|27|28|29|30|31||
@@ -51,9 +51,9 @@
 |||||||1|
 ||||||||
 |2|3|4|5|6|7|8|
-||||**CP**: Final test<br>evening<br>cantina (?)||**RAS**: Final test||
+||**DAA**: Presentation<br> This week (maybe)||**CP**: Final test<br>evening<br>cantina (?)||**RAS**: Final test||
 |9|10|11|12|13|14|15|
-|||**ASCN**: Report|**ASCN**: Final test||**MFES**: Final test<br>||
+||**DAA**: Presentation<br> This week (maybe)|**ASCN**: Report|**ASCN**: Final test||**MFES**: Final test<br>||
 |16|17|18|19|20|21|22|
 ||**ASCN**: Presentation<br> This week||||||
 |23|24|25|26|27|28|29|
