@@ -18,6 +18,6 @@ This personal repository contains information about my overall progress in the c
 | [**ASCN**](1y/1s/ascn) | Aplicações e Serviços de Computação em Nuvem | Cloud Computing Applications and Services | PL1 |TBA |
 | [**CP**](1y/1s/cp)   | Computação Paralela                          | Parallel Computing                          | PL2 |TBA |
 | [**DAA**](1y/1s/daa)  | Dados e Aprendizagem Automática              | Data and Automatic Learning                | PL3 |TBA |
-|[**ESR**](1y/1s/esr)  | Engenharia de Serviços em Rede               | Network Services Engineering                | PL4 |TBA |
+|[**ESR**](1y/1s/esr)  | Engenharia de Serviços em Rede               | Network Services Engineering                | PL3 |TBA |
 | [**MFES**](1y/1s/mfes) | Métodos Formais em Engenharia de Software    | Formal Methods in Software Engineering    | TP2 |TBA |
-| [**RAS**](1y/1s/ras)  | Requisitos e Arquiteturas de Software        | Software Requirements and Architectures    | PL1 |TBA |
+| [**RAS**](1y/1s/ras)  | Requisitos e Arquiteturas de Software        | Software Requirements and Architectures    | PL5 |TBA |
