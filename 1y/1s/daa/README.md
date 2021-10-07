@@ -12,8 +12,10 @@
 | PL5, PL6|   Vítor Manuel Rodrigues Alves | valves@di.uminho.pt |
 
 
-## Summaries
+## Assessments
 
-| Day | Summary (PT)| Summary (EN)| File(s)|
-| :------:| :-----------| :-----------| :-----------:|
-| 04/09/21 | ... | ... | ... |
+| Date | Hour | Description |
+|:-:| :-: | :-----------|
+| 17-12-2021 | ? | Final test |
+| 03-08 and/or 10-15 of Jan 2022 | ? | Presentation of work related to the class' project |
+
