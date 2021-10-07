@@ -2,7 +2,8 @@
 **CP** : **C**omputação **P**aralela
 # Parallel Computing 
 
-[Website](http://gec.di.uminho.pt/mei/cp/)
+[Website](http://gec.di.uminho.pt/mei/cp/)<br>
+ <sub><sup> Note: [For the books click here](http://gec.di.uminho.pt/mei/cp/books.zip) </sup></sup>
 
 ## Contacts
 
