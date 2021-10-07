@@ -23,7 +23,7 @@
 |7|8|9|10|11|12|13|
 ||||||||
 |14|15|16|17|18|19|20|
-||||||||
+||**RAS**: First Deadline<br> This week ||||||
 |21|22|23|24|25|26|27|
 ||||||||
 |28|29|30|||||
@@ -38,9 +38,9 @@
 |5|6|7|8|9|10|11|
 ||||||||
 |12|13|14|15|16|17|18|
-||||||**DAA**: Final test||
+||**RAS**: Second Deadline<br> This week||||**DAA**: Final test||
 |19|20|21|22|23|24|25|
-||||||||
+||**RAS**: New requirements||||||
 |26|27|28|29|30|31||
 ||||||||
 
@@ -55,7 +55,7 @@
 |9|10|11|12|13|14|15|
 ||**DAA**: Presentation<br> This week (maybe)|**ASCN**: Report|**ASCN**: Final test||**MFES**: Final test<br>||
 |16|17|18|19|20|21|22|
-||**ASCN**: Presentation<br> This week||||||
+||**ASCN**: Presentation<br> This week<br>------<br>**RAS**: Last Deadline<br> This week||||||
 |23|24|25|26|27|28|29|
 ||||||||
 |30|31||||||
