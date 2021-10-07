@@ -9,3 +9,9 @@
 | T, PL1 |  António Luís Duarte Costa | costa@di.uminho.pt |
 | PL4, PL5 | Bruno Alexandre Taraio Santos Antunes | bantunes@di.uminho.pt |
 | PL2, PL6 |  Pedro Jorge Rito Lima | D12521@di.uminho.pt |
+
+## Assessements
+
+### Project
+
+ - Groups of 3 people, **in the same shift** 
