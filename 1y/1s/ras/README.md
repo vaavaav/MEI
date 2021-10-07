@@ -20,7 +20,7 @@
 | Dec 20  | ? | New requirements |
 
 ## Project : Bet House
-
+ - Groups of 5 peers, **in the same shift**
  - [Work Statement](project/RASBet-enunciado.pdf)
 
 ## Results
