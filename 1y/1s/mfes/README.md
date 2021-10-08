@@ -28,3 +28,4 @@
 | Assessment | Grade |
 | :-:        | :-: |
 | Final test | TBA |
+| Homework | TBA |
