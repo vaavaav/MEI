@@ -28,7 +28,8 @@
 
 ### Results
 
-| Assessment | Grade |
-| :-:           | :-: |
-| Final Test    | TBA |
-| Project       | TBA |  
+| Assessment | Grade  | Ratio |
+| :-:           | :-: | :-:   |
+| Final Test    | TBA |  30 %  |
+| Participation in practical-laboratory classes | TBA |  20 %  |
+| Project       | TBA |  50 %  |
