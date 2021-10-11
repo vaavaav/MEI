@@ -1,0 +1,23 @@
+c The Unicorn puzzle
+c
+c  1 mythical?
+c  2 immortal?
+c  3 mammal?
+c  4 horned?
+c  5 magical?
+c
+c If the unicorn is mythical, then it is immortal.
+c 
+c If the unicorn is not mythical, then it is a mortal mammal.
+c 
+c If the unicorn is either immortal or a mammal, then it is horned.
+c 
+c The unicorn is magical if it is horned.
+c 
+
+p cnf 5 ???
+
+
+
+
+

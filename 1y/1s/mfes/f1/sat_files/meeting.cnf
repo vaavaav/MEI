@@ -1,0 +1,23 @@
+
+c Schedule a meeting
+c
+c  1 Mon
+c  2 Tue
+c  3 Wed
+c  4 Thu
+c  5 Fri
+c
+c Anne cannot meet on Friday.
+c -5
+c Peter can only meet either on Monday, Wednesday or Thursday.
+c 1 \/ 3 \/ 4
+c Mike cannot meet neither on Tuesday nor on Thursday.
+c -2
+c -4
+
+p cnf 5 4
+-5 0
+1 3 4 0
+1 3 0
+-2 0
+-4 0
