@@ -90,7 +90,7 @@ Ciclo mais interior é a com etiqueta `L5`
 
 O(N<sup>3</sup>)
 
-|<br>linhas<br>|Tempo<br>medido<br>(µs)|<br>#CC<br>|<br>#I<br>|#I<br>estimado|CPI<br>calculado
+|<br>N<br>|Tempo<br>medido<br>(µs)|<br>#CC<br>|<br>#I<br>|#I<br>estimado|CPI<br>calculado
 |:-:|:-:|:-:|:-:|:-:|:-:|
 |128|7646|22866077 = 23 M|59229502 = 59 M|128<sup>3</sup> × 28 = 58.7 M |~ 0.39|
 |256|75545|226070914 = 226 M|471796226 = 472 M|256<sup>3</sup> × 28 = 469.8 M|~ 0.48   |
