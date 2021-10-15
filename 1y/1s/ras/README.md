@@ -23,7 +23,7 @@
 
 ### Project : Bet House
  - Groups of 5 peers, **in the same shift**
- - [Work Statement](project/RASBet-enunciado.pdf)
+ - [Work Statement](project/RASBet.pdf)
 
 ### Results
 
