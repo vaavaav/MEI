@@ -14,7 +14,7 @@
 **a)** O(c × N × N × N) = O(N<sup>3</sup>)
 
 
-$T_{exec} = #CC × T_{cc}$
+T<sub>exec</sub> = #CC × T<sub>cc</sub><br>
     = #CC × 1/f <br>
     = (#I × CPI) / f 
 
@@ -29,6 +29,7 @@ Com a duplicação do N, o tempo irá aumentar em 8x.
 
 O mais afetado é o número de instruções (que também irá aumentar).
 
+---
 **b)**
 
 Ciclo mais interior é a com etiqueta `L5`
@@ -80,7 +81,7 @@ Ciclo mais interior é a com etiqueta `L5`
 	addss	%xmm0, %xmm1
     jg	.L5
 ```
-
+---
 ### 2.
 
 **a)**
@@ -96,23 +97,25 @@ O(N<sup>3</sup>)
 |512|790091|2364659011 = 2 G|3766229961 = 3.77 G|512<sup>3</sup> × 28 = 3.76 M |~ 0.63  |
 
 
-Speedup<sub>A->B</sub> = B/A
-
-= (N<sup>3</sup> × 28) / (N<sup>3</sup> × 7) = 4
 
 
+---
 **b)**
 
 
-
+---
 ### 3.
 
-|<br>linhas<br>|Tempo<br>medido<br>(µs)|<br>#CC<br>|<br>#I<br>|#I<br>estimado|CPI<br>calculado
+|<br>N<br>|Tempo<br>medido<br>(µs)|<br>#CC<br>|<br>#I<br>|#I<br>estimado|CPI<br>calculado
 |:-:|:-:|:-:|:-:|:-:|:-:|
-|128||||128<sup>3</sup> × 7 = ? |~ |
-|256||||256<sup>3</sup> × 7 = ? |~ |
-|512||||512<sup>3</sup> × 7 = ? |~ |
+|128|2264|6751597 = 6.8 M|14828732 = 14.8 M|128<sup>3</sup> × 7 = 14.6 M |~ 0.46|
+|256|20737|59952068 = 60 M|118032591 = 118 M|256<sup>3</sup> × 7 = 117.4 M |~ 0.51|
+|512|274695|794541484 = 795 M |941887948 = 942 M |512<sup>3</sup> × 7 = 940 M |~ 0.84|
 
+
+Speedup<sub>A->B</sub> = B/A
+
+= (N<sup>3</sup> × 28) / (N<sup>3</sup> × 7) = 4
 
 ---
 
