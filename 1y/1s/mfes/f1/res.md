@@ -227,3 +227,171 @@ while s.solve():
             
 s.delete()    
 ```
+---
+
+### 4. Puzzle do unicórnio
+
+Consideremos as seguintes variáveis proposicionais:
+
+- A: The unicorn is mythical
+- B: The unicorn is immortal
+- C: The unicorn is a mammal
+- D: The unicorn is horned
+- E: The unicorn is magical
+
+Então as seguintes restrições:
+
+1. If the unicorn is mythical, then it is immortal.
+2. If the unicorn is not mythical, then it is a mortal mammal.
+3. If the unicorn is either immortal or a mammal, then it is horned.
+4. The unicorn is magical if it is horned.
+
+Podem se expressar através das seguintes fórmulas proposicionais:
+
+1. `A -> B` 
+```
+    A -> B
+<-> ¬A ∨ B
+```
+
+2. `¬A -> ¬B ∧ C` 
+```
+    ¬A -> ¬B ∧ C
+<-> ¬¬A ∨ (¬B ∧ C)
+<-> (A ∨ ¬B) ∧ (A ∨ C)
+```
+
+3. `B ∨ C -> D` 
+```
+    B ∨ C -> D
+<-> ¬(B ∨ C) ∨ D
+<-> (¬B ∧ ¬C) ∨ D
+<-> (¬B ∨ D) ∧ (¬C ∨ D)
+```
+
+4. `D -> E` 
+```
+    D -> E
+<-> ¬D ∨ E
+    
+```
+
+Transformando para o formato `.cnf`: 
+
+```
+p cnf 5 6
+-1 2 0
+1 -2 0
+1 3 0
+-2 4 0
+-3 4 0
+-4 5 0
+```
+
+Primeira solução obtida com o `MiniSAT`:
+
+```
+SAT
+-1 -2 3 4 5 0
+```
+
+**1.**
+
+Acrescentando a negação desta fórmula:
+
+```
+p cnf 5 11
+-1 2 0
+1 -2 0
+1 3 0
+-2 4 0
+-3 4 0
+-4 5 0
+1 0
+2 0
+-3 0
+-4 0
+-5 0
+```
+
+Resultado obtido com o `MiniSAT`: `UNSAT`
+
+Logo, há um único modelo que resolve este problema.
+
+**2.**
+
+As claúsulas adicionadas em cima responde há pergunta de "existe um outro modelo em que o unicórnico seja ou mítico ou imortal ou não mamífero ou não chifrudo ou não mágico?". Uma vez que nenhum outro modelo foi obtido a resposta é negativa, ou seja, "o unicórnio não é mítico nem imortal e é mamífero, chifrudo e mágico", respondendo assim às questões colocadas. 
+
+
+Seja `T`, o conjunto das fórmulas proposicionais deste problema (1., 2., 3. e 4.). Então, verificar que:
+
+- Is the unicorn magical? 
+
+é o mesmo que "`T ⊨ E` ?"
+
+`⋀T -> E` é válido **sse** `⋀T ∧ ¬E` é insatisfazível.
+
+Portanto, acrescentando a clausula `¬E`:
+
+```
+p cnf 5 7
+-1 2 0
+1 -2 0
+1 3 0
+-2 4 0
+-3 4 0
+-4 5 0
+-5 0
+```
+
+Obtém-se o seguinte, através do `MiniSAT`: `UNSAT`.
+
+O processo é análogo para as outras questões, obtendo-se sempre `UNSAT`, i.e., o problema é insatisfazível e, portanto, a resposta é afirmativa para as questões.
+
+---
+
+### 5. Configuração de produtos
+
+Consideremos as seguintes variáveis proposicionais:
+
+```
+A : O automóvel tem um ar condicionado Thermotronic 
+B : O automóvel tem uma bateria de alta capacidade
+C : O automóvel tem motores a gasolina de 3.2 L
+```
+
+Configurações disponíveis:
+```
+    A -> B ∨ G
+<-> ¬A ∨ B ∨ G
+```
+
+Configurações do cliente: `A ∧ ¬B ∧ ¬G`
+
+É possível?
+
+`(¬A ∨ B ∨ G) ∧ A ∧ ¬B ∧ ¬G`
+
+Transformando para o formato `.cnf`:
+
+```cnf
+p cnf 3 2
+-1 2 3 0
+1 0
+-2 0
+-3 0
+```
+
+Através do `MiniSAT` obtém-se: `UNSAT`, i.e., o problema é insatisfazível e, portanto, não é possível concretizar o pedido do cliente. 
+
+---
+
+### 6. Equivalência de cadeiras `if-then-else`
+
+**(1)**
+
+```c 
+if (!a && !b) h();
+else if(!a) g();
+    else f();
+```
