@@ -1,0 +1,42 @@
+---
+- name: PL2 - Part 1
+  hosts: vms
+  tasks:
+    - name: update system packages
+      become: yes
+      apt:
+        sudo: yes
+        update_cache: yes
+    - name: install vim-nox, openntpd, and sudo
+      become: yes
+      apt:
+        pkg:
+          - vim-nox
+          - openntpd
+          - sudo
+    - name: create user called tester with password 123456
+      ansible.builtin.user:
+        name: tester
+        # python -c 'import crypt; print crypt.crypt("123456", "$1$SomeSalt$")'
+        password: $1$SomeSalt$PPmF2E0rgLXLtBGMUM60X1
+    - name: add tester to sudo group
+      ansible.builtin.user:
+        name: tester
+        state: present
+        group: sudo
+    - name: prepare the user tester for SSH public key authentication
+      ansible.posix.authorized_key:
+        user: tester
+        state: present
+        key: "{{ lookup('~/.ssh/id_rsa.pub', '/home/tester/.ssh/id_rsa.pub') }}"
+    - name: make sure OpenNTPD is enabled and running
+      ansible.builtin.service:
+        name: openntpd
+        enabled: yes
+        state: started
+    - name: make sure OpenSSH is enabled and running
+      ansible.builtin.service:
+        name: ssh
+        enabled: yes
+        state: started
+
