@@ -395,3 +395,103 @@ if (!a && !b) h();
 else if(!a) g();
     else f();
 ```
+
+### 7. Sentando os convidados
+
+
+**1.** 
+
+Considerando as seguintes variáveis proposicionais: 
+
+`x`<sub>ij</sub> para `i` ∈ {1,2,3} e `j` ∈ {1,2,3}, sendo que `x`<sub>ij</sub> = 1 sse a pessoa `i` ficar sentada na cadeira `j`.
+
+Em que:
+
+- Ana = 1, Susana = 2, Pedro = 3
+- esquerda = 1, meio = 2, direito = 3
+
+Portanto, as seguintes restrições:
+
+1. A Ana não quer ficar sentada à beira do Pedro.
+2. A Ana não quer ficar na cadeira da esquerda.
+3. A Susana não se quer sentar à esquerda do Pedro.
+
+
+Podem ser transformadas nas seguintes fórmulas proposicionais:
+
+1. `(x11 -> ¬x32) ∨ (x12 -> ¬x33)`
+```
+    (x11 -> ¬x32) ∨ (x12 -> ¬x33)
+
+<-> ¬x11 ∨ ¬x32 ∨ ¬x12 ∨ ¬x33
+```
+
+2. `¬x11`
+
+3. `(x32 -> ¬x21) ∨ (x33 -> ¬x21 ∧ ¬x22)`
+```
+    (x32 -> ¬x21) ∨ (x33 -> ¬x21 ∧ ¬x22)
+
+<-> (¬x32 ∨ ¬x21) ∨ (¬x33 ∨ (¬x21 ∧ ¬x22))
+
+<-> (¬x32 ∨ ¬x21 ∨ ¬x33) ∨ ((¬x33 ∨ ¬x21) ∧ (¬x33 ∨ ¬x22))
+
+<-> (¬x32 ∨ ¬x21 ∨ ¬x33) ∧ (¬x32 ∨ ¬x33 ∨ ¬x21 ∨ ¬x22)
+```
+
+Além disso, ainda existem as seguintes restrições:
+
+4. Todas as pessoas devem estar sentadas numa cadeira e não poderá haver mais do que uma pessoa em cada cadeira.
+
+4.1. A uma única pessoa na cadeira da esquerda. 
+```
+    (x11 ∨ v21 ∨ x31) ∧ (x11 -> ¬x21 ∧ ¬x31) ∧ (x21 -> ¬x11 ∧ ¬x31) ∧ (x31 -> ¬x11 ∧ ¬x21) 
+
+<-> (x11 ∨ v21 ∨ x31) ∧ (¬x11 ∨ ¬x21 ∧ ¬x31) ∧ (¬x21 ∨ ¬x11 ∧ ¬x31) ∧ (¬x31 ∨ ¬x11 ∧ ¬x21)
+
+<-> (x11 ∨ v21 ∨ x31) ∧ (¬x11 ∨ ¬x21) ∧ (¬x11 ∨ ¬x31) ∧ (¬x21 ∨ ¬x11) ∧ (¬x21 ∨ ¬x31) ∧ (¬x31 ∨ ¬x11) ∧ (¬x31 ∨ ¬x21)
+
+<-> (x11 ∨ v21 ∨ x31) ∧ (¬x11 ∨ ¬x21) ∧ (¬x11 ∨ ¬x31) ∧ (¬x21 ∨ ¬x31)
+```
+4.2. A uma única pessoa na cadeira do meio. 
+```
+    (x12 ∨ x22 ∨ x32) ∧ (x12 -> ¬x22 ∧ ¬x32) ∧ (x22 -> ¬x12 ∧ ¬x32) ∧ (x32 -> ¬x12 ∧ ¬x22) 
+
+<-> (x12 ∨ x22 ∨ x32) ∧ (¬x12 ∨ ¬x22 ∧ ¬x32) ∧ (¬x22 ∨ ¬x12 ∧ ¬x32) ∧ (¬x32 ∨ ¬x12 ∧ ¬x22)
+
+<-> (x12 ∨ x22 ∨ x32) ∧ (¬x12 ∨ ¬x22) ∧ (¬x12 ∨ ¬x32) ∧ (¬x22 ∨ ¬x32)
+
+```
+
+4.3. A uma única pessoa na cadeira da direita. 
+```
+    (x13 ∨ x23 ∨ x33) ∧ (x13 -> ¬x23 ∧ ¬x33) ∧ (x23 -> ¬x13 ∧ ¬x33) ∧ (x33 -> ¬x13 ∧ ¬x23) 
+
+<-> (x13 ∨ x23 ∨ x33) ∧ (¬x13 ∨ ¬x23 ∧ ¬x33) ∧ (¬x23 ∨ ¬x13 ∧ ¬x33) ∧ (¬x33 ∨ ¬x13 ∧ ¬x23)
+
+<-> (x13 v x23 ∨ x33) ∧ (¬x13 ∨ ¬x23) ∧ (¬x13 ∨ ¬x33) ∧ (¬x23 ∨ ¬x33)
+```
+
+Transformando para o formato `.cnf`:
+
+```cnf
+p cnf 9 16
+-1 -8 -2 -9 0
+-1 0
+-8 -4 -9 0
+-8 -9 -4 -5 0
+1 4 7 0
+-1 -4 0
+-1 -7 0
+-4 -7 0
+2 5 8 0
+-2 -5 0
+-2 -8 0
+-5 -8 0
+3 6 9 0
+-3 -6 0
+-3 -9 0
+-6 -9 0
+```
+
+ ^^^^CONFIRMAR
