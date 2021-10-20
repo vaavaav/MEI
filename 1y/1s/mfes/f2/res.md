@@ -1,8 +1,8 @@
 # FOL
 
-**Data**: 18-10-2021
+**Date**: 18-10-2021
 
-## Informações sobre o aluno
+## Info
 
 **Nome**: José Pedro Ribeiro Peixoto<br>
 **Número**: PG47381<br>
@@ -107,8 +107,6 @@ Predicados:
 - `Course(-) `
 - `Project(-)`
 - `Job(-)`
-- `Professor(-)`
-- `Student(-)`
 - `grades(-,-,-)`
 - `is_enrolled_in(-,-)`
 - `teaches(-,-)`
@@ -116,13 +114,18 @@ Predicados:
 - `works_on(-,-)`
 - `has(-,-)`
 
+Constantes:
+
+- `Professor`
+- `Student`
+
 #### 2.
 
 ##### (a)
 
-`∀x. Professor(x) -> Job(x)`
+`Job(Professor)`
 
-`∀x. Student(x) -> Job(x)`
+`Job(Student)`
 
 ##### (b)
 
@@ -136,9 +139,7 @@ Predicados:
 
 ##### (c)
 
-`∀x. Student(x) <-> ¬Professor(x)`
-
-`∀x. Professor(x) <-> ¬Student(x)`
+Professor ≠ Student
 
 ##### (d)
 
@@ -180,36 +181,42 @@ Um estudante apenas trabalha para projetos propostos por disciplinas onde se enc
 
 Apenas professores podem ensinar disciplinas.
 
-`∀x,y. teaches(x,y) -> Professor(x)`
+`∀x,y. Person(x) ∧ teaches(x,y) -> has(x,Professor)`
 
 Apenas estudantes estão inscritos nas disciplinas.
 
-`∀x,y. is_enrolled_in(x,y) -> Student(x)`
+`∀x,y. Person(x) ∧ is_enrolled_in(x,y) -> has(x,Student)`
 
 Um estudante apenas tem nota às cadeiras onde está inscrito
 
 `∀x,y,z. grades(x,y,z) -> is_enrolled_in(y,x)`
 
+---
 
 ### 4. File System
 
 #### 1. 
+
+Predicates:
 
 - `Entry(-)`
 - `Name(-)`
 - `Object(-) `
 - `Dir(-)`
 - `File(-)`
-- `Root(-)`
 - `refers_to(-,-)`
 - `contains(-,-)`
 - `has(-,-)`
+
+Constants:
+
+- `Root`
 
 #### 2.
 
 ##### (a)
 
-`∀x. Root(x) -> Dir(x)`
+`Dir(Root)`
 
 `∀x. File(x) -> Object(x)`
 
@@ -255,7 +262,7 @@ Uma Entry refere um único Object
 
 Há uma única Root
 
-`∃x. Root(x) ∧ (∀y. Root(y) -> x = y)`
+`feito em (a)`
 
 Não há mais Objects a não ser Dirs e Files.
 
@@ -263,22 +270,141 @@ Não há mais Objects a não ser Dirs e Files.
 
 Todos os Objects, exceto a Root, são referidos em pelo menos um Entry (no máximo uma vez, no caso das Dirs).
 
-`∀x. Object(x) ∧ ¬Root(x) -> ∃y. refers_to(y,x) ∧ (Dir(x) ∧ ∀z. refers_to(z,x) -> y = z)`
+`∀x. Object(x) ∧ x ≠ Root -> ∃y. refers_to(y,x) ∧ (Dir(x) ∧ ∀z. refers_to(z,x) -> y = z)`
+
+Different entries in the same directory must have different names.
+
+`∀x,y,z. contains(x,y) ∧ contains(x,z) ∧ x ≠ y -> ∃n,m. has(y,n) ∧ has(z,m) -> n ≠ m`
 
 #### 3.
 
 ##### (a)
 
-`∀x. Root(x) ∧ ¬(∃y. contains(x,y))`
+`∀x. Object(x) -> x = Root ∧ ¬(∃y. contains(Root,y))`
 
 ##### (b)
 
-?
+`∃x,y,z. Entry(x) ∧ has(x,'cat') ∧ Entry(y) ∧ has(y,'bin') ∧ refers_to(y,z) ∧ contains(Root,z)`
 
 ##### (c)
 
-?
+`∃x,y,z,n,m. x ≠ y ≠ z ∧ Entry(x) ∧ Entry(y) ∧ Entry(z) ∧ Entry(n) ∧ has(n,'bin') ∧ refers_to(n,m) ∧ contains(m,x) ∧ contains(m,y) ∧ contains(m,z)`
+ 
+``
+
+---
 
 ### 5. Production Line
 
 #### 1.
+
+Predicates:
+
+- `Category(-)`
+- `Product(-) `
+- `Material(-)`
+- `Component(-)`
+- `Workstation(-)`
+- `Worker(-)`
+- `Human(-)`
+- `Robot(-)`
+- `belongs_to(-,-)`
+- `is_built_of(-,-)`
+- `is_assembled_at(-,-)`
+- `works_at(-,-)`
+
+Constants:
+
+- Dangerous
+
+#### 2.
+
+##### (a)
+
+`Category(Dangerous)`
+
+`∀x. Human(x) -> Worker(x)`
+
+`∀x. Robot(x) -> Worker(x)`
+
+`∀x. Component(x) -> Product(x)`
+
+`∀x. Material(x) -> Product(x)`
+
+##### (b)
+
+`∀x. Category(x) <-> ¬Product(x) ∧ ¬Workstation(x) ∧ ¬Worker(x)`
+
+`∀x. Product(x) <-> ¬Category(x) ∧ ¬Workstation(x) ∧ ¬Worker(x)`
+
+`∀x. Workstation(x) <-> ¬Category(x) ∧ ¬Product(x) ∧ ¬Worker(x)`
+
+`∀x. Worker(x) <-> ¬Category(x) ∧ ¬Product(x) ∧ ¬Workstation(x)`
+
+##### (c)
+
+`∀x. Human(x) <-> ¬Robot(x)`
+
+`∀x. Robot(x) <-> ¬Human(x)`
+
+`∀x. Component(x) <-> ¬Material(x)`
+
+`∀x. Material(x) <-> ¬Component(x)`
+
+##### (d)
+
+`∀x,y. belongs_to(x,y) -> Product(x) ∧ Category(y)`
+
+`∀x,y. is_built_of(x,y) -> Component(x) ∧ Material(y)`
+
+`∀x,y. is_assembled_at(x,y) -> Component(x) ∧ Workstation(y)`
+
+`∀x,y. works_at(x,y) -> Worker(x) ∧ Workstation(y)`
+
+##### (e)
+
+Components are built of one or more Materials.
+
+`∀x. Component(x) -> ∃y. is_built_of(x,y)`
+
+Component is assembled at one (and only one) Workstation
+
+`∀x. Component(x) -> ∃y. is_assembled_at(x,y) ∧ (∀z. is_assembled_at(x,z) -> z = y)`
+
+At least one Worker works at a Workstation. 
+
+`∀x. Workstation(x) -> ∃y. works_at(y,x)`
+
+Workers work at one (and only one) Workstation 
+
+`∀x. Worker(x) -> ∃y. works_at(x,y) ∧ (∀z. works_at(x,z) -> z = y)`
+
+##### (f)
+
+Robots and humans cannot work together
+
+`∀x. Worker(x) -> ∃y. works_at(x,y) ∧ (∀z. works_at(z,y) -> Robot(x) ∧ Robot(z) ∨ Human(x) ∧ Human(z))`
+
+**or**
+
+`∀x. Workstation(x) -> (∀y. works_at(y,x) ∧ Robot(y)) ∨ (∀y. works_at(y,x) ∧ Human(y)))`
+
+
+Dangerous components must be assembled by robots
+
+`∀x. Component(x) ∧ belongs_to(x,Dangerous) -> ∃z. is_assembled_at(x,z) ∧ (∀w. works_at(w,z) -> Robot(w))`
+
+Products are either materials or components
+
+`answered in (c)`
+
+Components built of dangerous materials are also dangerous.
+
+`∀x. Material(x) ∧ belongs_to(x,Dangerous) -> ∀y. is_built_of(y,x) -> belongs_to(y,Dangerous)`
+
+
+
+
+
+
+
