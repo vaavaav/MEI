@@ -61,7 +61,7 @@ Não há nada a adicionar.
 
 `∀x,y. follows(x,y) -> User(x) ∧ User(y)`
 
-`∀x,y. suggested(x,y) -> User(x) ∧ User(y)
+`∀x,y. suggested(x,y) -> User(x) ∧ User(y)`
 
 `∀x,y. date(x,y) -> Photo(x) ∧ Day(y)`
 
@@ -139,7 +139,7 @@ Constantes:
 
 ##### (c)
 
-Professor ≠ Student
+`Professor ≠ Student`
 
 ##### (d)
 
@@ -171,7 +171,7 @@ Um projeto é proposto por uma única cadeira
 
 É atribuída zero ou uma única nota a cada pessoa a cada disciplina
 
-?
+`∀x. Person(x) ∧ ∃y,z. grades(y,x,z) -> ∀w. grades(y,x,w) -> z = w`
 
 ##### (f)
 
@@ -401,10 +401,3 @@ Products are either materials or components
 Components built of dangerous materials are also dangerous.
 
 `∀x. Material(x) ∧ belongs_to(x,Dangerous) -> ∀y. is_built_of(y,x) -> belongs_to(y,Dangerous)`
-
-
-
-
-
-
-
