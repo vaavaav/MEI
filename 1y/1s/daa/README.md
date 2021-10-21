@@ -30,3 +30,22 @@
 | :-:           | :-: |  :-: |
 | Final Test    | TBA |  50 % |
 | Project       | TBA |  50 % |  
+
+## Practical Classes (PL)
+
+Using [Anaconda](https://www.anaconda.com/) from [Arch Linux AUR](https://aur.archlinux.org/packages/anaconda/?O=10&PP=10) with Python 3.8:
+
+- [NumPy](https://numpy.org/) 
+- [pandas](https://pandas.pydata.org/) 
+- [xlrd](https://pypi.org/project/xlrd/) 
+- [xlwt](https://pypi.org/project/xlwt/) 
+- [Matplotlib](https://matplotlib.org/) 
+- [seaborn](https://seaborn.pydata.org/) 
+- [scikit-learn](https://scikit-learn.org/stable/) 
+- [jupyterlab](https://jupyter.org/)
+
+### Command-line installation
+
+Creates an Environment in Anaconda (designated "DAA") with a list of packages.
+
+`create --name DAA python==3.8 numpy pandas xlrd xlwt matplotlib seaborn scikit-learn jupyterlab`
