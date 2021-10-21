@@ -11,12 +11,14 @@
 ## Resolução de Exercícios
 ### 1.
 
-**a)** O(c × N × N × N) = O(N<sup>3</sup>)
+**a)** $\text{O}(c \times N \times N \times N) = \text{O}(N^3)$
 
 
-T<sub>exec</sub> = #CC × T<sub>cc</sub><br>
-    = #CC × 1/f <br>
-    = (#I × CPI) / f 
+$\text{T}_{\text{exec}} = \text{\#CC} \times \text{Tcc}$
+
+$    = \frac{\text{\#CC} \times 1}{f}$
+
+$    = \frac{\text{\#I} \times \text{CPI}}{f}$
 
  - T<sub>exec</sub> : Tempo médio de execução
  - T<sub>cc</sub> : Tempo por ciclo de _clock_
