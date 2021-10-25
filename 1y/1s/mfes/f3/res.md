@@ -12,7 +12,109 @@
 
 ### 1. SMT-LIB 2: um exemplo simples
 
+```smt2
+(set-logic QF_LIA)
+
+(declare-fun x () Int)
+(declare-fun y () Int)
+(declare-fun z () Int)
+
+(assert (> x 0))
+(assert (> y 0))
+(assert (> z 0))
+(assert (distinct x y z))
+(assert (= (+ x y z) 8))
+(assert (<= y 3))
+
+; R: z = 2, y = 1, x = 5
+(assert (not (= z 2)))
+(assert (not (= y 1)))
+(assert (not (= x 5)))
+
+; R: z = 4, y = 3, x = 1
+(assert (not (= z 4)))
+(assert (not (= y 3)))
+(assert (not (= x 1)))
+
+(check-sat)
+(get-model)
+; (get-value (x y))
+```
+
 ### 2. Z3Py: API do Z3 para Python
+
+#### 1. Defina uma função `prove` que verifique se uma fórmula proposicional é válida e use essa função para provar lei de Morgan $A \wedge B = \neg (\neg A \vee \neg B)$.
+
+```py
+from z3 import *
+
+def prove(f):
+    s = Solver()
+    s.add(f)
+    return (s.check() == sat)
+
+a = Bool('a')
+b = Bool('b')
+demorgan = And(a,b) == Not(Or(Not(a),Not(b)))
+
+if prove(demorgan):
+    print("De Morgan is valid!")
+```
+
+#### 2. Modelação em Lógica Proposicional
+
+Recorde o seguinte problema:
+
+*When can the meeting take place?*
+
+  * *Anne cannot meet on Friday.*
+  * *Peter can only meet either on Monday, Wednesday or Thursday.*
+  * *Mike cannot meet neither on Tuesday nor on Thursday.*
+
+Vamos usar o Z3 para encontrar a solução. 
+
+1. Vamos modelar o problema em Lógica Proposicional, criando uma variável proposicional para cada dia da semana ($\mathit{Mon}$,$\mathit{Tue}$,$\mathit{Wed}$,$\mathit{Thu}$, e $\mathit{Fri}$), com a seguinte semântica: se a variável for `True` é porque a reunião se pode fazer nesse dia, caso contrário será `False`.
+
+2. De seguida, teremos que modelar cada uma das restrições, acrescentando as fórmulas lógicas correspondentes.
+
+$$
+\begin{array}{c}
+\neg \mathit{Wed}\\
+\mathit{Mon} \vee \mathit{Wed} \vee \mathit{Thu}\\
+\neg \mathit{Tue} \wedge \neg \mathit{Thu}\\
+\end{array}$$
+
+
+
+3. Finalmente testamos se o conjunto de restrições é satisfazível e extraimos a solução calculada.
+
+```py
+from z3 import *
+
+days = [Mon, Tue, Wed, Thu, Fri] = Bools('Monday Tuesday Wednesday Thursday Friday')
+s = Solver()
+s.add(Not(Wed))
+s.add(Or(Mon,Wed,Thu))
+s.add(And(Not(Tue),Not(Thu))) 
+
+possible_days = []
+
+while s.check() == sat:
+    m = s.model()
+    for day in days:
+        if(m[day]):
+            possible_days.append(day)
+            s.add(Not(day))
+
+if(possible_days == []):
+    print('There are no days available to set a meeting.')
+else:
+    print('The meeting can be on days: ', ",".join(map(str,possible_days)))
+
+
+```
+
+O código acima foi alterado para imprimir os vários dias em que poderá ocorrer a reunião. Imprime apenas os dias em vez de imprimir todo o modelo.
 
 ### 3. Unicorn puzzle
 
@@ -87,7 +189,6 @@ Para que `if (y < 5) then a[i] > y` seja válido, então a sua negação em conj
 
 (pop)
 ```
-
 
 ### 6. Teoria de bitvectors: o problema das N-rainhas
 
