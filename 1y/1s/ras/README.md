@@ -16,10 +16,10 @@
 
 | Date | Hour | Description |
 |:-:| :-: | :-----------|
-| 07-01-2022 | ? | Final test |
-| Nov 15-19  | Until the end of the day | First deadline |
+| 19-11-2021  | Until 23:59:59 | First deadline |
 | Dec 13-17  | Until the end of the day | Second deadline |
 | Dec 20  | ? | New requirements |
+| 07-01-2022 | ? | Final test |
 
 ### Project : Bet House
  - Groups of 5 peers, **in the same shift**
