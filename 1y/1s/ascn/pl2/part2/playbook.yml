@@ -1,0 +1,6 @@
+---
+- name: PL2 - SWAP - DB
+  hosts: db
+  roles: db
+    
+      

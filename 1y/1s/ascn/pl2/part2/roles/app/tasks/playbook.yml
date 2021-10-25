@@ -1,0 +1,44 @@
+# Global variables
+vars:
+  db: swap
+  db_host: 10.0.0.4
+  user_host: 10.0.0.3
+  user: vagrant
+  password: 123456
+
+# Installing mysql
+- name: install and configure MySQL.
+  become: yes
+  apt:
+    update_cache: yes
+    pkg:
+      - mysql-server
+
+# Creating swap db
+- name: Create a new database with name 'swap'
+  mysql_db:
+  name: {{ db }}
+  state: present  
+
+# Creating user with privileges
+- name: create/grant privileges to a user on VM1 to access the database.
+  mysql_user:
+  name: {{ user }}
+  host: {{ user_host }}
+  password: {{ password }}
+  priv: '{{ db }}.*:ALL,GRANT'
+  state: present
+
+# (re)define bind address for db
+- name: edit bind-address configurations at:/etc/mysql/mysql.conf.d/mysqld.cnf
+  become : yes
+  ansible.builtin.lineinfile:
+  path: /etc/mysql/mysql.conf.d/mysqld.cnf
+  regexp: '^bind-address\s*='
+  line: bind-address={{ db_host }}
+
+# restart db service
+- name: Restart service httpd, in all cases
+  ansible.builtin.service:
+  name: mysql
+  state: restarted
