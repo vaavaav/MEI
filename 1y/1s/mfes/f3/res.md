@@ -116,9 +116,42 @@ else:
 
 O código acima foi alterado para imprimir os vários dias em que poderá ocorrer a reunião. Imprime apenas os dias em vez de imprimir todo o modelo.
 
-### 3. Unicorn puzzle
-
 ### 4. Sudoku
+
+#### 1. 
+
+```py
+from z3 import * 
+
+N = 3
+D = N*N
+NS = range(D)
+
+s = Solver()
+
+x = {}
+for i in NS:
+    x[i] = {}
+    for j in NS:
+        # variable declaration
+        x[i][j] = Int(f'x{i}{j}')       
+        # variables in [1, D]
+        s.add(And(1 <= x[i][j], x[i][j] <= D))
+
+# all numbers in a line need to be different
+for i in range(D):
+    for j in range(D):
+        s.add(And([x[i][j] != x[i][k] for k in NS if j != k]))
+
+# all numbers in a column need to be different
+for j in range(D):
+    for i in range(D):
+        s.add(And([x[i][j] != x[k][j] for k in NS if i != k]))
+
+s.check()
+
+s.model()
+```
 
 ### 5. Manipulação de arrays
 
