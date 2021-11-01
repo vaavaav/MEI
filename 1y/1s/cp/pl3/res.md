@@ -121,21 +121,76 @@ A versão `ikj`.
 
 ### **4.** Utilização de instruções vetoriais (análise + medição)
 
+```c
+void gemm4(float *__restrict__ a, float *__restrict__ b, float *__restrict__ c, int n) {
+    int i, j, k;
+    float aik;
+
+    for (i = 0; i < n; ++i)
+    {
+        for (k = 0; k < n; ++k)
+        {
+            aik = a[i * n + k];
+            for (j = 0; j < n; j++)
+            {
+                c[i * n + j] += aik * b[k * n + j];
+            }
+        }
+    }
+}
+
+```
+
+
 #### **a)** Quantos elementos são calculados de cada vez? Estime a quantidade de instruções executadas, preencha a respetiva coluna na Tabela 2.
 
 - C : localidade espacial
 - A : localidade temporal
 - B : localidade espacial
 
+Uma vez que será executado numa máquina com vetores de 128 bits e um inteiro tem 32 bits, então por cada instrução algébrica vetorial serão processados simultaneamente 4 inteiros.
 
 $$\#I_{\text{vec}} = N^2 \cdot \frac{N}{4} * 7$$
 
+#### **b)** Execute a versão gemm4() (`srun –-partition=cpar ./gemm 32 4`) da multiplicação de matrizes e preencha a Tabela 2. Como aumentam as várias grandezas em função do tamanho da matriz? Discuta as diferenças entre o ganho esperado e o ganho medido? 
 
-|   n      |  #CC  |   CPI   |    #I     |    #I estimados    |
-|  :-:     |  :-:  |   :-:   |    :-:    |    :-:    |
-|   32     |       |         |           |   57.3 K        |
-|   128    |       |         |           |   3.67 M        |
-|   512    |       |         |           |   235 M        |
+
+
+|   n      |  #CC     |   CPI   |    #I    |#I estimados|
+|  :-:     |  :-:     |   :-:   |    :-:   |    :-:    |
+|   32     |  35.45 K |  0.3389 |  104.6 K |   57.3 K  |
+|   128    | 2.269 M  | 0.4059  | 5.591 M  |   3.67 M  |
+|   512    | 137.3 M  | 0.4026  | 341.1 M  |   235 M   |
 
 
 ### **5.** OpenMP para Kernel `ijk`
+
+```c
+void gemm5(float *a, float *b, float *c, int n) {
+    int i, j, k;
+    float cij;
+
+    for (i = 0; i < n; ++i)
+    {
+        for (j = 0; j < n; ++j)
+        {
+            cij = a[i * n + j];
+            for (k = 0; k < n; ++k)
+            {
+				#pragma omp simd reduction(+:cij)
+                cij += a[i * n + k] * b[j * n + k];
+            }
+			c[i * n + j] = cij;
+        }
+    }
+}
+```
+
+#### **a)** Execute a versão `gemm4()` (`srun –-partition=cpar ./gemm 32 5`) da multiplicação de matrizes e preencha a Tabela 3. O que justifica a diminuição do tempo de execução (#CC mais baixo) em relação a versão `ikj` (análise o kernel)? 
+
+
+|   n      |  #CC     |   CPI   |    #I    |
+|  :-:     |  :-:     |   :-:   |    :-:   |
+|   32     |  36.33 K |  0.3565  |  101.9 K |
+|   128    |  1.744 M |  0.3657  |  4.769 M |
+|   512    |  107.2 M |  0.3862 |  277.6 M |
