@@ -45,7 +45,7 @@ Vagrant.configure("2") do |config|
   (1..Number_VMs).each do |i|
     config.vm.define "server#{i}" do |node|
       node.vm.hostname = "VM#{i}"
-      node.vm.network :private_network, ip: "10.0.0.#{2+i}"
+      node.vm.network :private_network, ip: "192.168.56.#{2+i}"
     end
   end
 

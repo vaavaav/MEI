@@ -242,7 +242,13 @@ user requirements (that describe the expectations and the necessities of the use
 One of the main objectives of requirements engineering consists in establishing communication channels between the holders of the problem (i.e., the users and the clients) and those that will construct a solution (i.e., the systems engineers). The requirements must be managed by requirements engineers, jointly with representatives of the client, key users and other domain specialists. However, communication problems between requirements engineers and users are common. Users have generally some difficulties in expressing their real necessities, in a perceptible and precise way. Moreover, in many situations, the users only have a vague idea of what they really want. Users and engineers have very different perspectives with respect to the nature of the problem, so they also have different understandings. Even in the cases in which the users have a total awareness of their necessities, something that seldom happens, it is not simple to transfer or verbalise that information.
 The use of technical terminology may introduce communication problems, since it implies that the stakeholders are using terminology of the solution domain. In fact, user requirements should be described with the problem domain terminology. If this recommendation is followed, it is more likely that the requirements can be focused on the questions associated with the problem that is being addressed. Engineers should avoid to speak with the terminology of the technological domain of the system under development. If one proceeds this way, the premature inclusion of solution domain issues is avoided.
 
+#### 4.3
 
+##### 4.3.1
+
+##### 4.3.2
+
+##### 4.3.3
 
 
 
