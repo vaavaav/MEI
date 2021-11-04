@@ -175,9 +175,9 @@ void gemm5(float *a, float *b, float *c, int n) {
         for (j = 0; j < n; ++j)
         {
             cij = a[i * n + j];
+			#pragma omp simd reduction(+:cij)
             for (k = 0; k < n; ++k)
             {
-				#pragma omp simd reduction(+:cij)
                 cij += a[i * n + k] * b[j * n + k];
             }
 			c[i * n + j] = cij;
