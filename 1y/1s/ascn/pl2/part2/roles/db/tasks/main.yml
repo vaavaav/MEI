@@ -1,0 +1,38 @@
+# Installing mysql
+- name: Install MySQL and pip.
+  become: yes
+  apt:
+    update_cache: yes
+    pkg:
+      - mysql-server
+      - pip
+
+- name: Install pymysql package
+  become: yes
+  pip:
+    name: pymysql
+
+# Creating swap db 
+- name: Create a new database with name 'swap'
+  become: yes
+  command: mysql --password='xixicocohehe' --execute="CREATE DATABASE IF NOT EXISTS swap;"  
+
+# create/grant privileges to a user to access the database.
+- name: create/grant privileges to a user to access the database.
+  become: yes
+  command: mysql --password='xixicocohehe' --execute="CREATE USER IF NOT EXISTS {{user}}@{{user_host}} IDENTIFIED BY '{{password}}'; GRANT ALL PRIVILEGES ON {{db}}.* TO {{user}}@{{user_host}} WITH GRANT OPTION;"  
+
+# (re)define bind address for db
+- name: edit bind-address configurations at:/etc/mysql/mysql.conf.d/mysqld.cnf
+  become : yes
+  ansible.builtin.lineinfile:
+    path: /etc/mysql/mysql.conf.d/mysqld.cnf
+    regexp: '^bind-address\s*='
+    line: 'bind-address    = {{ db_host }}'
+
+# restart db service
+- name: Restart mysql
+  become: yes
+  service:
+    name: mysql
+    state: restarted

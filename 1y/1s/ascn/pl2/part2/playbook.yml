@@ -1,6 +1,10 @@
 ---
-- name: PL2 - SWAP - DB
-  hosts: db
-  roles: db
-    
-      
+  - hosts: db
+    roles: 
+      - db
+    vars:
+      - db: swap
+      - db_host: 192.168.56.4
+      - user_host: 192.168.56.3
+      - user: vagrant
+      - password: 123456
