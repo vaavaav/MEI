@@ -250,6 +250,99 @@ The use of technical terminology may introduce communication problems, since it 
 
 ##### 4.3.3
 
+### 7.
+
+#### 7.1
+
+Option 2. Requirements documented in a natural language are easier to understand. Natural languages are neither precise nor unambiguous.
+
+#### 7.2
+
+1 - Non functional (??? ambiguious)
+2 - Non functional (perfomance)
+4 - Non functional
+
+Answer: 3. System requirements include both functional and non-functional requirements. (3) is a design statement describing the architecture of the software system. (1) and (2) are valid non-functional requirements. (4) is a valid functional requirements.
+
+#### 7.3
+
+1. This is a non-functional requirements (usability).
+2. No. A person trained for five hours should be able to use 80% of the basic functionalities of the system.
+
+
+#### 7.4
+
+The email message contains reference to a product (video game console) that is projected to be used inside
+a family car.
+
+Functional requirements:
+R1: The console should turn off when there is no interaction for more than 10 min.
+R2: The console should be put in standby when the driver is making a phone call.
+R3: The passenger can transport the console from one car to another one.
+
+Non-functional requirements:
+R4: The console should weight less than 2 kg.
+
+Marketing constraints:
+R4: The price should be £50.
+
+#### 7.5
+
+(a) and (d).
+The word "gradually" makes R3 (a) ambiguous and (d) not verifiable. To solve this issue, the requirement would be "R3: The level of the water should increase between 2 and 4 mm/min."
+
+#### 7.6
+
+R5: One should not state for how often the system will fail. Instead, we can require it to be available, for example, 360 days a year.
+R6: The word "minimal" is ambiguous. "The system shall be easy to learn by students with two hours of training."
+R7: The users in this case seem to be drivers. To which operation does the delay relate? Probably, the delays for car drivers and truck drivers are different. "The average delay for the car driver to pay a toll shall be less than 15 s."
+R8: There is not sufficient information to decide if this requirement is clear. Users are probably not forced to use the application, even if available. "All users shall have access to the same mobile application."
+R9: Where does reception occur? By whom? Why?"Organisers shall be able to confirm each questionnaire within half an hour of its submission by the respondents."
+R10: The reference to the mobile phone is a design restriction. Additionally, it is recommended to add an acceptance criterion for performance. "The operator shall be able to communicate with the bus driver within 5 seconds."
+
+#### 7.7
+
+R11: Instead of saying “instantaneous answers”, one should quantify it.
+“The truck driver shall be able to obtain answers in less than 2s, if he provides a recognised voice command.”
+
+R12: It seems that the system will anyway be turned off if the electrical cable is unplugged. So, the stakeholders who proposed this requirement should be contacted to ask them to explain better what they actually need.
+
+R13: The level of normal operation must be quantified. “The fire extinguishing subsystem must activate when the temperature is above 30o C.”
+
+R14: It is not clear what is an unexpected fault in the controller system. The requirement must start with the indication of the user.
+“The operator shall be able to stop the escalator with no danger to the pedestrians, even if the controller system fails.”
+
+
+#### 7.8
+
+R15: The expression ‘in the system’ is redundant. The characteristics of the web interface should be removed and document in a different non-functional requirement. “The student shall be able to submit his group’s program.”
+
+R16: This sentence includes two requirements: “The professor shall be able to assign an assistant to each submitted Ruby program.” and “The assistant shall be able to revise the Ruby programs assigned to him.”
+
+R17: This requirement should be stated positively. It should also start by mentioning the user that benefit from it. “The assistant shall be assigned a program of a group that has no conflict of interest.”
+
+R18: The expression “as soon as possible” must be removed. These four sentences include two requirements: “The assistant shall be able to edit comments about the respective revised programs.” “The professor shall be able to introduce the mark of each program based on the available comments produced by the assistants.”
+
+#### 7.9
+
+
+1. The word “her” may refer either to Jane or to Margret.
+
+2. It is not clear if the adjective “single” applies to both aunts and daughters or just to aunts. If we want the first alternative, the sentence should be written as “The invitation was sent to daughters and single aunts”. If the objective is the second alternative, the sentence looks like “The invitation was sent to single daughters and single aunts”.
+
+3. One is not sure if the responsibility belongs to banks or companies.
+
+4. These two groups (children and pensioners) are expected to be disjoint, since a pensioner is a person who collects a pension, most commonly because of a retirement from the workforce. So, there are no single person that is at simultaneously a pensioners and a child. In this case, the two possible beneficiaries of the discount are the children and the pensioners
+
+5. This sentence has the same interpretation as the previous one, due to the disjoint nature of both groups of beneficiaries of the discount.
+
+6. With plural names, like parents, it is unclear (1) if the elements are acting individually or collectively, and (2) if the elements of a group are acting individually, whether they must all act in unison. In this sentence, there are three possible ways for the parents (a father and a mother) of a child to answer:
+- One (and only one) of the parents acknowledge the messages.
+- The parents shall each acknowledge the messages.
+- The parents, acting collectively, acknowledge the messages.
+
+
+
 
 
  
