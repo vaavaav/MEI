@@ -1,3 +1,18 @@
+# Alloy
+
+**Date**: 15-11-2021
+
+## Info
+
+**Nome**: José Pedro Ribeiro Peixoto<br>
+**Número**: PG47381<br>
+**Curso**: Mestrado em Engenharia Informática<br>
+
+## Resolução
+
+[Link do Modelo no Alloy4Fun](http://alloy4fun.inesctec.pt/qroDzSTawPoYvjb2D)
+
+```als
 sig User {
 	follows : set User,
 	sees : set Photo,
@@ -19,22 +34,21 @@ sig Day {}
 // when specifying each property you can assume all the previous ones to be true
 
 pred inv1 {
-	// Every image is posted by one user
+	// Every image is posted be one user
 	posts in (User one -> Photo)
-
 }
 
 
 pred inv2 {
 	// An user cannot follow itself.
-	no (iden & follows)
+	posts in (User one -> Photo)
 }
 
 
 pred inv3 {
 	// An user only sees (non ad) photos posted by followed users. 
 	// Ads can be seen by everyone.
-	sees in (follows.posts + User->Ad) 
+	sees in (follows.posts + User->Ad)
 }
 
 
@@ -46,9 +60,8 @@ pred inv4 {
 
 pred inv5 {
 	// Influencers are followed by everyone else
-	(User->Influencer - iden) in follows 
-
-}
+	(User->Influencer - iden) in follows
+}	
 
 
 pred inv6 {
@@ -58,12 +71,13 @@ pred inv6 {
 
 
 pred inv7 {
-	// Suggested are other users followed by followers but not yet followed
-	
+	// Suggested are other users followed by followed users, but not yet followed
+	suggested = (follows . follows) - follows - iden
 }
 
 
 pred inv8 {
 	// An user only sees ads from followed or suggested users
-
+	sees :> Ad in (follows + suggested).posts :> Ad
 }
+```
