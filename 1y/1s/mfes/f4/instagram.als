@@ -20,39 +20,40 @@ sig Day {}
 
 pred inv1 {
 	// Every image is posted by one user
-	all y : Photo | one x : User | x->y in posts 
+	posts in (User one -> Photo)
+
 }
 
 
 pred inv2 {
 	// An user cannot follow itself.
-	all x : User | not (x->x in follows) 
+	no (iden & follows)
 }
 
 
 pred inv3 {
 	// An user only sees (non ad) photos posted by followed users. 
 	// Ads can be seen by everyone.
-	all x : User, y : Photo | some z : User | x->y in sees => y in Ad or (z->y in posts and x->z in follows)
+	sees in (follows.posts + User->Ad) 
 }
 
 
 pred inv4 {
 	// If an user posts an ad then all its posts should be labelled as ads 
-	all y : Ad | one x : User | x->y in posts and all z : Photo | x->z in posts implies z in Ad  
+	no (posts.Ad & posts.(Photo - Ad))
 }
 
 
 pred inv5 {
 	// Influencers are followed by everyone else
-  all x : Influencer, y : User | x != y implies y->x in follows 
+	(User->Influencer - iden) in follows 
 
 }
 
 
 pred inv6 {
 	// Influencers post every day
-
+	Influencer <: (posts.date) = Influencer->Day 
 }
 
 
