@@ -10,7 +10,7 @@
 
 ## Resolução
 
-[Link do Modelo no Alloy4Fun](http://alloy4fun.inesctec.pt/dMJqwJZe86nMYDXCR)
+[Link do Modelo no Alloy4Fun](http://alloy4fun.inesctec.pt/R9CsxjXyi9RayXLr2)
 
 ```als
 open util/ordering[Grade]
@@ -38,13 +38,17 @@ sig Grade {}
 
 pred inv1 {
 	// Only students can be enrolled in courses
-	Student <: enrolled = enrolled
+  	// Student <: enrolled = enrolled
+	enrolled.Course in Student
+  
 }
 
 
 pred inv2 {
 	// Only professors can teach courses
-	Professor <: teaches = teaches
+  	// Professor <: teaches = teaches
+  	teaches.Course in Professor
+	
 }
 
 
@@ -63,55 +67,66 @@ pred inv4 {
 pred inv5 {
 	// Only students work on projects and 
 	// projects must have someone working on them
-	projects.Project in Student 
+	
+	Person.projects - (Person - Student).projects = Project 
+  	
+  	// or (more obvious)
+    // no ((Person - Student) <: projects)
+  	// Person.projects = Projects
+  
 }
 
 
 pred inv6 {
 	// Students only work on projects of courses they are enrolled in
+  	(Student <: projects).(~projects :> Course) in enrolled
 
 }
 
 
 pred inv7 {
 	// Students work on at most one project per course
-
+  	all s : Student, c : Course | lone ((s.projects) & (c.projects))
+	
 }
 
 
 pred inv8 {
 	// A professor cannot teach herself
-
+	no (teaches & enrolled)
 }
 
 
 pred inv9 {
 	// A professor cannot teach colleagues
-
+	//no (Professor.teaches.(~enrolled) & Professor)
+  		
 }
 
 
 pred inv10 {
 	// Only students have grades
+  	Course.grades.Grade in Student
 
 }
 
 
 pred inv11 {
 	// Students only have grades in courses they are enrolled
-
+	~(grades.Grade) in enrolled	
 }
 
 
 pred inv12 {
 	// Students have at most one grade per course
-
+  	//all s : Student, c : Course | lone (s.(c.grades))
+	grades in Course set -> set Person -> lone Grade 
 }
 
 
 pred inv13 {
 	// A student with the highest mark in a course must have worked on a project on that course
-
+	
 }
 
 
