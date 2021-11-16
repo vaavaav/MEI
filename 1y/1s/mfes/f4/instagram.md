@@ -1,6 +1,6 @@
-# Alloy
+# Alloy : Instagram
 
-**Date**: 15-11-2021
+**Data**: 15-11-2021
 
 ## Info
 
@@ -10,7 +10,7 @@
 
 ## Resolução
 
-[Link do Modelo no Alloy4Fun](http://alloy4fun.inesctec.pt/qroDzSTawPoYvjb2D)
+[Link do Modelo no Alloy4Fun](http://alloy4fun.inesctec.pt/y3ZpTApaH5rHkNnKk)
 
 ```als
 sig User {
