@@ -1,4 +1,4 @@
-# Alloy : Train Station
+# Alloy : Production Line
 
 **Data**: 17-11-2021
 
@@ -10,81 +10,93 @@
 
 ## Resolução
 
-[Link do Modelo no Alloy4Fun](http://alloy4fun.inesctec.pt/gMJgcP2ManoXdcnFR)
+[Link do Modelo no Alloy4Fun](http://alloy4fun.inesctec.pt/6cuC7BDc5z5yxgQMb)
 
 ```als
-sig Track {
-	succs : set Track,
-	signals : set Signal
+sig Workstation {
+	workers : set Worker,
+	succ : set Workstation
 }
-sig Junction, Entry, Exit in Track {}
+one sig begin, end in Workstation {}
 
-sig Signal {}
-sig Semaphore, Speed extends Signal {}
+sig Worker {}
+sig Human, Robot extends Worker {}
+
+abstract sig Product {
+	parts : set Product	
+}
+
+sig Material extends Product {}
+
+sig Component extends Product {
+	workstation : set Workstation
+}
+
+sig Dangerous in Product {}
 
 // Specify the following properties
 // You can check their correctness with the different commands and
 // when specifying each property you can assume all the previous ones to be true
 
 pred inv1 {
-	// The station has at least one entry and one exit
-	some (Entry & Track)
-  	some (Exit & Track)
+	// Workers are either human or robots
+  	// Human and Robot are disjunct because of "extends"
+	Human + Robot = Worker
 }
 
 
 pred inv2 {
-	// Signals belong to one track
-	//all s : Signal | one signals.s
-  	signals in Track one -> set Signal
+	// Every workstation has workers and every worker works in one workstation
+	workers in Workstation one -> some Worker
+  	all w,x : Workstation | w != x implies no (w.workers & x.workers)
 }
 
 
 pred inv3 {
-	// Exit tracks are those without successor 
-	//all t : Track | no t.succs implies t in Exit
+	// Every component is assembled in one workstation
+	workstation in Component set -> one Workstation
 }
 
 
 pred inv4 {
-	// Entry tracks are those without predecessors
-
+	// Components must have parts and materials have no parts
+	(Component <: parts) in Component set -> some Product 
+  	no (Material <: parts)
 }
 
 
 pred inv5 {
-	// Junctions are the tracks with more than one predecessor
-
+	// Humans and robots cannot work together
+	no (workers.Human & workers.Robot)
 }
 
 
 pred inv6 {
-	// Entry tracks must have a speed signal
-
+	// Components cannot be their own parts
+	no (iden & ^parts)
 }
 
 
 pred inv7 {
-	// The station has no cycles
-
+	// Components built of dangerous parts are also dangerous
+	parts.Dangerous in Dangerous 
 }
 
 
 pred inv8 {
-	// It should be possible to reach every exit from every entry
-
+	// Dangerous components cannot be assembled by humans
+	no (Human & Dangerous.workstation.workers)
 }
 
 
 pred inv9 {
-	// Tracks not followed by junctions do not have semaphores
-
+	// The workstations form a single line between begin and end
+	lone ((begin.^succ :> (end + begin)) - begin)
 }
 
 
 pred inv10 {
-	// Every track before a junction has a semaphore
-
+	// The parts of a component must be assembled before it in the production line
+	no (parts :> Component & workstation.*succ.~workstation)
 }
-
 ```
