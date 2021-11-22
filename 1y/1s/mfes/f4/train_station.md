@@ -10,7 +10,7 @@
 
 ## Resolução
 
-[Link do Modelo no Alloy4Fun](http://alloy4fun.inesctec.pt/gBJXufAQwHeprqaKX)
+[Link do Modelo no Alloy4Fun](http://alloy4fun.inesctec.pt/caTdpNEbkBzHEJCda)
 
 ```als
 sig Track {
@@ -42,49 +42,55 @@ pred inv2 {
 
 pred inv3 {
 	// Exit tracks are those without successor 
-	//all t : Track | no t.succs implies t in Exit
+	Track - succs.Track = Exit
 }
 
 
 pred inv4 {
 	// Entry tracks are those without predecessors
-
+	Track - Track.succs = Entry 
 }
 
 
 pred inv5 {
 	// Junctions are the tracks with more than one predecessor
-
+  	//all t : Track | #(succs.t) > 1 iff t in Junction
+  	Junction = { t : Track | not lone succs.t  }
 }
 
 
 pred inv6 {
 	// Entry tracks must have a speed signal
-
+	Entry in signals.Speed
+   
 }
 
 
 pred inv7 {
 	// The station has no cycles
+  	no (iden & ^succs)
 
 }
 
 
 pred inv8 {
 	// It should be possible to reach every exit from every entry
+  	Entry->Exit in *succs
+  	//all e : Entry | e.(*succs :> Exit) = Exit
 
 }
 
 
 pred inv9 {
 	// Tracks not followed by junctions do not have semaphores
-
+	no (Track - succs.Junction).signals :> Semaphore
+  	//all t : Track | no t.succs & Junction implies no t.signals :> Semaphore 
 }
 
 
-pred inv10 {
+pred inv10 { 
 	// Every track before a junction has a semaphore
+  	(succs.Junction) <: signals.Semaphore  = succs.Junction 
 
 }
-
 ```
