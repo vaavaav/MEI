@@ -10,7 +10,7 @@
 
 ## Resolução
 
-[Link do Modelo no Alloy4Fun](http://alloy4fun.inesctec.pt/ujcjigh4BD865xWET)
+[Link do Modelo no Alloy4Fun](http://alloy4fun.inesctec.pt/ErYPMZSifnyE9MWT7)
 
 ```als
 open util/ordering[Grade]
@@ -125,19 +125,19 @@ pred inv12 {
 
 pred inv13 {
 	// A student with the highest mark in a course must have worked on a project on that course
-  	//all c : Course, s : Student | s.enrolled = c and s.(c.grades) = max[Student.(c.grades)] implies one (c.projects & s.projects) 
+  	grades.(max[Grade]) in projects.~projects
 	
 }
 
 
 pred inv14 {
 	// A student cannot work with the same student in different projects
-	all s,t : Student | s != t implies lone (s.projects & t.projects)
+	all s : Student, t : Student - s | lone (s.projects & t.projects)
 }
 
 
 pred inv15 {
 	// Students working on the same project in a course cannot have marks differing by more than one unit
-   //all p : Project, s : Student | s in projects.p implies s.((projects.p).grades) 
+  	all p : Project, g,h : (projects.p).grades[projects.p] | g = h or g = prev[h] or prev[g] = h
 }
 ```
