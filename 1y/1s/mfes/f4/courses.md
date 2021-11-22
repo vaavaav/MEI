@@ -10,7 +10,7 @@
 
 ## Resolução
 
-[Link do Modelo no Alloy4Fun](http://alloy4fun.inesctec.pt/ErYPMZSifnyE9MWT7)
+[Link do Modelo no Alloy4Fun](http://alloy4fun.inesctec.pt/v5XShEuap4JGQB4bN)
 
 ```als
 open util/ordering[Grade]
@@ -138,6 +138,6 @@ pred inv14 {
 
 pred inv15 {
 	// Students working on the same project in a course cannot have marks differing by more than one unit
-  	all p : Project, g,h : (projects.p).grades[projects.p] | g = h or g = prev[h] or prev[g] = h
+  	all p : Project, g,h : (projects.p).grades[projects.p] | g in (h + prev[h] + next[h])
 }
 ```
