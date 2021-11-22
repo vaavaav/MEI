@@ -1,0 +1,33 @@
+---
+- name: PL4 - First Installs
+  hosts: vms
+  tasks:
+    - name: Install docker
+      become: yes
+      apt:
+        update_cache: yes
+        force_apt_get: yes 
+        pkg:
+          - docker.io
+    - name: Configure docker
+      become: yes
+      shell: echo '{"exec-opts"{{ ":" }} ["native.cgroupdriver{{ "=" }}systemd"]}' >> /etc/docker/daemon.json
+    - name: Enable docker
+      become: yes
+      ansible.builtin.systemd:
+        name: docker
+        enabled: yes
+    - name: Restart docker
+      become: yes
+      ansible.builtin.systemd:
+        name: docker
+        state: restarted
+    - name: Install Kubernetes
+      become: yes
+      ansible.builtin.shell: |
+        curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+        sudo apt-add-repository "deb https://apt.kubernetes.io/ kubernetes-xenial main"
+        sudo apt-get update
+        sudo apt-get install -y kubeadm kubelet kubectl
+        sudo apt-mark hold kubeadm kubelet kubectl
+        sudo swapoff -a
