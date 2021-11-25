@@ -15,9 +15,11 @@ sig Garfo extends Coisa {}
 // Especifique a configuração da mesa
 fact Mesa {
 	// A mesa é redonda, ou seja, as coisas formam um anel
+	(Filosofo <: iden) in ^prox
 
 	// Os garfos e os filósofos estão intercalados
-
+	Garfo.prox in Filosofo
+	Filosofo.prox in Garfo
 }
 
 // Especifique os seguintes eventos
@@ -25,13 +27,13 @@ fact Mesa {
 // Um filosofo pode comer se já tiver os dois garfos junto a si
 // e pousa os garfos depois
 pred come [f : Filosofo] {
-
+	not lone f.garfos
 }
 
 // Um filósofo pode pegar num dos garfos que estejam
 // pousados junto a si
 pred pega [f : Filosofo] {
-
+	
 }
 
 // Para além de comer ou pegar em garfos os filósofos podem pensar
@@ -50,7 +52,7 @@ fact Comportamento {
 
 assert GarfosNaMao {
 	// O mesmo garfo nunca pode estar na mão de dois filósofos
-
+	all g : Garfo | lone garfos.g
 }
 check GarfosNaMao for 6
 
@@ -62,7 +64,7 @@ check SempreQuePegaCome for 6
 
 assert SemBloqueio {
 	// O sistema não pode bloquear numa situação em que só é possível pensar
-
+	
 }
 check SemBloqueio for 6
 
