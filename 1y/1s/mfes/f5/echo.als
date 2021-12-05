@@ -30,24 +30,29 @@ fun ready : set Node {
 
 // O grafo definido pela relação adj não tem lacetes.
 fact SemLacetes {
-
+	no iden & adj
 }
 
 // O grafo definido pela relação adj é não orientado.
 fact NaoOrientado {
-
+	adj = iden.~adj
 }
 
 // O grafo definido pela relação adj é ligado.
 fact Ligado {
-
+	Node->Node = ^adj
 }
 
 // Inicialmente rcvd, parent e children estão vazias 
 // e o initiator envia um Ping para todos os vizinhos
 
 fact init {
-
+	no rcvd
+	no parent
+	no children
+	inbox.Message = initiator.adj
+	initiator.adj.inbox.from  = initiator
+	initiator.adj.inbox.type  = Ping
 }
 
 // Eventos
@@ -56,6 +61,18 @@ fact init {
 // uma mensagem do tipo Echo ao seu parent.
 
 pred finish [n : Node] {
+	// guard
+	// o nó tem de estar ready
+	n in ready
+
+	// effect
+	one m : n.parent.inbox' | m.type = Echo and m.from = n 
+
+	// frame
+	(Node - n.parent) <: inbox' = (Node - n.parent) <: inbox
+	rcvd' = rcvd
+	parent' = parent
+	children' = children
 
 }
 
@@ -69,7 +86,25 @@ pred finish [n : Node] {
 // a mensagem é adicionado ao conjunto dos seus children na spanning tree.
 
 pred read [n : Node] {
+	// guard
+	// o nó tem uma mensagem não processada na sua inbox
+	one n.inbox.from - n.rcvd
 
+	// effect
+	(n.inbox.from - n.rcvd) != initiator and no n.rcvd implies (
+		n.parent' = (n.inbox.from - n.rcvd) and 
+		all nd : (n.adj - n.parent') | one m : nd.inbox' | m.type = Ping and m.from = n
+	) else parent' = parent and (n.adj - n.parent').inbox' = (n.adj - n.parent').inbox and ( 
+			(n.inbox & from.(n.inbox.from - n.rcvd)).type = Echo implies (
+			 	 n.children' = n.children + (n.inbox.from - n.rcvd)	
+			) else n.children' = n.children )
+
+	rcvd' = rcvd + n->(n.inbox.from - n.rcvd)
+
+	// frame
+	(Node - n) <: parent' = (Node - n) <: parent
+	(Node - n) <: children' = (Node - n) <: children
+	(Node - (n.adj - n.parent')) <: inbox' = (Node - (n.adj - n.parent')) <: inbox
 }
 
 pred stutter {
@@ -86,12 +121,12 @@ fact transitions {
 // Alguns invariantes do protocolo
 
 assert Invariantes {
-	// O initiatior nunca tem pai.
-
+	// O initiator nunca tem pai.
+	always no initiator.parent
 	// O pai tem sempre que ser um dos vizinhos.
-
+	always parent in adj
 	// Um nó só pode ser filho do seu pai.
-
+	always children in ~parent
 }
 check Invariantes
 
@@ -100,6 +135,6 @@ check Invariantes
 assert SpanningTree {
 	// Quando todos os nós estão ready a relação children forma uma 
 	// spanning tree com raiz no initiator.
-
+	eventually (Node = ready implies initiator.^children = (Node - initiator))
 }
 check SpanningTree
