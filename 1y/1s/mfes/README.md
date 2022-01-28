@@ -25,7 +25,7 @@
 
 ### Results
 
-| Assessment | Grade | Ratio |
+| Assessment | Grade (0-20) | Ratio |
 | :-:        | :-:   |  :-:  |
-| Final test | TBA   |  75 % |
-| Homework | TBA     |  25 % |
+| Final test | 16.8  |  75 % |
+| Homework   | 20    |  25 % |

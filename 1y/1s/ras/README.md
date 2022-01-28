@@ -27,9 +27,9 @@
 
 ### Results
 
-| Assessment | Grade  | Ratio |
+| Assessment | Grade (0-20)  | Ratio |
 | :-:           | :-: |  :-:  |
-| Final Test    | TBA |  60 % |
-| Project       | TBA |  40 % |  
+| Final Test    | 8.1 |  60 % |
+| Project       | 15 |  40 % |  
 
 

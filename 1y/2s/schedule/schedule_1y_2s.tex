@@ -1,0 +1,70 @@
+\documentclass[a4paper]{article}
+\usepackage{calc}
+\usepackage[x11names]{xcolor}
+\usepackage{schedule} 
+\usepackage[ddmmyyyy]{datetime} 
+\fontfamily{cmss}\selectfont
+\renewcommand\familydefault{\sfdefault}
+
+\begin{document}
+
+\pagestyle{empty}
+
+\SubUnits{60}
+\CellHeight{1.4cm}
+\CellWidth{3cm}
+\TimeRange{9:00-19:00}
+\BeginOn{Monday}
+\TextSize{\small}
+\FiveDay
+\TwentyFourHour
+
+%% MFP
+\NewAppointment{PSD}{Tomato1}{black}
+\NewAppointment{TF}{Goldenrod1}{black}
+\NewAppointment{SDGE}{RosyBrown1}{black}
+
+\NewAppointment{TPSD}{Tomato3}{black}
+\NewAppointment{TTF}{Goldenrod3}{black}
+\NewAppointment{TSDGE}{RosyBrown3}{black}
+
+%% SD
+\NewAppointment{CSI}{PaleGreen1}{black}
+\NewAppointment{PCF}{SteelBlue1}{black}
+\NewAppointment{VF}{MediumPurple1}{black}
+
+\NewAppointment{TCSI}{PaleGreen3}{black}
+\NewAppointment{TPCF}{SteelBlue3}{black}
+\NewAppointment{TVF}{MediumPurple3}{black}
+
+\begin{center}
+\begin{schedule}[MEI - $1^{\textrm{\small st}}$ year - $2^{\textrm{\small nd}}$ semester - 2021/2022 \vspace{1cm}]
+
+    %%  MONDAYS
+    \TTF{\textbf{  TF}}{\\ T \; [Ed. 1 - 1.19]}{M}{13:00-14:00}
+    \TF{\textbf{  TF}}{\\ PL1 \; [Ed. 1 - 1.19]}{M}{14:00-16:00}
+    \TPSD{\textbf{  PSD}}{\\ T \; [Ed. 1 - 1.19]}{M}{16:00-17:00}
+    \PSD{\textbf{  PSD}}{\\ PL1 \; [Ed. 1 - 1.19]}{M}{17:00-19:00}
+    
+    %%  TUESDAY
+    \TSDGE{\textbf{  SDGE}}{\\ T \; [Ed. 1 - 1.19]}{T}{9:00-10:00}
+    \SDGE{\textbf{  SDGE}}{\\ PL1 \; [Ed. 1 - 1.19]}{T}{10:00-12:00}
+    
+    %%  WEDNESDAY
+    
+    %%THURSDAY
+    \TPCF{\textbf{  PCF}}{\\ T \; [Ed. 1 - 1.19]}{Th}{13:00-14:00}
+    \PCF{\textbf{  PCF}}{\\ PL1 \; [Ed. 1 - 1.19]}{Th}{14:00-16:00}
+    \TCSI{\textbf{  CSI}}{\\ T \; [Ed. 1 - 1.19]}{Th}{16:00-17:00}
+    \CSI{\textbf{  CSI}}{\\ PL1 \; [Ed. 1 - 1.19]}{Th}{17:00-19:00}
+
+    %% FRIDAY
+    \TVF{\textbf{  VF}}{\\ T \; [Ed. 1 - 1.19]}{F}{9:00-10:00}
+    \VF{\textbf{  VF}}{\\ PL1 \; [Ed. 1 - 1.19]}{F}{10:00-12:00}
+
+\end{schedule}
+    Edit: \today \; \currenttime
+\end{center}
+    
+
+\end{document}
