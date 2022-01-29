@@ -28,6 +28,6 @@
 ### Results
 
 | Assessment | Grade  | Ratio |
-| :-:           | :-: |  :-: |
-| Final Test    | TBA |  50 % |
-| Project       | TBA |  50 % |
+| :-:        | :-:    |  :-:  |
+| Final Test | 12     |  50 % |
+| Project    | 18     |  50 % |
