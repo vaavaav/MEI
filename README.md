@@ -8,7 +8,7 @@ This personal repository contains information about my overall progress in the c
 
 ## [1<sup>st</sup> Year](1y) (2021/2022)
 
-### [1<sup>st</sup> Semester](1y/1s) ( [Weekly Schedule](1y/1s/schedule/schedule_1y_1s.pdf) )
+### [1<sup>st</sup> Semester](1y/1s) ( [Weekly Schedule](1y/1s/schedule/schedule_1y_1s.png) )
 
 
 #### Curricular Units
@@ -24,7 +24,7 @@ This personal repository contains information about my overall progress in the c
 
 ---
 
-### [2<sup>nd</sup> Semester](1y/2s) ( [Weekly Schedule](1y/2s/schedule/schedule_1y_2s.pdf) )
+### [2<sup>nd</sup> Semester](1y/2s) ( [Weekly Schedule](1y/2s/schedule/schedule_1y_2s.png) )
 
 #### Major : [**M**étodos **F**ormais de **P**rogramação](https://haslab.github.io/MFP/)
 <sup><sub>Formal Programming Methods</sub></sup>
