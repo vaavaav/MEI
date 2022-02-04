@@ -31,5 +31,5 @@
 | Assessment | Grade (0-20) | Ratio |
 | :-:           | :-: | :-:   |
 | Final Test    | 5.5 |  30 %  |
-| Participation in practical-laboratory classes | 3.2  |  20 %  |
+| Participation in practical-laboratory classes | 16  |  20 %  |
 | Project       | 17.7 |  50 %  |
