@@ -30,6 +30,6 @@
 
 | Assessment | Grade (0-20) | Ratio |
 | :-:           | :-: | :-:   |
-| Final Test    | TBA |  30 %  |
-| Participation in practical-laboratory classes | TBA |  20 %  |
+| Final Test    | 5.5 |  30 %  |
+| Participation in practical-laboratory classes | 3.2  |  20 %  |
 | Project       | 17.7 |  50 %  |

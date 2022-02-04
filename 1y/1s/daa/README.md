@@ -28,8 +28,8 @@
 
 | Assessment | Grade (0-20)  | Ratio |
 | :-:           | :-: |  :-: |
-| Final Test    | 18 |  50 % |
-| Project       | TBA |  50 % |  
+| Final Test    | TBA |  50 % |
+| Project       | 18  |  50 % |  
 
 ## Practical Classes (PL)
 
