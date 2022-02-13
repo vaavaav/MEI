@@ -31,16 +31,16 @@ This personal repository contains information about my overall progress in the c
 
 | Initials| Designation (PT)| Designation (EN)| Final Grade|
 | :------:| :-----------| :-----------| :-----------:|
-| [**CSI**](1y/1s/csi) | Cálculo de Sistemas de Informação | Calculation of Information Systems | TBA |
-| [**PCF**](1y/1s/pcf) | Programação Ciber-Física | Cyber-Physical Programming | TBA |
-| [**VF**](1y/1s/vf)   | Verificação Formal | Formal Verification | TBA |
+| [**CSI**](1y/2s/csi) | Cálculo de Sistemas de Informação | Calculation of Information Systems | TBA |
+| [**PCF**](1y/2s/pcf) | Programação Ciber-Física | Cyber-Physical Programming | TBA |
+| [**VF**](1y/2s/vf)   | Verificação Formal | Formal Verification | TBA |
 
 #### Major : **S**istemas **D**istribuídos
 <sup><sub>Distributed Systems</sub></sup>
 
 | Initials| Designation (PT)| Designation (EN)| Final Grade|
 | :------:| :-----------| :-----------| :-----------:|
-| [**PSD**](1y/1s/psd)   | Paradigmas de Sistemas Distribuídos | Distributed Systems Paradigms | TBA |
-| [**SDGE**](1y/1s/sdge) | Sistemas Distribuídos em Grande Escala | Large-Scale Distributed Systems | TBA |
-| [**TF**](1y/1s/tf)     | Tolerância a Faltas | Fault Tolerance | TBA |
+| [**PSD**](1y/2s/psd)   | Paradigmas de Sistemas Distribuídos | Distributed Systems Paradigms | TBA |
+| [**SDGE**](1y/2s/sdge) | Sistemas Distribuídos em Grande Escala | Large-Scale Distributed Systems | TBA |
+| [**TF**](1y/2s/tf)     | Tolerância a Faltas | Fault Tolerance | TBA |
 
