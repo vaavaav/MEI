@@ -12,3 +12,8 @@
 ### Calendar
 
 ### Results
+
+| Assessment | Grade (0-20) | Ratio |
+| :-:        | :-:          |  :-:  |
+| First Test | TBA          |  50 % |
+| Second Test| TBA          |  50 % |
