@@ -319,3 +319,6 @@ bundles/
 vendor/pkg/
 pyenv
 Vagrantfile
+
+m4j-demo/
+py-demo-v2/
