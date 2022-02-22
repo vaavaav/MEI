@@ -17,7 +17,7 @@ public class ChatSession implements Handler {
     public ByteBuffer handleWrite() throws IOException {
         
         var r = stored.duplicate().flip(); 
-        stored.flip().compact();
+        
         return r;
     }
 }
