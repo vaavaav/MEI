@@ -322,3 +322,5 @@ Vagrantfile
 
 m4j-demo/
 py-demo-v2/
+
+*.class

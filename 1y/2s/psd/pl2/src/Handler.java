@@ -4,5 +4,5 @@ import java.nio.ByteBuffer;
 public interface Handler {
 
     public void handleRead(ByteBuffer in) throws IOException ;
-    public void handleWrite() throws IOException;
+    public ByteBuffer handleWrite() throws IOException;
 }
