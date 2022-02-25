@@ -254,18 +254,34 @@ Qed.
  
 (* Exercise *)
 Lemma ex14 : (forall x, R x) \/ (forall x, W x) -> forall x, (R x) \/ (W x).
-Admitted.
+Proof.
+ intros.
+ destruct H as [H1|H2].
+  - left. apply H1.
+  - right. apply H2.
+Qed.
 
 Variable G : X->X->Prop.
 
 (* Exercise *)
 Lemma ex15 : (exists x, exists y, (G x y)) -> exists y, exists x, (G x y).
-Admitted.
+Proof.
+ intros.
+ destruct H as (x & y & H).
+ exists y, x.
+ assumption.
+Qed.
 
 
 (* Exercise *)
 Proposition ex16: (forall x, W x) /\ (forall x, R x) -> (forall x, W x /\ R x).
-Admitted.
+Proof.
+ intros.
+ split; 
+ destruct H as [H1 H2].
+ - apply H1.
+ - apply H2. 
+Qed.
 
 
 (* ------- Note that we can have nested sections ----------- *)
