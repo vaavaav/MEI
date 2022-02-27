@@ -14,7 +14,3 @@
 | First Test | TBA          |  50 % |
 | Second Test| TBA          |  50 % |
 
-### Calendar
-
-### Results
-

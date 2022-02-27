@@ -16,7 +16,3 @@
 | Group Assignment  (Uppaal)       | TBA  |  40 % |
 | Group Assignment  (Haskell)      | TBA  |  40 % |
 
-### Calendar
-
-### Results
-
