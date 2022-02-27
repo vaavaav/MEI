@@ -9,7 +9,3 @@
 | José Orlando Roque Nascimento Pereira | jop@di.uminho.pt |
 
 ## Assessments
-
-### Calendar
-
-### Results

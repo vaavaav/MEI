@@ -10,12 +10,13 @@
 
 ## Assessments
 
+| Assessment | Grade (0-20) | Ratio |
+| :-:        | :-:   |  :-:  |
+| Assynchronous test (2 homeworks) | TBA  |  20 % |
+| Group Assignment  (Uppaal)       | TBA  |  40 % |
+| Group Assignment  (Haskell)      | TBA  |  40 % |
+
 ### Calendar
 
 ### Results
 
-| Assessment | Grade (0-20) | Ratio |
-| :-:        | :-:   |  :-:  |
-| Assynchronous test (2 homeworks) | TBA  |  20 % |
-| Group Assignment                 | TBA  |  40 % |
-| Extra Assignment                 | TBA  |  40 % |

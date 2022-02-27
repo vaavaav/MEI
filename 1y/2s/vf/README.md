@@ -12,6 +12,8 @@
 
 ## Assessments
 
-### Calendar
-
-### Results
+| Assessment | Grade (0-20) | Ratio |
+| :-:        | :-:   |  :-:  |
+| 1 <sup>st</sup> Test (Coq Proof Assistant) | TBA  |  33 % |
+| 2 <sup>nd</sup> Test (Why3) | TBA  |  33 % |
+| 3 <sup>rd</sup> Test (Model Checking) | TBA  |  33 % |
