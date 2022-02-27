@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 # Simple linearizable key-value store
 
@@ -17,7 +17,10 @@ for msg in receiveAll():
         reply(msg, type='init_ok')
     elif msg.body.type == 'read':
         logging.info('reading %s', msg.body.key)
-        reply(msg, type='read_ok', value=store[msg.body.key])
+        if msg.body.key in store:
+            reply(msg, type='read_ok', value=store[msg.body.key])
+        else:
+            reply(msg, type='error', code=20, text=f'there is no entry with key \'{msg.body.key}\'')
     elif msg.body.type == 'write':
         logging.info('writing (%s,%s)', msg.body.key, msg.body.value)
         store[msg.body.key] = msg.body.value
