@@ -15,9 +15,9 @@
 | Assessment | Grade (0-20) | Ratio |
 | :-:        | :-:   |  :-:  |
 | Exam | 11  | 50 % |
-| 1<sup>st</sup> Pratical Project | 18.8  |  (estimated) 10 % |
-| 2<sup>nd</sup> Pratical Project | 18.3  |  (estimated) 10 % |
-| 3<sup>rd</sup> Pratical Project | 15.2  |  (estimated) 30 % |
+| 1<sup>st</sup> Pratical Project | 18.8  |  7.5 %  |
+| 2<sup>nd</sup> Pratical Project | 18.3  |  12.5 % |
+| 3<sup>rd</sup> Pratical Project | 15.2  |  30 %   |
 
 ### Project
 
