@@ -9,3 +9,8 @@
 | José Orlando Roque Nascimento Pereira | jop@di.uminho.pt |
 
 ## Assessments
+
+| Assessment       | Grade (0-20) | Ratio |
+| :-:              | :-:          |  :-:  |
+| Test             | TBA          |  60 % |
+| Pratical Project | TBA          |  40 % |
