@@ -213,12 +213,33 @@ Qed.
  Lemma double_even' : forall n:nat, Even (2*n).
 *)
 
+Lemma double_even' : forall n:nat, Even (2*n).
+Proof.
+ intros.
+ simpl.
+ SearchRewrite (_+0). rewrite <- plus_n_O.
+ induction n.
+ - simpl. exact Even_base.
+ - simpl. SearchRewrite (_ + S _). rewrite <- plus_n_Sm. apply Even_step. assumption.
+Qed.
+
 
 
 (*
  Exercise: define the "Odd" predicate and prove that for every n, (Even n)->(Odd (S n)).
 *)
 
+Inductive Odd : nat -> Prop :=
+| Odd_base : Odd 1
+| Odd_step : forall n, Odd n -> Odd (S (S n)).
+
+Lemma even_s_odd : forall n : nat, Even n -> Odd (S n).
+Proof.
+ intros.
+ induction H.
+  - exact Odd_base.
+  - apply Odd_step. assumption.
+Qed.
 
 
 (* An inductive relation "x is the last element of list l" *)
@@ -257,4 +278,12 @@ Lemma rev_last : forall (A:Type) (x:A) (l: list A), (Last x (rev (x::l))).
 (* An auxiliary lemma can be useful! *)
 
 *)
+
+Lemma rev_last : forall (A:Type) (x:A) (l: list A), (Last x (rev (x::l))).
+Proof.
+ intros.
+ induction l.
+ - simpl. apply last_base.
+ - simpl. (* incomplete *)
+Qed.
 
