@@ -22,12 +22,12 @@ Fixpoint elem (a:Z) (l:list Z) {struct l} : bool :=   (* !!!!!!!!!!! *)
 Proposition elem_corr : forall (a:Z) (l1 l2:list Z),
                   elem a (app l1 l2) = orb (elem a l1) (elem a l2).
 Proof.
+  intros.
   induction l1.
-  - intros. simpl. reflexivity.
-  - intros. simpl.
-    elim (Z.eq_dec a0 a).     
-    + intros. simpl.  reflexivity.
-    + auto.
+   - simpl. reflexivity.
+   - simpl. elim Z.eq_dec.
+    + rewrite Bool.orb_true_l. intros. reflexivity. (*trivial*)
+    +  intros. apply IHl1.
 Qed.
 
 
@@ -84,6 +84,15 @@ Proof.
    * simpl. constructor.
    * simpl. constructor.
     (* change de proof script so that you can see effect each tactic *)
+Qed.
+
+(*  my way *)
+Lemma head_correct' : forall (A:Type) (l:list A) (p:headPre l), headRel (head  p) l.
+Proof.
+  intros.
+  induction l.
+   - contradiction.
+   - constructor.
 Qed.
 
 
@@ -161,8 +170,6 @@ Recursive Extraction last_correct.
 
 (* Exercise: built an alternative definition of function head called “head corr” 
    based on the strong specification mechanism *)
-
-
 
 
 (* ================================================================== *)
@@ -377,10 +384,14 @@ Qed.
 (* using specification types *)
 Definition inssort : forall (l:list Z), { l' | Perm l l' & Sorted l' }.
 Proof.
-  induction l.
-  - exists nil. constructor. constructor.
-  - elim IHl. intros l1 H H1. exists (insert a l1).
-(* FILL IN HERE *) 
+ induction l.
+  - exists nil; [apply Perm_reflex|constructor].
+  - destruct IHl. exists (insert a x).
+    * apply Perm_trans with (l2 := (a::x)).
+      + apply Perm_cons. assumption.
+      + apply insert_Perm.
+    * apply insert_Sorted. assumption.
+Qed.
 
     
 Extraction Language Haskell.
@@ -423,7 +434,9 @@ Function merge (p:list Z*list Z)
                      then x::(merge (xs,y::ys))
                      else y::(merge (x::xs,ys))
   end.
-(* FILL IN HERE *)
+Proof.
+ all: intros ; simpl ; lia.
+Qed.
 
 
 
