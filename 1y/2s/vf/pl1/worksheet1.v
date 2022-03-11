@@ -196,6 +196,10 @@ Qed.
 (* Exercise 4.3 *)
 Lemma ex4_3 : (~ forall x, P x) -> exists x, ~ P x.
 Proof.
+ intros. elim H. intro. destruct law_of_excluded_middle with (P x).
+  - assumption.
+  - 
+
 Qed.
 
 
