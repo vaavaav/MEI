@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
+<nta>
+	<declaration>// Place global declarations here.
+clock y;
+chan press;</declaration>
+	<template>
+		<name x="5" y="5">Lamp</name>
+		<declaration>// Place local declarations here.</declaration>
+		<location id="id0" x="-68" y="-136" color="#ff0000">
+			<name x="-110" y="-144">Off</name>
+		</location>
+		<location id="id1" x="68" y="-136">
+			<name x="85" y="-153">Low</name>
+		</location>
+		<location id="id2" x="68" y="-34">
+			<name x="85" y="-51">Bright</name>
+		</location>
+		<init ref="id0"/>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id1"/>
+			<label kind="synchronisation" x="-51" y="-161">press?</label>
+			<label kind="assignment" x="17" y="-161">y:=0</label>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id0"/>
+			<label kind="synchronisation" x="-25" y="-34">press?</label>
+			<nail x="-68" y="-34"/>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id2"/>
+			<label kind="guard" x="93" y="-119">y&lt;5</label>
+			<label kind="synchronisation" x="85" y="-85">press?</label>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id0"/>
+			<label kind="guard" x="17" y="-263">y&gt;=5</label>
+			<label kind="synchronisation" x="-51" y="-263">press?</label>
+			<nail x="68" y="-238"/>
+			<nail x="-68" y="-238"/>
+		</transition>
+	</template>
+	<template>
+		<name>Button</name>
+		<location id="id3" x="-102" y="-170" color="#ff0000">
+		</location>
+		<init ref="id3"/>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="-85" y="-212">press!</label>
+			<nail x="-34" y="-170"/>
+			<nail x="-34" y="-238"/>
+			<nail x="-102" y="-238"/>
+		</transition>
+	</template>
+	<system>// Place template instantiations here.
+Process1 = Lamp();
+Process2 = Button();
+// List one or more processes to be composed into a system.
+system Process1, Process2;
+    </system>
+	<queries>
+		<query>
+			<formula></formula>
+			<comment></comment>
+		</query>
+	</queries>
+</nta>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
+<nta>
+	<declaration>// Place global declarations here.
+chan done, go, hit;</declaration>
+	<template>
+		<name x="5" y="5">Worker</name>
+		<declaration>// Place local declarations here.
+clock z;</declaration>
+		<location id="id0" x="-578" y="-170">
+			<name x="-588" y="-204">work</name>
+			<label kind="invariant" x="-588" y="-153">z&lt;=60</label>
+		</location>
+		<location id="id1" x="-782" y="-170" color="#ff0000">
+			<name x="-792" y="-204">rest</name>
+		</location>
+		<init ref="id1"/>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id1"/>
+			<label kind="guard" x="-697" y="-136">z&gt;=10</label>
+			<label kind="synchronisation" x="-697" y="-102">done!</label>
+			<nail x="-680" y="-102"/>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id0"/>
+			<label kind="synchronisation" x="-688" y="-263">go!</label>
+			<label kind="assignment" x="-697" y="-229">z:=0</label>
+			<nail x="-680" y="-238"/>
+		</transition>
+	</template>
+	<template>
+		<name>Hammer</name>
+		<declaration>clock x,y;</declaration>
+		<location id="id2" x="-340" y="-34" color="#ff0000">
+			<name x="-350" y="-68">free</name>
+		</location>
+		<location id="id3" x="-170" y="-34">
+			<name x="-180" y="-68">busy</name>
+		</location>
+		<init ref="id2"/>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id3"/>
+			<label kind="guard" x="-93" y="-51">x&gt;=1</label>
+			<label kind="synchronisation" x="-93" y="-76">hit!</label>
+			<label kind="assignment" x="-93" y="-17">x:=0</label>
+			<nail x="-102" y="-68"/>
+			<nail x="-102" y="0"/>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="-263" y="-17">go?</label>
+			<label kind="assignment" x="-289" y="25">x:=0,y:=0</label>
+			<nail x="-255" y="17"/>
+		</transition>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id2"/>
+			<label kind="guard" x="-272" y="-76">y&gt;=5</label>
+			<label kind="synchronisation" x="-272" y="-110">done?</label>
+			<nail x="-255" y="-85"/>
+		</transition>
+	</template>
+	<template>
+		<name>Nail</name>
+		<location id="id4" x="-306" y="-34" color="#ff0000">
+			<name x="-340" y="-51">up</name>
+		</location>
+		<location id="id5" x="-204" y="-34">
+			<name x="-214" y="-68">half</name>
+		</location>
+		<location id="id6" x="-102" y="-34">
+			<name x="-85" y="-51">done</name>
+		</location>
+		<init ref="id4"/>
+		<transition>
+			<source ref="id6"/>
+			<target ref="id4"/>
+			<nail x="-102" y="-102"/>
+			<nail x="-306" y="-102"/>
+		</transition>
+		<transition>
+			<source ref="id5"/>
+			<target ref="id6"/>
+			<label kind="synchronisation" x="-178" y="-34">hit?</label>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id5"/>
+			<label kind="synchronisation" x="-272" y="-34">hit?</label>
+		</transition>
+	</template>
+	<system>// Place template instantiations here.
+Process1 = Worker();
+Process2 = Hammer();
+Process3 = Nail();
+// List one or more processes to be composed into a system.
+system Process1, Process2, Process3;
+    </system>
+	<queries>
+		<query>
+			<formula></formula>
+			<comment></comment>
+		</query>
+	</queries>
+</nta>
