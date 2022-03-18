@@ -1,0 +1,36 @@
+
+
+module InsertionSort
+
+  use int.Int
+  use ref.Ref
+  use array.Array
+  use array.IntArraySorted
+  use array.ArrayPermut
+
+
+  let insertion_sort (a: array int) 
+    ensures { sorted a }
+    ensures { permut_all (old a) a }
+  =
+    for j = 1 to length a - 1 do
+      invariant { sorted_sub a 0 j }
+      invariant { permut_all (old a) a }
+      let key = a[j] in
+      let i = ref (j-1) in
+      
+      while !i >= 0 && a[!i] > key do
+          invariant { -1 <= !i <= j-1 }
+          invariant { sorted_sub a 0 j }
+          invariant { !i = j-1 \/ (a[j-1] <= a[j] /\ key < a[!i+2]) }
+          invariant { permut_all (old a) a[!i+1 <- key] }
+          variant { !i }
+          a[!i+1] <- a[!i];
+          i := !i - 1
+      done;
+      a[!i+1] <- key
+    done
+
+
+end
+

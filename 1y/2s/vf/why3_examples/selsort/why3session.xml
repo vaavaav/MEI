@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE why3session PUBLIC "-//Why3//proof session v5//EN"
+"http://why3.lri.fr/why3session.dtd">
+<why3session shape_version="6">
+<prover id="0" name="CVC4" version="1.8" alternative="counterexamples" timelimit="1" steplimit="0" memlimit="1000"/>
+<prover id="1" name="Alt-Ergo" version="2.4.1" timelimit="1" steplimit="0" memlimit="1000"/>
+<prover id="2" name="CVC4" version="1.8" timelimit="1" steplimit="0" memlimit="1000"/>
+<file format="whyml" proved="true">
+<path name=".."/><path name="selsort.mlw"/>
+<theory name="SelectionSort_jsp" proved="true">
+ <goal name="swap&#39;vc" expl="VC for swap" proved="true">
+ <proof prover="1"><result status="valid" time="0.01" steps="89"/></proof>
+ </goal>
+ <goal name="select&#39;vc" expl="VC for select" proved="true">
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="145304"/></proof>
+ <proof prover="1"><result status="valid" time="0.02" steps="106"/></proof>
+ <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="178617"/></proof>
+ </goal>
+ <goal name="selection_sort_sort&#39;vc" expl="VC for selection_sort_sort" proved="true">
+ <proof prover="1"><result status="valid" time="0.11" steps="989"/></proof>
+ <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="143439"/></proof>
+ </goal>
+</theory>
+</file>
+</why3session>

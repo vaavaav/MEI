@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE why3session PUBLIC "-//Why3//proof session v5//EN"
+"http://why3.lri.fr/why3session.dtd">
+<why3session shape_version="6">
+<prover id="0" name="Alt-Ergo" version="2.4.1" timelimit="1" steplimit="0" memlimit="1000"/>
+<file format="whyml">
+<path name=".."/><path name="guestPlacement.why"/>
+<theory name="GuestPlacement">
+ <goal name="PlacementNotPossible" proved="true">
+ <proof prover="0"><result status="valid" time="0.01" steps="69"/></proof>
+ </goal>
+ <goal name="RightAnne">
+ </goal>
+ <goal name="RightSusan">
+ </goal>
+ <goal name="RightPeter">
+ </goal>
+ <goal name="Susan_not_right_of_Peter">
+ </goal>
+ <goal name="Anne_far_from_Peter">
+ </goal>
+ <goal name="Anne_not_Left">
+ </goal>
+</theory>
+</file>
+</why3session>

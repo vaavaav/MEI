@@ -1,0 +1,56 @@
+
+
+
+module SelectionSort_jsp
+
+  use int.Int
+  use ref.Ref
+  use array.Array
+  use array.IntArraySorted
+  use array.ArrayPermut
+  use array.ArrayEq
+
+
+
+  let swap (a: array int) (i: int) (j: int) 
+    requires { 0 <= i < length a /\ 0 <= j < length a }
+    ensures { exchange (old a) a i j }
+  = let v = a[i] in
+      a[i] <- a[j];
+      a[j] <- v
+
+    
+
+  let select (a: array int) (i: int) : int
+    requires { 0 <= i < length a }
+    ensures  { i <= result < length a }
+    ensures  { forall x : int. i <= x < length a -> a[result] <= a[x]}
+    ensures  { forall x : int. 0 <= x <= length a -> (old a)[x] = a[x]}
+  = let min = ref i in
+      for j = i + 1 to length a - 1 do 
+        invariant { i <= !min < j}
+        invariant { forall x : int. i <= x < j ->  a[!min] <= a[x]}
+        if a[j] < a[!min] then min := j
+      done;
+    !min
+
+       
+  let selection_sort_sort (a: array int) 
+    ensures { sorted a }
+    ensures { permut_all (old a) a}
+  = for i = 0 to length a - 1 do
+     invariant { forall x y : int. 0 <= x <= y < i -> a[x] <= a[y]}
+     invariant { forall x y : int. 0 <= x < i <= y < length a -> a[x] <= a[y]}
+     (* invariant { sorted_sub a 0 i } *)
+     invariant { permut_all (old a) a}
+      let j = select a i in
+        if i <> j then swap a i j
+    done;
+
+
+   
+
+end      
+
+
+

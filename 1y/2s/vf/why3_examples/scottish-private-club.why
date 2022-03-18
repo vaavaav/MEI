@@ -1,0 +1,80 @@
+(*
+
+The classical example of the Scottish private club puzzle
+
+The club follows six rules:
+
+ - every non-scottish member wears red socks
+
+ - every member wears a kilt or doesn't wear socks
+
+ - the married members don't go out on sunday
+
+ - a member goes out on sunday if and only if he is scottish
+
+ - every member who wears a kilt is scottish and married
+
+ - every scottish member wears a kilt
+
+Problem: prove that there is nobody in this club !
+
+*)
+
+theory ScottishClubProblem 
+
+  predicate is_scottish
+  predicate wears_red_socks
+  predicate wears_kilt
+  predicate is_married
+  predicate goes_out_on_sunday
+
+  axiom R1: not is_scottish -> wears_red_socks
+
+  axiom R2: wears_kilt \/ not wears_red_socks
+
+  axiom R3: is_married -> not goes_out_on_sunday
+
+  axiom R4: goes_out_on_sunday <-> is_scottish
+
+  axiom R5: wears_kilt -> is_scottish /\ is_married
+
+  (* axiom R6: is_scottish -> wears_kilt *)
+
+
+  goal ThereIsNobodyInTheClub: false
+
+end
+
+
+theory ScottishClubProblemAlt
+
+  type person = Alan
+
+  predicate inclub person
+
+  predicate is_scottish person
+  predicate wears_red_socks person
+  predicate wears_kilt person
+  predicate is_married person
+  predicate goes_out_on_sunday person
+
+  axiom alan : not (is_married Alan)
+
+  axiom R1: forall p :person. inclub p -> not is_scottish p -> wears_red_socks p
+
+  axiom R2: forall p :person. inclub p -> wears_kilt p \/ not wears_red_socks p
+
+  axiom R3: forall p :person. inclub p -> is_married p -> not goes_out_on_sunday p
+
+  axiom R4: forall p :person. inclub p -> goes_out_on_sunday p <-> is_scottish p
+
+  axiom R5: forall p :person. inclub p -> wears_kilt p -> is_scottish p /\ is_married p
+
+  (* axiom R6: forall p :person. inclub p -> is_scottish p -> wears_kilt p *)
+
+  goal ThereIsNobodyInTheClub: forall p :person. not (inclub p)
+
+  goal alanInClub : inclub Alan
+
+
+end
