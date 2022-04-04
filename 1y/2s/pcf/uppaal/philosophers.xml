@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
+<nta>
+	<declaration>// Place global declarations here.
+bool torch_side = false; // (0 : Left, 1 : Right)
+clock global_time;
+chan pick, release;</declaration>
+	<template>
+		<name x="5" y="5">Person</name>
+		<parameter>const int crossingTime</parameter>
+		<declaration>// Place local declarations here.
+clock internal;</declaration>
+		<location id="id0" x="-578" y="-238">
+			<name x="-588" y="-272">Left</name>
+		</location>
+		<location id="id1" x="-374" y="-238">
+			<name x="-391" y="-272">Right</name>
+		</location>
+		<location id="id2" x="-476" y="-306">
+			<name x="-510" y="-340">Ready_Left</name>
+		</location>
+		<location id="id3" x="-476" y="-170">
+			<name x="-510" y="-153">Ready_Right</name>
+		</location>
+		<init ref="id0"/>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id0"/>
+			<label kind="guard" x="-714" y="-187">internal &gt;= crossingTime</label>
+			<label kind="synchronisation" x="-714" y="-170">release!</label>
+			<label kind="assignment" x="-714" y="-153">torch_side := false</label>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id3"/>
+			<label kind="guard" x="-408" y="-204">torch_side == true</label>
+			<label kind="synchronisation" x="-408" y="-170">pick!</label>
+			<label kind="assignment" x="-408" y="-187">internal := 0</label>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id1"/>
+			<label kind="guard" x="-408" y="-340">internal&gt;=crossingTime</label>
+			<label kind="synchronisation" x="-408" y="-323">release!</label>
+			<label kind="assignment" x="-408" y="-306">torch_side := true</label>
+		</transition>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id2"/>
+			<label kind="guard" x="-714" y="-314">torch_side == false</label>
+			<label kind="synchronisation" x="-714" y="-348">pick!</label>
+			<label kind="assignment" x="-714" y="-331">internal := 0</label>
+		</transition>
+	</template>
+	<template>
+		<name>Torch</name>
+		<location id="id4" x="-306" y="-136">
+			<name x="-323" y="-178">Free</name>
+		</location>
+		<location id="id5" x="-34" y="-136">
+			<name x="-93" y="-178">Acquired_Double</name>
+		</location>
+		<location id="id6" x="-170" y="-136">
+			<name x="-221" y="-178">Acquired_Single</name>
+			<committed/>
+		</location>
+		<init ref="id4"/>
+		<transition>
+			<source ref="id6"/>
+			<target ref="id4"/>
+			<label kind="synchronisation" x="-263" y="-68">release?</label>
+			<nail x="-238" y="-68"/>
+		</transition>
+		<transition>
+			<source ref="id5"/>
+			<target ref="id6"/>
+			<label kind="synchronisation" x="-127" y="-68">release?</label>
+			<nail x="-102" y="-68"/>
+		</transition>
+		<transition>
+			<source ref="id6"/>
+			<target ref="id5"/>
+			<label kind="synchronisation" x="-119" y="-161">pick?</label>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id6"/>
+			<label kind="synchronisation" x="-263" y="-161">pick?</label>
+		</transition>
+	</template>
+	<system>// Place template instantiations here.
+Person1 = Person(1);
+Person2 = Person(2);
+Person5 = Person(5);
+Person10 = Person(10);
+// List one or more processes to be composed into a system.
+system Person1, Person2, Person5, Person10, Torch;
+    </system>
+	<queries>
+		<query>
+			<formula>E&lt;&gt;(global_time &lt;= 17 &amp;&amp; Person1.Right &amp;&amp; Person2.Right &amp;&amp; Person5.Right &amp;&amp; Person10.Right)</formula>
+			<comment></comment>
+		</query>
+	</queries>
+</nta>

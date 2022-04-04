@@ -93,12 +93,8 @@ clock z;</declaration>
 			<label kind="synchronisation" x="-272" y="-34">hit?</label>
 		</transition>
 	</template>
-	<system>// Place template instantiations here.
-Process1 = Worker();
-Process2 = Hammer();
-Process3 = Nail();
-// List one or more processes to be composed into a system.
-system Process1, Process2, Process3;
+	<system>// List one or more processes to be composed into a system.
+system Worker, Hammer, Nail;
     </system>
 	<queries>
 		<query>
