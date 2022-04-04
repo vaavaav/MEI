@@ -1,0 +1,57 @@
+module SelfStabilizingRing
+
+  use int.Int
+  use map.Map
+  use int.EuclideanDivision
+  
+  type node = int
+  val constant n_nodes : int
+  axiom n_nodes_bounds : 2 < n_nodes
+  let function prev (x:node) : node = if x = 0 then n_nodes - 1 else x-1
+  let function next (x:node) : node = if x = n_nodes - 1 then 0 else x+1
+  
+  let predicate validNd (n:node) = 0 <= n < n_nodes
+  
+  type state = int
+  val constant k_states : int
+  axiom k_states_lower_bound : n_nodes < k_states
+  let function incState (s : state) = mod (s+1) k_states
+  
+  type world = map node state
+  
+  predicate has_token (lS : map node state) (i : node) = 
+    (i = 0 /\ lS[i] = lS[prev(i)]) \/
+      (i <> 0 /\ validNd(i) /\ lS[i] = lS[prev(i)])
+      
+  predicate at_least_one_token (lS : map node state) =
+    exists i : node. validNd(i) /\ has_token lS i
+      
+  predicate injective_token (lS : map node state) = 
+    forall i j : node. validNd(i) /\ validNd(j) -> 
+      has_token lS i /\ has_token lS j ->
+        i = j
+  
+  predicate safe (w : world) = 
+    at_least_one_token(w) /\ injective_token(w)
+        
+  function step_token (lS : map node state) (i:node) : world = 
+   if i = 0 then lS[i <- incState(lS[i])] else lS[i <- lS[prev(i)]]
+      
+  inductive step world world = 
+    | step_token : forall w:world, i:node. 
+      has_token w i -> step w (step_token w i)
+  
+  lemma indpred_step :
+    forall w w' : world. step w w' -> 
+      safe(w) -> safe(w')
+        
+  inductive step_TR world world = 
+   | base : forall w : world. step_TR w w
+   | step : forall w w' w'' : world .
+      step_TR w w' -> step w' w'' -> step_TR w w''
+      
+  lemma indpred_manySteps : 
+    forall w w' : world. step_TR w w' -> safe w -> safe w'
+  
+
+end

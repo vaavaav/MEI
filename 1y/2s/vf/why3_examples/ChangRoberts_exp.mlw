@@ -1,0 +1,188 @@
+
+
+module LeaderElectRing
+
+  use int.Int
+  use int.EuclideanDivision
+  use list.List
+  use list.Append
+  use list.Mem
+  use list.NthNoOpt
+  use list.Length
+  use map.Map
+  use ref.Ref
+
+  type node = int
+  val constant n_nodes : int
+  axiom n_nodes_ax : 3 <= n_nodes
+  let function next (x:node) : node = mod (x+1) n_nodes
+
+  type state = { leader : bool }
+
+  (* Nodes have fixed ids -- not part of the state *)
+  type id = int
+  val function id node : id
+  axiom uniqueIds : forall i j :node. id i = id j <-> i=j
+
+  type msg = id
+  type packet = (node, node, msg)
+  function dest    (p:packet) : node = let (d,_,_) = p in d
+  function src     (p:packet) : node = let (_,s,_) = p in s
+  function payload (p:packet) : msg  = let (_,_,m) = p in m
+
+  type world = (map node state, list packet)
+  function localState (w:world) : map node state = let (lS,_) = w in lS
+  function inFlightMsgs (w:world) : list packet  = let (_,ifM) = w in ifM
+
+
+  (* returns the node between 0 and n-1 with highest id *)
+  (* let function: DUAL definition *)
+  
+  let rec function maxId_fn (n:int) : id
+    requires { 1 <= n <= n_nodes }
+    ensures  { 0 <= result < n}
+    ensures  { forall k :node. 0 <= k < n -> k <> result -> id k < id result }
+    variant  { n }
+  = if n=1 then 0
+    else let m = maxId_fn (n-1) in
+         if id (n-1) > id m then n-1 else m
+ 
+  (* Every network has a unique maximum-id node *)
+  constant maxId_global : id = maxId_fn n_nodes
+
+
+  (* captures: messages sent from lo to hi will necessarily pass through i *)
+  predicate between  (lo:node) (i:node) (hi:node) =
+    (lo < i < hi) \/ (hi < lo < i) \/ (i < hi < lo)
+
+  lemma btw_next_lm : forall i j k :node.
+    0 <= i < n_nodes -> 0 <= j < n_nodes -> 0 <= k < n_nodes -> i <> k ->
+       between (next i) j k -> between i j k
+
+
+
+  (* System INIT *)
+
+  function initState (node) : state = { leader = false }
+
+  (* let function: *)
+  (* the first postcond corresponds to a quantifed alternative alternative definition of the function [DUAL definition] *)
+  (* the other postconds correspond to necessary properties to prove invariant initialization *)
+  (* [would require lemma function otherwise] *)
+
+  let rec function initMsgs_fn (n:node) : list packet
+    requires { 0 <= n <= n_nodes }
+    variant  { n_nodes-n }
+    ensures  { forall s d :node, m :msg. mem (d, s, m) result -> m = id s /\ d = next s /\ n<=s<n_nodes
+                /\ (forall i :node. between i maxId_global d -> m <> id i) /\ (m <> id d \/ d = maxId_global) }
+    (* ensures  { forall s d :node, m :msg. mem (d, s, m) result -> m = id s /\ d = next s /\ n<=s<n_nodes } *)
+    (* ensures  { forall s d :node, m :msg. mem (d, s, m) result -> forall i :node. between i maxId_global d -> m <> id i } *)
+    (* ensures  { forall s d :node, m :msg. mem (d, s, m) result -> m <> id d \/ d = maxId_global } *)
+  = if (0 <= n < n_nodes) then Cons (next n, n, id n) (initMsgs_fn (n+1))
+                          else Nil
+
+  constant initMsgs : list packet = initMsgs_fn 0
+
+  constant initWorld : world = (initState, initMsgs)
+
+
+
+  (* INVARIANT predicate and aux functions, with message well-formedness singled out *)
+
+  predicate ok_Msg (dest:node) (src:node) msg =
+    0 <= dest < n_nodes /\ 0 <= src < n_nodes /\ dest = next src
+
+  predicate inv (lS:map node state) (iFM:list packet)  =
+    (forall s d :node, m :msg. mem (d, s, m) iFM ->
+      ok_Msg d s m /\
+      m >= id s /\
+      (exists i :node. 0 <= i < n_nodes /\ m = id i) /\
+      (forall i :node. between i maxId_global d -> m <> id i) /\
+      (m = id d -> d = maxId_global) ) /\
+    (forall i:node. 0 <= i < n_nodes -> (lS i).leader = true -> i = maxId_global)
+
+  (* let function: invariant initialization expressed as contract *)
+  (* must be ghost since inv cannot be let predicate [uses quantifiers] *)
+
+  let ghost predicate indpred (w:world)
+    ensures { w = initWorld -> result }
+  = inv (localState w) (inFlightMsgs w)
+
+
+
+  (* HANDLER programming *)
+  
+  (* helper function for step_message *)
+  (* let function: used by the handler *)
+  (*   crucial lemma expressed as postcondition *)
+  (* would require lemma function or inductive proof transformation otherwise *)
+  
+  let rec function remove_one (x:packet) (l:list packet) : list packet
+    ensures { forall y :packet. mem y result -> mem y l }
+  = match l with
+    | Nil -> Nil
+    | Cons h t -> let (dp,sp,mp) = x in let (dq,sq,mq) = h in
+		  if  (dp=dq && sp=sq && mp=mq) then t
+                  else Cons h (remove_one x t)
+    end
+
+  (* function specifying how the outputs of the handlers are used to produce a new world, 
+     to be used both in the handler's contract and in the transition relation *)
+  function step_message (w:world) (p:packet) (r:(state, list packet)) : world =
+    let (st, ms) = r in
+    let localState = set (localState w) (dest p) st in
+    let inFlightMsgs = ms ++ (remove_one p (inFlightMsgs w)) in
+    (localState, inFlightMsgs)
+
+
+  (* let function: invariant preservation expressed as contract *)
+
+  let function handleMsg (h:node) (src:node) (m:msg) (s:state) : (state, list packet)
+    ensures  { forall w :world. indpred w ->
+                 mem (h, src, m) (inFlightMsgs w) ->
+                   s = localState w h ->
+    	      	     indpred (step_message w (h, src, m) result) }
+  = if m = (id h) then ( { leader = true }, Nil)
+       	          else if m > id h then (s, Cons (next h, h, m) Nil)
+	                                 else (s, Nil)
+
+
+
+  (* Transition SEMANTICS *)
+  
+  inductive step world world =
+  | step_msg : forall w :world, p :packet.
+      mem p (inFlightMsgs w) ->
+        step w (step_message w p
+	  (handleMsg (dest p) (src p) (payload p) (localState w (dest p))))
+
+  lemma indpred_step :
+    forall w w' :world. step w w' -> indpred w -> indpred w'
+
+
+  (* many steps relation and reachable worlds *)
+
+  inductive step_TR world world =
+  | base : forall w :world. step_TR w w
+  | step : forall w w' w'' : world.
+      step_TR w w' -> step w' w'' -> step_TR w w''
+
+  lemma indpred_manySteps :
+    forall w w' :world. step_TR w w' -> indpred w -> indpred w'
+
+  predicate reachable (w:world) = step_TR initWorld w
+
+  lemma indpred_reachable :
+    forall w :world. reachable w -> indpred w
+
+
+
+  (* SYSTEM PROPERTIES to be proved from invariant *)
+
+  goal uniqueLeader :
+    forall w :world, i j:node. reachable w ->
+      0 <= i < n_nodes -> 0 <= j < n_nodes ->
+        (localState w i).leader = true -> (localState w j).leader = true ->
+	  i = j
+
+end
