@@ -11,8 +11,8 @@ fn main() {
     let responder = context.socket(zmq::REP).unwrap();
     let f = context.socket(zmq::PUSH).unwrap();
 
-    assert!(responder.bind("inproc://*:4440").is_ok());
-    assert!(f.bind("inproc://*:4441").is_ok());
+    assert!(responder.bind("tcp://*:4440").is_ok());
+    assert!(f.bind("tcp://*:4441").is_ok());
 
     let mut msg = zmq::Message::new();
     
@@ -40,11 +40,11 @@ fn h(accumulator : Arc<RwLock<i32>>) {
 
     let context = zmq::Context::new();
     let mut msg = zmq::Message::new();
-    let pull_socket = context.socket(zmq::PULL).unwrap();
-    assert!(pull_socket.bind("inproc://*:4443").is_ok());
+    let g_socket = context.socket(zmq::PULL).unwrap();
+    assert!(g_socket.bind("tcp://*:4443").is_ok());
 
     loop {
-        pull_socket.recv(&mut msg, 0).expect("Failed to received message");
+        g_socket.recv(&mut msg, 0).expect("Failed to received message");
         let g_f = msg.as_str().expect("Failed to convert msg to &str")
                      .parse::<i32>().expect("Failed to convert &str to i32");
         *accumulator.write().expect("Could not lock accumulator") += g_f;

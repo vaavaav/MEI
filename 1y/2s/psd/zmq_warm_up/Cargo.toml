@@ -24,3 +24,5 @@ path = "src/g.rs"
 [dependencies]
 zmq = "0.9"
 byteorder = "1.4.3"
+threadpool = "1.8.1"
+thread-id = "4.0.0"
