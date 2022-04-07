@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE why3session PUBLIC "-//Why3//proof session v5//EN"
+"http://why3.lri.fr/why3session.dtd">
+<why3session shape_version="6">
+<prover id="0" name="CVC4" version="1.8" timelimit="1" steplimit="0" memlimit="1000"/>
+<prover id="1" name="Alt-Ergo" version="2.4.1" timelimit="1" steplimit="0" memlimit="1000"/>
+<file format="whyml" proved="true">
+<path name=".."/><path name="programs-btree.mlw"/>
+<theory name="Bintree_insert" proved="true">
+ <goal name="memt&#39;vc" expl="VC for memt" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="51"/></proof>
+ </goal>
+ <goal name="leq&#39;vc" expl="VC for leq" proved="true">
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="449338"/></proof>
+ <proof prover="1"><result status="valid" time="0.03" steps="500"/></proof>
+ </goal>
+ <goal name="geq&#39;vc" expl="VC for geq" proved="true">
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="444554"/></proof>
+ <proof prover="1"><result status="valid" time="0.05" steps="916"/></proof>
+ </goal>
+ <goal name="sortedBT&#39;vc" expl="VC for sortedBT" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="47"/></proof>
+ </goal>
+ <goal name="size&#39;vc" expl="VC for size" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="46"/></proof>
+ </goal>
+ <goal name="num_occ&#39;vc" expl="VC for num_occ" proved="true">
+ <proof prover="1"><result status="valid" time="0.01" steps="70"/></proof>
+ </goal>
+ <goal name="add&#39;vc" expl="VC for add" proved="true">
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="357140"/></proof>
+ <proof prover="1"><result status="valid" time="0.08" steps="1120"/></proof>
+ </goal>
+</theory>
+</file>
+</why3session>

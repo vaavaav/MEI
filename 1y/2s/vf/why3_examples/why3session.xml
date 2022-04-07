@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE why3session PUBLIC "-//Why3//proof session v5//EN"
+"http://why3.lri.fr/why3session.dtd">
+<why3session shape_version="6">
+<file format="whyml">
+<path name="First.why"/>
+<theory name="First">
+ <goal name="P1">
+ </goal>
+ <goal name="P5">
+ </goal>
+</theory>
+</file>
+<file format="whyml">
+<path name="genealogy.why"/>
+<theory name="Genealogy">
+ <goal name="Child_is_son_or_daughter">
+ </goal>
+ <goal name="Sibling_sym">
+ </goal>
+ <goal name="Sibling_is_brother_or_sister">
+ </goal>
+ <goal name="Grandparent_is_grandfather_or_grandmother">
+ </goal>
+ <goal name="Grandfather_is_male">
+ </goal>
+ <goal name="Grandmother_is_female">
+ </goal>
+ <goal name="Only_two_grandfathers">
+ </goal>
+</theory>
+</file>
+<file format="whyml">
+<path name="programs-btree.mlw"/>
+<theory name="Bintree_insert">
+ <goal name="leq&#39;vc" expl="VC for leq">
+ <transf name="split_vc" >
+  <goal name="leq&#39;vc.0" expl="postcondition">
+  <transf name="split_vc" >
+   <goal name="leq&#39;vc.0.0" expl="postcondition">
+   <transf name="inline_goal" >
+    <goal name="leq&#39;vc.0.0.0" expl="postcondition">
+    <transf name="split_all_full" >
+     <goal name="leq&#39;vc.0.0.0.0" expl="postcondition">
+     </goal>
+    </transf>
+    </goal>
+   </transf>
+   </goal>
+   <goal name="leq&#39;vc.0.1" expl="postcondition">
+   </goal>
+  </transf>
+  </goal>
+  <goal name="leq&#39;vc.1" expl="postcondition">
+  <transf name="split_vc" >
+   <goal name="leq&#39;vc.1.0" expl="postcondition">
+   <transf name="inline_goal" >
+    <goal name="leq&#39;vc.1.0.0" expl="postcondition">
+    <transf name="split_all_full" >
+     <goal name="leq&#39;vc.1.0.0.0" expl="postcondition">
+     </goal>
+    </transf>
+    </goal>
+   </transf>
+   </goal>
+   <goal name="leq&#39;vc.1.1" expl="postcondition">
+   </goal>
+  </transf>
+  </goal>
+  <goal name="leq&#39;vc.2" expl="postcondition">
+  <transf name="split_vc" >
+   <goal name="leq&#39;vc.2.0" expl="postcondition">
+   <transf name="inline_goal" >
+    <goal name="leq&#39;vc.2.0.0" expl="postcondition">
+    <transf name="split_all_full" >
+     <goal name="leq&#39;vc.2.0.0.0" expl="postcondition">
+     </goal>
+    </transf>
+    </goal>
+   </transf>
+   </goal>
+   <goal name="leq&#39;vc.2.1" expl="postcondition">
+   </goal>
+  </transf>
+  </goal>
+ </transf>
+ </goal>
+ <goal name="geq&#39;vc" expl="VC for geq">
+ <transf name="split_vc" >
+  <goal name="geq&#39;vc.0" expl="postcondition">
+  <transf name="split_vc" >
+   <goal name="geq&#39;vc.0.0" expl="postcondition">
+   <transf name="inline_goal" >
+    <goal name="geq&#39;vc.0.0.0" expl="postcondition">
+    <transf name="split_all_full" >
+     <goal name="geq&#39;vc.0.0.0.0" expl="postcondition">
+     <transf name="inline_goal" >
+      <goal name="geq&#39;vc.0.0.0.0.0" expl="postcondition">
+      </goal>
+     </transf>
+     </goal>
+    </transf>
+    </goal>
+   </transf>
+   </goal>
+   <goal name="geq&#39;vc.0.1" expl="postcondition">
+   </goal>
+  </transf>
+  </goal>
+  <goal name="geq&#39;vc.1" expl="postcondition">
+  <transf name="split_vc" >
+   <goal name="geq&#39;vc.1.0" expl="postcondition">
+   <transf name="inline_goal" >
+    <goal name="geq&#39;vc.1.0.0" expl="postcondition">
+    <transf name="split_all_full" >
+     <goal name="geq&#39;vc.1.0.0.0" expl="postcondition">
+     <transf name="inline_goal" >
+      <goal name="geq&#39;vc.1.0.0.0.0" expl="postcondition">
+      </goal>
+     </transf>
+     </goal>
+    </transf>
+    </goal>
+   </transf>
+   </goal>
+   <goal name="geq&#39;vc.1.1" expl="postcondition">
+   </goal>
+  </transf>
+  </goal>
+  <goal name="geq&#39;vc.2" expl="postcondition">
+  <transf name="split_vc" >
+   <goal name="geq&#39;vc.2.0" expl="postcondition">
+   <transf name="inline_goal" >
+    <goal name="geq&#39;vc.2.0.0" expl="postcondition">
+    <transf name="split_all_full" >
+     <goal name="geq&#39;vc.2.0.0.0" expl="postcondition">
+     <transf name="inline_goal" >
+      <goal name="geq&#39;vc.2.0.0.0.0" expl="postcondition">
+      </goal>
+     </transf>
+     </goal>
+    </transf>
+    </goal>
+   </transf>
+   </goal>
+   <goal name="geq&#39;vc.2.1" expl="postcondition">
+   </goal>
+  </transf>
+  </goal>
+ </transf>
+ </goal>
+ <goal name="add&#39;vc" expl="VC for add">
+ <transf name="split_vc" >
+  <goal name="add&#39;vc.0" expl="variant decrease">
+  <transf name="split_vc" >
+   <goal name="add&#39;vc.0.0" expl="variant decrease">
+   </goal>
+   <goal name="add&#39;vc.0.1" expl="variant decrease">
+   </goal>
+  </transf>
+  </goal>
+  <goal name="add&#39;vc.1" expl="precondition">
+  </goal>
+  <goal name="add&#39;vc.2" expl="variant decrease">
+  <transf name="split_vc" >
+   <goal name="add&#39;vc.2.0" expl="variant decrease">
+   </goal>
+   <goal name="add&#39;vc.2.1" expl="variant decrease">
+   </goal>
+  </transf>
+  </goal>
+  <goal name="add&#39;vc.3" expl="precondition">
+  </goal>
+  <goal name="add&#39;vc.4" expl="postcondition">
+  <transf name="split_vc" >
+   <goal name="add&#39;vc.4.0" expl="postcondition">
+   </goal>
+   <goal name="add&#39;vc.4.1" expl="postcondition">
+   </goal>
+   <goal name="add&#39;vc.4.2" expl="postcondition">
+   </goal>
+  </transf>
+  </goal>
+  <goal name="add&#39;vc.5" expl="postcondition">
+  <transf name="split_vc" >
+   <goal name="add&#39;vc.5.0" expl="postcondition">
+   </goal>
+   <goal name="add&#39;vc.5.1" expl="postcondition">
+   </goal>
+   <goal name="add&#39;vc.5.2" expl="postcondition">
+   </goal>
+  </transf>
+  </goal>
+  <goal name="add&#39;vc.6" expl="postcondition">
+  <transf name="split_vc" >
+   <goal name="add&#39;vc.6.0" expl="postcondition">
+   <transf name="split_vc" >
+    <goal name="add&#39;vc.6.0.0" expl="postcondition">
+    </goal>
+    <goal name="add&#39;vc.6.0.1" expl="postcondition">
+    </goal>
+    <goal name="add&#39;vc.6.0.2" expl="postcondition">
+    </goal>
+   </transf>
+   </goal>
+   <goal name="add&#39;vc.6.1" expl="postcondition">
+   <transf name="split_vc" >
+    <goal name="add&#39;vc.6.1.0" expl="postcondition">
+    </goal>
+    <goal name="add&#39;vc.6.1.1" expl="postcondition">
+    </goal>
+    <goal name="add&#39;vc.6.1.2" expl="postcondition">
+    </goal>
+   </transf>
+   </goal>
+  </transf>
+  </goal>
+  <goal name="add&#39;vc.7" expl="postcondition">
+  <transf name="split_vc" >
+   <goal name="add&#39;vc.7.0" expl="postcondition">
+   </goal>
+   <goal name="add&#39;vc.7.1" expl="postcondition">
+   </goal>
+   <goal name="add&#39;vc.7.2" expl="postcondition">
+   </goal>
+  </transf>
+  </goal>
+ </transf>
+ </goal>
+</theory>
+</file>
+</why3session>

@@ -9,20 +9,23 @@ module Bintree_insert
   type tree 'a = Empty | Node (tree 'a) 'a (tree 'a)
   
  let rec predicate memt (t : tree int) (x : int) =
+  variant {t}
     match t with
      | Empty -> false
      | Node l e r -> e = x || memt l x || memt r x
     end   
   
 let rec predicate leq (x : int) (t : tree int) =
-  ensures { result <-> forall k : int. not (memt t k) \/ k <= x}
+  ensures { result <-> (forall k : int. memt t k -> x <= k)}
+  variant {t}
  match t with
   | Empty -> true
   | Node l e r -> x <= e && leq x l && leq x r
  end
  
  let rec predicate geq (x : int) (t : tree int) =
-  ensures { result <-> forall k : int. not (memt t k) \/ k >= x}
+  ensures { result <-> forall k : int. memt t k -> x >= k}
+  variant {t}
   match t with
    | Empty -> true
    | Node l e r -> x >= e && geq x l && geq x r 
@@ -30,18 +33,21 @@ let rec predicate leq (x : int) (t : tree int) =
   
                                      
 let rec predicate sortedBT (t : tree int) = 
+  variant {t}
   match t with 
    | Empty -> true
    | Node l e r -> sortedBT l && sortedBT r && geq e l && leq e r
   end
   
-  function size (t : tree 'a) : int =
+let rec ghost function size (t : tree 'a) : int =
+  variant {t}
     match t with
      | Empty -> 0
      | Node l _ r -> size l + 1 + size r
     end
 
-  function num_occ (x : int) (t : tree int) : int =
+let rec ghost function num_occ (x : int) (t : tree int) : int =
+  variant {t}
    match t with 
     | Empty -> 0
     | Node l e r -> (if e = x then 1 else 0) + num_occ x l + num_occ x r 
