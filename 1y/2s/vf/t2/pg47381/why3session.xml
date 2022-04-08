@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE why3session PUBLIC "-//Why3//proof session v5//EN"
+"http://why3.lri.fr/why3session.dtd">
+<why3session shape_version="6">
+<prover id="0" name="CVC4" version="1.8" timelimit="1" steplimit="0" memlimit="1000"/>
+<prover id="1" name="Alt-Ergo" version="2.4.1" timelimit="1" steplimit="0" memlimit="1000"/>
+<prover id="2" name="CVC4" version="1.8" alternative="counterexamples" timelimit="1" steplimit="0" memlimit="1000"/>
+<file format="whyml">
+<path name=".."/><path name="pg47381.why"/>
+<theory name="Top">
+ <goal name="euclid&#39;vc" expl="VC for euclid">
+ <proof prover="0"><result status="timeout" time="1.00" steps="199014"/></proof>
+ <proof prover="1"><result status="timeout" time="1.00"/></proof>
+ <transf name="split_vc" >
+  <goal name="euclid&#39;vc.0" expl="variant decrease">
+  <proof prover="1" obsolete="true"><result status="valid" time="0.01" steps="8"/></proof>
+  </goal>
+  <goal name="euclid&#39;vc.1" expl="precondition">
+  <proof prover="1" obsolete="true"><result status="valid" time="0.01" steps="8"/></proof>
+  </goal>
+  <goal name="euclid&#39;vc.2" expl="variant decrease">
+  <proof prover="0" obsolete="true"><result status="unknown" time="0.24" steps="32099"/></proof>
+  <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+  <transf name="split_vc" >
+   <goal name="euclid&#39;vc.2.0" expl="variant decrease">
+   <proof prover="1" obsolete="true"><result status="valid" time="0.01" steps="8"/></proof>
+   </goal>
+   <goal name="euclid&#39;vc.2.1" expl="variant decrease">
+   <proof prover="0" timelimit="10" memlimit="4000" obsolete="true"><result status="unknown" time="0.30" steps="32053"/></proof>
+   <proof prover="1" obsolete="true"><result status="valid" time="0.01" steps="8"/></proof>
+   </goal>
+  </transf>
+  </goal>
+  <goal name="euclid&#39;vc.3" expl="precondition">
+  <proof prover="0" obsolete="true"><result status="unknown" time="0.18" steps="32030"/></proof>
+  <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+  <transf name="split_vc" >
+   <goal name="euclid&#39;vc.3.0" expl="precondition">
+   <proof prover="1" obsolete="true"><result status="valid" time="0.01" steps="8"/></proof>
+   </goal>
+   <goal name="euclid&#39;vc.3.1" expl="precondition">
+   <proof prover="0" timelimit="10" memlimit="4000" obsolete="true"><result status="unknown" time="0.20" steps="32004"/></proof>
+   <proof prover="1" obsolete="true"><result status="valid" time="0.01" steps="8"/></proof>
+   </goal>
+  </transf>
+  </goal>
+  <goal name="euclid&#39;vc.4" expl="postcondition">
+  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="160704"/></proof>
+  <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+  <transf name="split_vc" >
+   <goal name="euclid&#39;vc.4.0" expl="postcondition">
+   <proof prover="0" obsolete="true"><result status="valid" time="0.20" steps="25827"/></proof>
+   <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+   </goal>
+   <goal name="euclid&#39;vc.4.1" expl="postcondition">
+   <proof prover="0" timelimit="10" memlimit="4000" obsolete="true"><result status="valid" time="3.72" steps="357319"/></proof>
+   <proof prover="1" timelimit="10" memlimit="4000" obsolete="true"><result status="timeout" time="10.00"/></proof>
+   </goal>
+   <goal name="euclid&#39;vc.4.2" expl="postcondition">
+   <proof prover="0" timelimit="10" memlimit="4000" obsolete="true"><result status="valid" time="3.71" steps="368595"/></proof>
+   <proof prover="1" timelimit="10" memlimit="4000" obsolete="true"><result status="timeout" time="10.00"/></proof>
+   </goal>
+  </transf>
+  </goal>
+  <goal name="euclid&#39;vc.5" expl="postcondition">
+  <proof prover="1" obsolete="true"><result status="valid" time="0.01" steps="30"/></proof>
+  </goal>
+  <goal name="euclid&#39;vc.6" expl="postcondition">
+  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="158815"/></proof>
+  <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+  <transf name="split_vc" >
+   <goal name="euclid&#39;vc.6.0" expl="postcondition">
+   <proof prover="0" timelimit="10" memlimit="4000" obsolete="true"><result status="timeout" time="10.00" steps="855011"/></proof>
+   <proof prover="1" obsolete="true"><result status="valid" time="0.08" steps="16"/></proof>
+   </goal>
+   <goal name="euclid&#39;vc.6.1" expl="postcondition">
+   <proof prover="1" obsolete="true"><result status="valid" time="0.01" steps="35"/></proof>
+   </goal>
+   <goal name="euclid&#39;vc.6.2" expl="postcondition">
+   <proof prover="1" obsolete="true"><result status="valid" time="0.01" steps="35"/></proof>
+   </goal>
+  </transf>
+  </goal>
+  <goal name="euclid&#39;vc.7" expl="postcondition">
+  <proof prover="1" obsolete="true"><result status="valid" time="0.01" steps="30"/></proof>
+  </goal>
+ </transf>
+ </goal>
+ <goal name="memt&#39;vc" expl="VC for memt" proved="true">
+ <proof prover="1"><result status="valid" time="0.02" steps="56"/></proof>
+ </goal>
+ <goal name="leq&#39;vc" expl="VC for leq">
+ <proof prover="0"><result status="unknown" time="0.19" steps="40026"/></proof>
+ <proof prover="1"><result status="timeout" time="1.00"/></proof>
+ <transf name="split_vc" >
+  <goal name="leq&#39;vc.0" expl="variant decrease">
+  <proof prover="1" obsolete="true"><result status="valid" time="0.01" steps="30"/></proof>
+  </goal>
+  <goal name="leq&#39;vc.1" expl="variant decrease">
+  <proof prover="0" obsolete="true"><result status="unknown" time="0.18" steps="28935"/></proof>
+  <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+  <transf name="split_vc" >
+   <goal name="leq&#39;vc.1.0" expl="variant decrease">
+   <proof prover="0" timelimit="10" memlimit="4000" obsolete="true"><result status="unknown" time="0.32" steps="31034"/></proof>
+   <proof prover="1" obsolete="true"><result status="valid" time="0.01" steps="8"/></proof>
+   </goal>
+   <goal name="leq&#39;vc.1.1" expl="variant decrease">
+   <proof prover="0" timelimit="10" memlimit="4000" obsolete="true"><result status="unknown" time="0.26" steps="28868"/></proof>
+   <proof prover="1" obsolete="true"><result status="valid" time="0.01" steps="10"/></proof>
+   </goal>
+  </transf>
+  </goal>
+  <goal name="leq&#39;vc.2" expl="postcondition">
+  <proof prover="0" obsolete="true"><result status="unknown" time="0.19" steps="28583"/></proof>
+  <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+  <transf name="split_vc" >
+   <goal name="leq&#39;vc.2.0" expl="postcondition">
+   <proof prover="0" obsolete="true"><result status="unknown" time="0.28" steps="28835"/></proof>
+   <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+   <transf name="split_vc" >
+    <goal name="leq&#39;vc.2.0.0" expl="postcondition">
+    <proof prover="1" obsolete="true"><result status="valid" time="0.01" steps="8"/></proof>
+    </goal>
+    <goal name="leq&#39;vc.2.0.1" expl="postcondition">
+    <proof prover="1" obsolete="true"><result status="valid" time="0.02" steps="34"/></proof>
+    </goal>
+    <goal name="leq&#39;vc.2.0.2" expl="postcondition">
+    <proof prover="1" obsolete="true"><result status="valid" time="0.01" steps="6"/></proof>
+    </goal>
+   </transf>
+   </goal>
+   <goal name="leq&#39;vc.2.1" expl="postcondition">
+   <proof prover="0" obsolete="true"><result status="unknown" time="0.25" steps="29063"/></proof>
+   <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+   <transf name="split_vc" >
+    <goal name="leq&#39;vc.2.1.0" expl="postcondition">
+    <proof prover="1" obsolete="true"><result status="valid" time="0.01" steps="4"/></proof>
+    </goal>
+    <goal name="leq&#39;vc.2.1.1" expl="postcondition">
+    <proof prover="0" timelimit="10" memlimit="4000" obsolete="true"><result status="unknown" time="0.28" steps="28858"/></proof>
+    <proof prover="1" timelimit="10" memlimit="4000" obsolete="true"><result status="timeout" time="10.00"/></proof>
+    </goal>
+    <goal name="leq&#39;vc.2.1.2" expl="postcondition">
+    <proof prover="0" timelimit="10" memlimit="4000" obsolete="true"><result status="unknown" time="0.17" steps="28581"/></proof>
+    <proof prover="1" timelimit="10" memlimit="4000" obsolete="true"><result status="timeout" time="10.00"/></proof>
+    </goal>
+   </transf>
+   </goal>
+  </transf>
+  </goal>
+ </transf>
+ </goal>
+ <goal name="geq&#39;vc" expl="VC for geq">
+ <proof prover="0" obsolete="true"><result status="unknown" time="0.34" steps="33575"/></proof>
+ <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <transf name="split_vc" >
+  <goal name="geq&#39;vc.0" expl="variant decrease">
+  <proof prover="1" obsolete="true"><result status="valid" time="0.01" steps="30"/></proof>
+  </goal>
+  <goal name="geq&#39;vc.1" expl="variant decrease">
+  <proof prover="0" obsolete="true"><result status="unknown" time="0.20" steps="29254"/></proof>
+  <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+  <transf name="split_vc" >
+   <goal name="geq&#39;vc.1.0" expl="variant decrease">
+   <proof prover="0" timelimit="10" memlimit="4000" obsolete="true"><result status="unknown" time="0.28" steps="31362"/></proof>
+   <proof prover="1" obsolete="true"><result status="valid" time="0.01" steps="8"/></proof>
+   </goal>
+   <goal name="geq&#39;vc.1.1" expl="variant decrease">
+   <proof prover="0" timelimit="10" memlimit="4000" obsolete="true"><result status="unknown" time="0.24" steps="29187"/></proof>
+   <proof prover="1" obsolete="true"><result status="valid" time="0.01" steps="10"/></proof>
+   </goal>
+  </transf>
+  </goal>
+  <goal name="geq&#39;vc.2" expl="postcondition">
+  <proof prover="0" obsolete="true"><result status="unknown" time="0.19" steps="28948"/></proof>
+  <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+  <transf name="split_vc" >
+   <goal name="geq&#39;vc.2.0" expl="postcondition">
+   <proof prover="0" obsolete="true"><result status="unknown" time="0.18" steps="29173"/></proof>
+   <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+   <transf name="split_vc" >
+    <goal name="geq&#39;vc.2.0.0" expl="postcondition">
+    <proof prover="1" obsolete="true"><result status="valid" time="0.01" steps="8"/></proof>
+    </goal>
+    <goal name="geq&#39;vc.2.0.1" expl="postcondition">
+    <proof prover="1" obsolete="true"><result status="valid" time="0.01" steps="35"/></proof>
+    </goal>
+    <goal name="geq&#39;vc.2.0.2" expl="postcondition">
+    <proof prover="1" obsolete="true"><result status="valid" time="0.01" steps="6"/></proof>
+    </goal>
+   </transf>
+   </goal>
+   <goal name="geq&#39;vc.2.1" expl="postcondition">
+   <proof prover="0" obsolete="true"><result status="unknown" time="0.25" steps="29385"/></proof>
+   <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+   <transf name="split_vc" >
+    <goal name="geq&#39;vc.2.1.0" expl="postcondition">
+    <proof prover="1" obsolete="true"><result status="valid" time="0.01" steps="4"/></proof>
+    </goal>
+    <goal name="geq&#39;vc.2.1.1" expl="postcondition">
+    <proof prover="0" timelimit="10" memlimit="4000" obsolete="true"><result status="unknown" time="0.19" steps="29194"/></proof>
+    <proof prover="1" timelimit="10" memlimit="4000" obsolete="true"><result status="timeout" time="10.00"/></proof>
+    </goal>
+    <goal name="geq&#39;vc.2.1.2" expl="postcondition">
+    <proof prover="0" obsolete="true"><result status="unknown" time="0.17" steps="28929"/></proof>
+    <proof prover="1" timelimit="10" memlimit="4000" obsolete="true"><result status="valid" time="1.87" steps="29491"/></proof>
+    </goal>
+   </transf>
+   </goal>
+  </transf>
+  </goal>
+ </transf>
+ </goal>
+ <goal name="sortedBT&#39;vc" expl="VC for sortedBT" proved="true">
+ <proof prover="1"><result status="valid" time="0.02" steps="53"/></proof>
+ </goal>
+ <goal name="size&#39;vc" expl="VC for size" proved="true">
+ <proof prover="1"><result status="valid" time="0.02" steps="50"/></proof>
+ </goal>
+ <goal name="num_occBT&#39;vc" expl="VC for num_occBT" proved="true">
+ <proof prover="1"><result status="valid" time="0.03" steps="75"/></proof>
+ </goal>
+ <goal name="numof&#39;vc" expl="VC for numof" proved="true">
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="694131"/></proof>
+ <proof prover="1"><result status="valid" time="0.02" steps="88"/></proof>
+ <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="143650"/></proof>
+ <transf name="split_vc" >
+  <goal name="numof&#39;vc.0" expl="index in array bounds">
+  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="148008"/></proof>
+  <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+  <transf name="split_vc" >
+   <goal name="numof&#39;vc.0.0" expl="index in array bounds">
+   <proof prover="0" timelimit="10" memlimit="4000" obsolete="true"><undone/></proof>
+   <proof prover="1" obsolete="true"><result status="valid" time="0.01" steps="12"/></proof>
+   </goal>
+   <goal name="numof&#39;vc.0.1" expl="index in array bounds">
+   <proof prover="0" timelimit="10" memlimit="4000" obsolete="true"><undone/></proof>
+   <proof prover="1" obsolete="true"><result status="valid" time="0.02" steps="12"/></proof>
+   </goal>
+  </transf>
+  </goal>
+  <goal name="numof&#39;vc.1" expl="variant decrease">
+  <proof prover="1" obsolete="true"><result status="valid" time="0.01" steps="12"/></proof>
+  </goal>
+  <goal name="numof&#39;vc.2" expl="precondition">
+  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="141979"/></proof>
+  <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+  <transf name="split_vc" >
+   <goal name="numof&#39;vc.2.0" expl="precondition">
+   <proof prover="0" timelimit="10" memlimit="4000" obsolete="true"><undone/></proof>
+   <proof prover="1" obsolete="true"><result status="valid" time="0.02" steps="12"/></proof>
+   </goal>
+   <goal name="numof&#39;vc.2.1" expl="precondition">
+   <proof prover="0" timelimit="10" memlimit="4000" obsolete="true"><undone/></proof>
+   <proof prover="1" obsolete="true"><result status="valid" time="0.01" steps="12"/></proof>
+   </goal>
+   <goal name="numof&#39;vc.2.2" expl="precondition">
+   <proof prover="1" obsolete="true"><result status="valid" time="0.02" steps="12"/></proof>
+   </goal>
+   <goal name="numof&#39;vc.2.3" expl="precondition">
+   <proof prover="0"><undone/></proof>
+   <proof prover="1"><undone/></proof>
+   </goal>
+  </transf>
+  </goal>
+  <goal name="numof&#39;vc.3" expl="postcondition">
+  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="191164"/></proof>
+  <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+  <transf name="split_vc" >
+   <goal name="numof&#39;vc.3.0" expl="postcondition">
+   <proof prover="1" obsolete="true"><result status="valid" time="0.02" steps="24"/></proof>
+   </goal>
+   <goal name="numof&#39;vc.3.1" expl="postcondition">
+   <proof prover="1" obsolete="true"><result status="valid" time="0.02" steps="27"/></proof>
+   </goal>
+   <goal name="numof&#39;vc.3.2" expl="postcondition">
+   <proof prover="0"><result status="timeout" time="1.00" steps="193290"/></proof>
+   <proof prover="1"><result status="timeout" time="1.00"/></proof>
+   <transf name="split_vc" >
+    <goal name="numof&#39;vc.3.2.0" expl="postcondition">
+    <proof prover="0" timelimit="10" memlimit="4000"><result status="timeout" time="10.00" steps="1984768"/></proof>
+    <proof prover="1" timelimit="10" memlimit="4000"><result status="timeout" time="10.00"/></proof>
+    </goal>
+    <goal name="numof&#39;vc.3.2.1" expl="postcondition">
+    <proof prover="1"><result status="valid" time="0.07" steps="401"/></proof>
+    </goal>
+   </transf>
+   </goal>
+  </transf>
+  </goal>
+ </transf>
+ </goal>
+</theory>
+</file>
+<file format="whyml">
+<path name=".."/><path name=".."/><path name="why3_examples"/><path name="programs-btree.mlw"/>
+<theory name="Bintree_insert">
+ <goal name="memt&#39;vc" expl="VC for memt">
+ </goal>
+ <goal name="leq&#39;vc" expl="VC for leq">
+ </goal>
+ <goal name="geq&#39;vc" expl="VC for geq">
+ </goal>
+ <goal name="sortedBT&#39;vc" expl="VC for sortedBT">
+ </goal>
+ <goal name="size&#39;vc" expl="VC for size">
+ </goal>
+ <goal name="num_occ&#39;vc" expl="VC for num_occ">
+ </goal>
+ <goal name="add&#39;vc" expl="VC for add">
+ </goal>
+</theory>
+</file>
+<file format="whyml">
+<path name=".."/><path name=".."/><path name="why3_examples"/><path name="selsort.mlw"/>
+<theory name="SelectionSort_jsp">
+ <goal name="swap&#39;vc" expl="VC for swap">
+ </goal>
+ <goal name="select&#39;vc" expl="VC for select">
+ </goal>
+ <goal name="selection_sort_sort&#39;vc" expl="VC for selection_sort_sort">
+ </goal>
+</theory>
+</file>
+</why3session>

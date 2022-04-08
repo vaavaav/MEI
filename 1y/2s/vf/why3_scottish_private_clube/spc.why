@@ -1,0 +1,23 @@
+theory ScottishPrivateClub
+
+  type person = Allan
+  
+  predicate isMember person
+  predicate isScottish person
+  predicate wearsRedSocks person
+  predicate wearsKilt person
+  predicate isMarried person
+  predicate goesOutOnSunday person
+  
+  
+  axiom Rule1 : forall p : person. (isMember p /\ not isScottish p) -> wearsRedSocks p
+  axiom Rule2 : forall p : person. isMember p -> wearsKilt p \/ not wearsRedSocks p
+  axiom Rule3 : forall p : person. (isMember p /\ isMarried p) -> not goesOutOnSunday p
+  axiom Rule4 : forall p : person. isMember p -> (goesOutOnSunday p <-> isScottish p)
+  (*axiom Rule5 : forall p : person. (isMember p /\ wearsKilt p) -> isMarried p /\ isScottish p *)
+  axiom Rule6 : forall p : person. isMember p /\ isScottish p -> wearsKilt p
+  
+  
+ goal thereAreNoMembers : false
+ goal allanIsMember : isMember Allan 
+end

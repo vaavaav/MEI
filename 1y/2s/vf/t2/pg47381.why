@@ -1,0 +1,106 @@
+(* 1. *) 
+
+use number.Gcd
+use int.Int
+
+
+let rec function euclid (u v : int) : int 
+  requires {u > 0 /\ v > 0}
+  ensures { result = Gcd.gcd u v }
+  ensures { result <= u }
+  ensures { result <= v }
+  ensures { 0 < result }
+  (* faltava o variante, im dumb*)
+  variant {u + v}
+  = if u = v then u
+    (* enganei me no simbolo, confundi '<>' com o de igualdade *)
+    else 
+      if u > v then euclid (u - v) v
+      else euclid u (v - u) 
+ 
+ 
+(*2.*)
+
+    type tree 'a = Empty | Node (tree 'a) 'a (tree 'a)
+  
+ let rec predicate memt (t : tree int) (x : int) =
+  variant {t}
+    match t with
+     | Empty -> false
+     | Node l e r -> e = x || memt l x || memt r x
+    end   
+  
+let rec predicate leq (x : int) (t : tree int) =
+  ensures { result <-> (forall k : int. memt t k -> x <= k)}
+  variant {t}
+ match t with
+  | Empty -> true
+  | Node l e r -> x <= e && leq x l && leq x r
+ end
+ 
+ let rec predicate geq (x : int) (t : tree int) =
+  ensures { result <-> forall k : int. memt t k -> x >= k}
+  variant {t}
+  match t with
+   | Empty -> true
+   | Node l e r -> x >= e && geq x l && geq x r 
+  end
+  
+                                     
+let rec predicate sortedBT (t : tree int) = 
+  variant {t}
+  match t with 
+   | Empty -> true
+   | Node l e r -> sortedBT l && sortedBT r && geq e l && leq e r
+  end
+  
+let rec ghost function size (t : tree 'a) : int =
+  variant {t}
+    match t with
+     | Empty -> 0
+     | Node l _ r -> size l + 1 + size r
+    end
+
+let rec ghost function num_occBT (x : int) (t : tree int) : int =
+  variant {t}
+   match t with 
+    | Empty -> 0
+    | Node l e r -> (if e = x then 1 else 0) + num_occBT x l + num_occBT x r 
+   end
+   
+use list.List
+use list.SortedInt
+use list.NumOcc
+use list.Length
+
+val function tree_to_list (t : tree int) : list int
+ requires {sortedBT t}
+ ensures {sorted result}
+ ensures {forall x : int. num_occBT x t = num_occ x result}
+ ensures {size t = length result} 
+
+(* 3. *)
+
+use ref.Refint
+use array.Array
+use array.NumOfEq
+
+let rec function numof (u : array int) (x : int) (k : int) (l : int) : int
+  requires {0 <= k < l <= length u }
+  ensures {0 <= result <= l - k}
+  variant {l - k}
+  = if k = l - 1 then 
+       0
+    else 
+      (numof u x (k+1) l) + ( if x = u[k] then 1 else 0 )
+
+(*4.*)
+
+
+
+
+
+
+
+
+
