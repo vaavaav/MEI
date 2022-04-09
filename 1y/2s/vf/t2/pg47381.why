@@ -1,27 +1,10 @@
-(* 1. *) 
 
-use number.Gcd
+
+theory BTree
+
 use int.Int
 
-
-let rec function euclid (u v : int) : int 
-  requires {u > 0 /\ v > 0}
-  ensures { result = Gcd.gcd u v }
-  ensures { result <= u }
-  ensures { result <= v }
-  ensures { 0 < result }
-  (* faltava o variante, im dumb*)
-  variant {u + v}
-  = if u = v then u
-    (* enganei me no simbolo, confundi '<>' com o de igualdade *)
-    else 
-      if u > v then euclid (u - v) v
-      else euclid u (v - u) 
- 
- 
-(*2.*)
-
-    type tree 'a = Empty | Node (tree 'a) 'a (tree 'a)
+type tree 'a = Empty | Node (tree 'a) 'a (tree 'a)
   
  let rec predicate memt (t : tree int) (x : int) =
   variant {t}
@@ -67,37 +50,114 @@ let rec ghost function num_occBT (x : int) (t : tree int) : int =
     | Empty -> 0
     | Node l e r -> (if e = x then 1 else 0) + num_occBT x l + num_occBT x r 
    end
+ end
+ 
+theory Ex2
    
 use list.List
 use list.SortedInt
 use list.NumOcc
 use list.Length
+use import BTree
 
 val function tree_to_list (t : tree int) : list int
  requires {sortedBT t}
  ensures {sorted result}
  ensures {forall x : int. num_occBT x t = num_occ x result}
- ensures {size t = length result} 
+ (*ensures {size t = length result}*)
+ 
+end
 
+
+(* 1. *) 
+
+theory Test
+
+use int.Int
+use number.Gcd
+
+let rec function euclid (u v : int) : int 
+  requires {u > 0 /\ v > 0}
+  ensures { result = Gcd.gcd u v }
+  ensures { result <= u }
+  ensures { result <= v }
+  ensures { 0 < result }
+  (* faltava o variante, im dumb*)
+  variant {u + v}
+  = if u = v then u
+    (* enganei me no simbolo, confundi '<>' com o de igualdade *)
+    else 
+      if u > v then euclid (u - v) v
+      else euclid u (v - u) 
+ 
+ 
+(*2.
+
+ val function tree_to_list (t : tree int) : list int
+ requires {sortedBT t}
+ ensures {sorted result}
+ ensures {forall x : int. num_occBT x t = num_occ x result}
+ ensures {size t = length result}
+ 
+
+*)
+ 
+ use list.Append
+ use list.List
+ use list.SortedInt
+ use list.NumOcc
+ 
+ use import BTree
+ 
+ let rec function tree_to_list (t : tree int) : list int
+  requires {sortedBT t}
+  ensures {sorted result}
+  ensures {forall x : int. num_occBT x t = num_occ x result}
+  variant {t} 
+  = match t with
+    | Empty -> Nil
+    | Node l e r -> tree_to_list l ++ (Cons e Nil) ++ tree_to_list r
+   end
+   
+clone Ex2 with val tree_to_list = tree_to_list
+ 
+
+ 
 (* 3. *)
 
 use ref.Refint
 use array.Array
 use array.NumOfEq
+use array.IntArraySorted
 
 let rec function numof (u : array int) (x : int) (k : int) (l : int) : int
   requires {0 <= k < l <= length u }
-  ensures {0 <= result <= l - k}
+  ensures {0 <= result <= l - k /\ NumOfEq.numof u x k l = result}
   variant {l - k}
-  = if k = l - 1 then 
-       0
-    else 
-      (numof u x (k+1) l) + ( if x = u[k] then 1 else 0 )
+  = (if x = u[k] then 1 else 0) + (if k < l - 1 then (numof u x (k+1) l) else 0)
 
 (*4.*)
 
+let most_frequent (a : array int) : int 
+  requires {length a > 0}
+  requires {sorted a}
+  ensures {forall x : int. numof a x 0 (length a) <= numof a result 0 (length a)}
+  = let ref r = a[0] in
+    let ref c = 1 in 
+    let ref m = 1 in
+    for i = 1 to length a - 1 do
+      invariant {forall x : int. (numof a x 0 i) <= (numof a r 0 i)}
+      invariant {m = numof a r 0 i}
+      invariant {c = numof a (a[i-1]) 0 i}
+        if a[i] = a[i-1] then begin
+          incr c;
+          if c > m then begin m <- c; r <- a[i] end 
+        end else 
+          c <- 1 
+     done;
+     r
 
-
+end
 
 
 
