@@ -44,8 +44,8 @@ let rec ghost function size (t : tree 'a) : int =
                       
 
 let rec ghost function num_occBT (x : int) (t : tree int) : int =
-  ensures {(memt t x <-> result > 0) /\ (not (memt t x) <-> result = 0)}
   variant {t}
+  ensures {(memt t x <-> result > 0) /\ (not (memt t x) <-> result = 0)}
    match t with 
     | Empty -> 0
     | Node l e r -> (if e = x then 1 else 0) + num_occBT x l + num_occBT x r 
@@ -84,14 +84,13 @@ use list.List
 use list.SortedInt
 use list.NumOcc
 use list.Length
+use list.Append
 use BTree
 
 val function tree_to_list (t : tree int) : list int
  requires {sortedBT t}
  ensures {sorted result}
  ensures {forall x : int. num_occBT x t = num_occ x result}
- (*ensures {size t = length result}*)
-
 end
 
 module ProvingEx2
@@ -103,14 +102,17 @@ use list.NumOcc
 use list.Length
 use list.Append
 
- let rec function tree_to_list (t : tree int) : list int
+ let rec function tree_to_list_ (t : tree int) : list int
+  requires {sortedBT t}
+  ensures {sorted result}
+  ensures {forall x : int. num_occBT x t = num_occ x result}
   variant {t} 
   = match t with
     | Empty -> Nil
-    | Node l e r -> tree_to_list l ++ (Cons e Nil) ++ tree_to_list r
+    | Node l e r -> tree_to_list_ l ++ (Cons e (tree_to_list_ r))
    end
 
-clone Ex2 with val tree_to_list = tree_to_list
+clone Ex2 with val tree_to_list = tree_to_list_
 
 end
 
@@ -124,41 +126,37 @@ use array.NumOfEq
 use array.IntArraySorted
 
 let rec function numof (u : array int) (x : int) (k : int) (l : int) : int
-  requires {0 <= k < l <= length u }
-  ensures {0 <= result <= l - k}
+  requires { 0 <= k < l <= length u }
+  ensures {0 <= result <= l - k /\ (result = NumOfEq.numof u x k l)}
   variant {l - k}
-  = (if x = u[k] then 1 else 0) + (if k < l - 1 then (numof u x (k+1) l) else 0)
+  = (if x = u[k] then 1 else 0) + (if k < (l - 1) then (numof u x (k+1) l) else 0)
 
 end
 
 
 module Ex4
-use Ex3
-use int.Int
-use ref.Refint
-use array.Array
-use array.NumOfEq
-use array.IntArraySorted
+  use int.Int
+    use ref.Refint
+    use array.Array
+    use array.NumOfEq
+    use array.IntArraySorted
 
-
-let most_frequent (a : array int) : int 
-  requires {length a > 0}
-  requires {sorted a}
-  ensures {forall x : int. numof a x 0 (length a) <= numof a result 0 (length a)}
-  ensures {(old a) = a}
-  = let ref r = a[0] in
-    let ref c = 1 in 
-    let ref m = 1 in
-    for i = 1 to length a - 1 do
-      invariant {forall x : int. (numof a x 0 i) <= (numof a r 0 i)}
-      invariant {m = numof a r 0 i}
-      invariant {c = numof a (a[i-1]) 0 i}
+    let most_frequent (a : array int) : int
+        requires {length a > 0} 
+        requires {sorted a}             
+        ensures  { forall x : int. (numof a x 0 (length a))  <= (numof a result 0 (length a)) }
+    = let ref r = a[0] in 
+      let ref c = 1 in
+      let ref m = 1 in 
+      for i = 1 to length a - 1 do
+        invariant {m = numof a r 0 i}
+        invariant {c = numof a (a[i-1]) 0 i}
+        invariant { forall x : int. (numof a x 0 i)  <= (numof a r 0 i)}
         if a[i] = a[i-1] then begin
-          incr c;
-          if c > m then begin m <- c; r <- a[i] end 
-        end else 
-          c <- 1 
-     done;
-     r
-
+            incr c;
+            if c > m then begin m <- c ; r <- a[i] end
+        end else
+            c <- 1
+        done;
+        r
 end
