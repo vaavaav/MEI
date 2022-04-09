@@ -35,11 +35,11 @@ let rec predicate sortedBT (t : tree int) =
    | Node l e r -> sortedBT l && sortedBT r && geq e l && leq e r
   end
   
-let rec ghost function size (t : tree 'a) : int =
+let rec ghost function sizeBT (t : tree 'a) : int =
   variant {t}
     match t with
      | Empty -> 0
-     | Node l _ r -> size l + 1 + size r
+     | Node l _ r -> sizeBT l + 1 + sizeBT r
     end
                       
 
@@ -67,10 +67,8 @@ let rec function euclid (u v : int) : int
   ensures { result <= u }
   ensures { result <= v }
   ensures { 0 < result }
-  (* faltava o variante, im dumb*)
   variant {u + v}
   = if u = v then u
-    (* enganei me no simbolo, confundi '<>' com o de igualdade *)
     else 
       if u > v then euclid (u - v) v
       else euclid u (v - u) 
@@ -84,13 +82,13 @@ use list.List
 use list.SortedInt
 use list.NumOcc
 use list.Length
-use list.Append
 use BTree
 
 val function tree_to_list (t : tree int) : list int
  requires {sortedBT t}
  ensures {sorted result}
  ensures {forall x : int. num_occBT x t = num_occ x result}
+ ensures {sizeBT t = length result}
 end
 
 module ProvingEx2
@@ -106,6 +104,7 @@ use list.Append
   requires {sortedBT t}
   ensures {sorted result}
   ensures {forall x : int. num_occBT x t = num_occ x result}
+  ensures {sizeBT t = length result}
   variant {t} 
   = match t with
     | Empty -> Nil
@@ -117,41 +116,24 @@ clone Ex2 with val tree_to_list = tree_to_list_
 end
 
 
-module Ex3
-
-use int.Int
-use ref.Refint
-use array.Array
-use array.NumOfEq
-use array.IntArraySorted
-
-let rec function numof (u : array int) (x : int) (k : int) (l : int) : int
-  requires { 0 <= k < l <= length u }
-  ensures {0 <= result <= l - k /\ (result = NumOfEq.numof u x k l)}
-  variant {l - k}
-  = (if x = u[k] then 1 else 0) + (if k < (l - 1) then (numof u x (k+1) l) else 0)
-
-end
-
-
 module Ex4
-  use int.Int
+
+    use int.Int
     use ref.Refint
     use array.Array
     use array.NumOfEq
-    use array.IntArraySorted
 
     let most_frequent (a : array int) : int
         requires {length a > 0} 
-        requires {sorted a}             
+        requires {forall i j : int. 0 <= i < j < (length a) -> a[i] <= a[j] }             
         ensures  { forall x : int. (numof a x 0 (length a))  <= (numof a result 0 (length a)) }
+        ensures  { (numof a result 0 (length a)) > 0}
     = let ref r = a[0] in 
       let ref c = 1 in
       let ref m = 1 in 
       for i = 1 to length a - 1 do
-        invariant {m = numof a r 0 i}
-        invariant {c = numof a (a[i-1]) 0 i}
-        invariant { forall x : int. (numof a x 0 i)  <= (numof a r 0 i)}
+        invariant {(forall j : int. 0 <= j < i -> (numof a a[j] 0 i) <= m /\ m = numof a r 0 i /\ c  <= m) /\ m <= length a}
+        invariant {c = numof a a[i-1] 0 i}
         if a[i] = a[i-1] then begin
             incr c;
             if c > m then begin m <- c ; r <- a[i] end
@@ -159,4 +141,5 @@ module Ex4
             c <- 1
         done;
         r
+        
 end
