@@ -60,7 +60,7 @@ let rec ghost function num_occ (x : int) (t : tree int) : int =
     ensures  { forall x : int. memt result x <-> (memt t x \/ x = v) }
     ensures  { forall x : int. num_occ x result =
                                if x = v then 1 + num_occ x t else num_occ x t }
-    variant { t }
+    variant { t }W
     match t with
      | Empty -> Node (Empty) v (Empty)
      | Node t1 x t2 ->

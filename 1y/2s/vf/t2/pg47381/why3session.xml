@@ -66,78 +66,78 @@
   <proof prover="1" timelimit="10" memlimit="4000" obsolete="true"><result status="timeout" time="10.00"/></proof>
   </goal>
   <goal name="tree_to_list&#39;refn&#39;vc.2" expl="postcondition">
-  <proof prover="0" obsolete="true"><undone/></proof>
-  <proof prover="1" obsolete="true"><undone/></proof>
+  <proof prover="0" obsolete="true"><result status="failure" time="0.00"/></proof>
+  <proof prover="1" obsolete="true"><result status="failure" time="0.00"/></proof>
   </goal>
  </transf>
  </goal>
  <goal name="numof&#39;vc" expl="VC for numof">
  </goal>
  <goal name="most_frequent&#39;vc" expl="VC for most_frequent">
- <proof prover="0"><result status="timeout" time="1.00" steps="93235"/></proof>
- <proof prover="1"><result status="timeout" time="1.00"/></proof>
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="93235"/></proof>
+ <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
  <transf name="split_vc" >
   <goal name="most_frequent&#39;vc.0" expl="index in array bounds">
-  <proof prover="1"><result status="valid" time="0.01" steps="8"/></proof>
+  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="236146"/></proof>
+  <proof prover="1" obsolete="true"><result status="valid" time="0.20" steps="841"/></proof>
   </goal>
   <goal name="most_frequent&#39;vc.1" expl="loop invariant init">
-  <proof prover="1"><result status="valid" time="0.02" steps="32"/></proof>
+  <proof prover="0" timelimit="10" memlimit="4000" obsolete="true"><result status="timeout" time="10.00" steps="1953171"/></proof>
+  <proof prover="1" timelimit="10" memlimit="4000" obsolete="true"><result status="timeout" time="10.00"/></proof>
   </goal>
   <goal name="most_frequent&#39;vc.2" expl="loop invariant init">
-  <proof prover="1"><result status="valid" time="0.02" steps="22"/></proof>
+  <proof prover="1" obsolete="true"><result status="valid" time="0.02" steps="11"/></proof>
   </goal>
   <goal name="most_frequent&#39;vc.3" expl="loop invariant init">
-  <proof prover="1"><result status="valid" time="0.02" steps="11"/></proof>
+  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="314727"/></proof>
+  <proof prover="1" obsolete="true"><result status="valid" time="0.24" steps="1053"/></proof>
   </goal>
   <goal name="most_frequent&#39;vc.4" expl="index in array bounds">
-  <proof prover="1"><result status="valid" time="0.02" steps="17"/></proof>
+  <proof prover="1" obsolete="true"><result status="valid" time="0.01" steps="17"/></proof>
   </goal>
   <goal name="most_frequent&#39;vc.5" expl="index in array bounds">
-  <proof prover="1"><result status="valid" time="0.01" steps="17"/></proof>
+  <proof prover="1" obsolete="true"><result status="valid" time="0.02" steps="17"/></proof>
   </goal>
   <goal name="most_frequent&#39;vc.6" expl="index in array bounds">
-  <proof prover="1"><result status="valid" time="0.02" steps="25"/></proof>
+  <proof prover="1" obsolete="true"><result status="valid" time="0.01" steps="8"/></proof>
   </goal>
   <goal name="most_frequent&#39;vc.7" expl="loop invariant preservation">
-  <proof prover="0"><result status="timeout" time="1.00" steps="435737"/></proof>
-  <proof prover="1" timelimit="10" memlimit="4000"><result status="valid" time="2.68" steps="11232"/></proof>
+  <proof prover="1" obsolete="true"><result status="valid" time="0.02" steps="32"/></proof>
   </goal>
   <goal name="most_frequent&#39;vc.8" expl="loop invariant preservation">
-  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="314727"/></proof>
-  <proof prover="1"><result status="valid" time="0.24" steps="1053"/></proof>
+  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="241610"/></proof>
+  <proof prover="1" timelimit="10" memlimit="4000" obsolete="true"><result status="valid" time="4.33" steps="17659"/></proof>
   </goal>
   <goal name="most_frequent&#39;vc.9" expl="loop invariant preservation">
-  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="96407"/></proof>
-  <proof prover="1"><result status="valid" time="0.03" steps="29"/></proof>
+  <proof prover="1" obsolete="true"><result status="valid" time="0.26" steps="1086"/></proof>
   </goal>
   <goal name="most_frequent&#39;vc.10" expl="loop invariant preservation">
-  <proof prover="0"><result status="timeout" time="1.00" steps="121678"/></proof>
-  <proof prover="1" timelimit="10" memlimit="4000"><result status="valid" time="3.24" steps="12812"/></proof>
+  <proof prover="0" timelimit="10" memlimit="4000" obsolete="true"><result status="timeout" time="10.00" steps="5489138"/></proof>
+  <proof prover="1" timelimit="10" memlimit="4000" obsolete="true"><result status="timeout" time="10.00"/></proof>
   </goal>
   <goal name="most_frequent&#39;vc.11" expl="loop invariant preservation">
-  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="236146"/></proof>
-  <proof prover="1"><result status="valid" time="0.20" steps="841"/></proof>
+  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="435737"/></proof>
+  <proof prover="1" timelimit="10" memlimit="4000" obsolete="true"><result status="valid" time="2.68" steps="11232"/></proof>
   </goal>
   <goal name="most_frequent&#39;vc.12" expl="loop invariant preservation">
-  <proof prover="1"><result status="valid" time="0.26" steps="1086"/></proof>
+  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="96407"/></proof>
+  <proof prover="1" obsolete="true"><result status="valid" time="0.03" steps="29"/></proof>
   </goal>
   <goal name="most_frequent&#39;vc.13" expl="loop invariant preservation">
-  <proof prover="0" timelimit="10" memlimit="4000"><result status="timeout" time="10.00" steps="5489138"/></proof>
-  <proof prover="1" timelimit="10" memlimit="4000"><result status="timeout" time="10.00"/></proof>
+  <proof prover="1" obsolete="true"><result status="valid" time="0.03" steps="49"/></proof>
   </goal>
   <goal name="most_frequent&#39;vc.14" expl="loop invariant preservation">
-  <proof prover="0"><result status="timeout" time="1.00" steps="241610"/></proof>
-  <proof prover="1" timelimit="10" memlimit="4000"><result status="valid" time="4.33" steps="17659"/></proof>
+  <proof prover="1" obsolete="true"><result status="valid" time="0.02" steps="22"/></proof>
   </goal>
   <goal name="most_frequent&#39;vc.15" expl="loop invariant preservation">
-  <proof prover="0" timelimit="10" memlimit="4000"><result status="timeout" time="10.00" steps="1953171"/></proof>
-  <proof prover="1" timelimit="10" memlimit="4000"><result status="timeout" time="10.00"/></proof>
+  <proof prover="1" obsolete="true"><result status="valid" time="0.02" steps="25"/></proof>
   </goal>
   <goal name="most_frequent&#39;vc.16" expl="postcondition">
-  <proof prover="1"><result status="valid" time="0.03" steps="49"/></proof>
+  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="121678"/></proof>
+  <proof prover="1" timelimit="10" memlimit="4000" obsolete="true"><result status="valid" time="3.24" steps="12812"/></proof>
   </goal>
   <goal name="most_frequent&#39;vc.17" expl="postcondition">
-  <proof prover="1"><result status="valid" time="0.02" steps="8"/></proof>
+  <proof prover="1" obsolete="true"><result status="valid" time="0.02" steps="8"/></proof>
   </goal>
  </transf>
  </goal>
@@ -453,12 +453,12 @@
    <proof prover="1"><result status="valid" time="0.02" steps="11"/></proof>
    </goal>
    <goal name="most_frequent&#39;vc.36.0" expl="postcondition">
-   <proof prover="0"><undone/></proof>
-   <proof prover="1"><undone/></proof>
+   <proof prover="0"><result status="failure" time="0.00"/></proof>
+   <proof prover="1"><result status="failure" time="0.00"/></proof>
    </goal>
    <goal name="most_frequent&#39;vc.7.1" expl="loop invariant preservation">
-   <proof prover="0"><undone/></proof>
-   <proof prover="1"><undone/></proof>
+   <proof prover="0"><result status="failure" time="0.00"/></proof>
+   <proof prover="1"><result status="failure" time="0.00"/></proof>
    </goal>
   </transf>
   </goal>
@@ -478,12 +478,12 @@
    <proof prover="1"><result status="valid" time="0.02" steps="11"/></proof>
    </goal>
    <goal name="most_frequent&#39;vc.15.2" expl="loop invariant preservation">
-   <proof prover="0"><undone/></proof>
-   <proof prover="1"><undone/></proof>
+   <proof prover="0"><result status="failure" time="0.00"/></proof>
+   <proof prover="1"><result status="failure" time="0.00"/></proof>
    </goal>
    <goal name="most_frequent&#39;vc.7.2" expl="loop invariant preservation">
-   <proof prover="0"><undone/></proof>
-   <proof prover="1"><undone/></proof>
+   <proof prover="0"><result status="failure" time="0.00"/></proof>
+   <proof prover="1"><result status="failure" time="0.00"/></proof>
    </goal>
   </transf>
   </goal>
@@ -499,16 +499,16 @@
    <proof prover="1" timelimit="10" memlimit="4000"><result status="timeout" time="10.00"/></proof>
    </goal>
    <goal name="most_frequent&#39;vc.8.1" expl="loop invariant preservation">
-   <proof prover="0"><undone/></proof>
-   <proof prover="1"><undone/></proof>
+   <proof prover="0"><result status="failure" time="0.00"/></proof>
+   <proof prover="1"><result status="failure" time="0.00"/></proof>
    </goal>
    <goal name="most_frequent&#39;vc.8.0" expl="loop invariant preservation">
-   <proof prover="0"><undone/></proof>
-   <proof prover="1"><undone/></proof>
+   <proof prover="0"><result status="failure" time="0.00"/></proof>
+   <proof prover="1"><result status="failure" time="0.00"/></proof>
    </goal>
    <goal name="most_frequent&#39;vc.9.2" expl="loop invariant preservation">
-   <proof prover="0"><undone/></proof>
-   <proof prover="1"><undone/></proof>
+   <proof prover="0"><result status="failure" time="0.00"/></proof>
+   <proof prover="1"><result status="failure" time="0.00"/></proof>
    </goal>
   </transf>
   </goal>
@@ -529,16 +529,16 @@
    <proof prover="1"><result status="valid" time="0.76" steps="4447"/></proof>
    </goal>
    <goal name="most_frequent&#39;vc.1.0" expl="loop invariant init">
-   <proof prover="0"><undone/></proof>
-   <proof prover="1"><undone/></proof>
+   <proof prover="0"><result status="failure" time="0.00"/></proof>
+   <proof prover="1"><result status="failure" time="0.00"/></proof>
    </goal>
    <goal name="most_frequent&#39;vc.10.2" expl="loop invariant preservation">
-   <proof prover="0"><undone/></proof>
-   <proof prover="1"><undone/></proof>
+   <proof prover="0"><result status="failure" time="0.00"/></proof>
+   <proof prover="1"><result status="failure" time="0.00"/></proof>
    </goal>
    <goal name="most_frequent&#39;vc.14.1" expl="postcondition">
-   <proof prover="0"><undone/></proof>
-   <proof prover="1"><undone/></proof>
+   <proof prover="0"><result status="failure" time="0.00"/></proof>
+   <proof prover="1"><result status="failure" time="0.00"/></proof>
    </goal>
   </transf>
   </goal>
@@ -571,16 +571,16 @@
   </transf>
   </goal>
   <goal name="most_frequent&#39;vc.24" expl="loop invariant preservation">
-  <proof prover="0"><undone/></proof>
-  <proof prover="1"><undone/></proof>
+  <proof prover="0"><result status="failure" time="0.00"/></proof>
+  <proof prover="1"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="most_frequent&#39;vc.3" expl="loop invariant init">
-  <proof prover="0"><undone/></proof>
-  <proof prover="1"><undone/></proof>
+  <proof prover="0"><result status="failure" time="0.00"/></proof>
+  <proof prover="1"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="most_frequent&#39;vc.16" expl="loop invariant preservation">
-  <proof prover="0"><undone/></proof>
-  <proof prover="1"><undone/></proof>
+  <proof prover="0"><result status="failure" time="0.00"/></proof>
+  <proof prover="1"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="most_frequent&#39;vc.12" expl="loop invariant preservation">
   <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="150171"/></proof>
@@ -593,64 +593,64 @@
     <goal name="most_frequent&#39;vc.12.0.0" expl="loop invariant preservation">
     <transf name="split_all_full" >
      <goal name="most_frequent&#39;vc.12.0.0.0" expl="loop invariant preservation">
-     <proof prover="0"><undone/></proof>
-     <proof prover="1"><undone/></proof>
+     <proof prover="0"><result status="failure" time="0.00"/></proof>
+     <proof prover="1"><result status="failure" time="0.00"/></proof>
      </goal>
     </transf>
     </goal>
    </transf>
    </goal>
    <goal name="most_frequent&#39;vc.7.0" expl="loop invariant preservation">
-   <proof prover="0"><undone/></proof>
-   <proof prover="1"><undone/></proof>
+   <proof prover="0"><result status="failure" time="0.00"/></proof>
+   <proof prover="1"><result status="failure" time="0.00"/></proof>
    </goal>
   </transf>
   </goal>
   <goal name="most_frequent&#39;vc.2" expl="loop invariant init">
-  <proof prover="0"><undone/></proof>
-  <proof prover="1"><undone/></proof>
+  <proof prover="0"><result status="failure" time="0.00"/></proof>
+  <proof prover="1"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="most_frequent&#39;vc.21" expl="loop invariant preservation">
-  <proof prover="0"><undone/></proof>
-  <proof prover="1"><undone/></proof>
+  <proof prover="0"><result status="failure" time="0.00"/></proof>
+  <proof prover="1"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="most_frequent&#39;vc.6" expl="loop invariant init">
   <proof prover="0"><result status="timeout" time="1.00" steps="142524"/></proof>
   <proof prover="1"><result status="timeout" time="1.00"/></proof>
   <transf name="split_vc" >
    <goal name="most_frequent&#39;vc.6.0" expl="loop invariant init">
-   <proof prover="0"><undone/></proof>
-   <proof prover="1"><undone/></proof>
+   <proof prover="0"><result status="failure" time="0.00"/></proof>
+   <proof prover="1"><result status="failure" time="0.00"/></proof>
    </goal>
   </transf>
   </goal>
   <goal name="most_frequent&#39;vc.35" expl="loop invariant preservation">
-  <proof prover="0"><undone/></proof>
-  <proof prover="1"><undone/></proof>
+  <proof prover="0"><result status="failure" time="0.00"/></proof>
+  <proof prover="1"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="most_frequent&#39;vc.31" expl="loop invariant preservation">
-  <proof prover="0"><undone/></proof>
-  <proof prover="1"><undone/></proof>
+  <proof prover="0"><result status="failure" time="0.00"/></proof>
+  <proof prover="1"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="most_frequent&#39;vc.26" expl="loop invariant preservation">
   <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="137134"/></proof>
   <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
   <transf name="split_vc" >
    <goal name="most_frequent&#39;vc.26.0" expl="loop invariant preservation">
-   <proof prover="0"><undone/></proof>
-   <proof prover="1"><undone/></proof>
+   <proof prover="0"><result status="failure" time="0.00"/></proof>
+   <proof prover="1"><result status="failure" time="0.00"/></proof>
    </goal>
    <goal name="most_frequent&#39;vc.11.0" expl="loop invariant preservation">
-   <proof prover="0"><undone/></proof>
-   <proof prover="1"><undone/></proof>
+   <proof prover="0"><result status="failure" time="0.00"/></proof>
+   <proof prover="1"><result status="failure" time="0.00"/></proof>
    </goal>
    <goal name="most_frequent&#39;vc.11.1" expl="loop invariant preservation">
-   <proof prover="0"><undone/></proof>
-   <proof prover="1"><undone/></proof>
+   <proof prover="0"><result status="failure" time="0.00"/></proof>
+   <proof prover="1"><result status="failure" time="0.00"/></proof>
    </goal>
    <goal name="most_frequent&#39;vc.9.2" expl="loop invariant preservation">
-   <proof prover="0"><undone/></proof>
-   <proof prover="1"><undone/></proof>
+   <proof prover="0"><result status="failure" time="0.00"/></proof>
+   <proof prover="1"><result status="failure" time="0.00"/></proof>
    </goal>
   </transf>
   </goal>
@@ -659,76 +659,76 @@
   <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
   <transf name="split_vc" >
    <goal name="most_frequent&#39;vc.17.0" expl="loop invariant preservation">
-   <proof prover="0"><undone/></proof>
-   <proof prover="1"><undone/></proof>
+   <proof prover="0"><result status="failure" time="0.00"/></proof>
+   <proof prover="1"><result status="failure" time="0.00"/></proof>
    </goal>
   </transf>
   </goal>
   <goal name="most_frequent&#39;vc.15" expl="loop invariant preservation">
-  <proof prover="0"><undone/></proof>
-  <proof prover="1"><undone/></proof>
+  <proof prover="0"><result status="failure" time="0.00"/></proof>
+  <proof prover="1"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="most_frequent&#39;vc.14" expl="loop invariant preservation">
-  <proof prover="0"><undone/></proof>
-  <proof prover="1"><undone/></proof>
+  <proof prover="0"><result status="failure" time="0.00"/></proof>
+  <proof prover="1"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="most_frequent&#39;vc.30" expl="loop invariant preservation">
-  <proof prover="0"><undone/></proof>
-  <proof prover="1"><undone/></proof>
+  <proof prover="0"><result status="failure" time="0.00"/></proof>
+  <proof prover="1"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="most_frequent&#39;vc.9" expl="index in array bounds">
   <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="133349"/></proof>
   <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
   <transf name="split_vc" >
    <goal name="most_frequent&#39;vc.9.0" expl="index in array bounds">
-   <proof prover="0"><undone/></proof>
-   <proof prover="1"><undone/></proof>
+   <proof prover="0"><result status="failure" time="0.00"/></proof>
+   <proof prover="1"><result status="failure" time="0.00"/></proof>
    </goal>
    <goal name="most_frequent&#39;vc.9.1" expl="index in array bounds">
-   <proof prover="0"><undone/></proof>
-   <proof prover="1"><undone/></proof>
+   <proof prover="0"><result status="failure" time="0.00"/></proof>
+   <proof prover="1"><result status="failure" time="0.00"/></proof>
    </goal>
   </transf>
   </goal>
   <goal name="most_frequent&#39;vc.7" expl="loop invariant init">
-  <proof prover="0"><undone/></proof>
-  <proof prover="1"><undone/></proof>
+  <proof prover="0"><result status="failure" time="0.00"/></proof>
+  <proof prover="1"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="most_frequent&#39;vc.4" expl="loop invariant init">
-  <proof prover="0"><undone/></proof>
-  <proof prover="1"><undone/></proof>
+  <proof prover="0"><result status="failure" time="0.00"/></proof>
+  <proof prover="1"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="most_frequent&#39;vc.25" expl="loop invariant preservation">
   <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="201659"/></proof>
   <proof prover="1" obsolete="true"><result status="timeout" time="2.00"/></proof>
   <transf name="split_vc" >
    <goal name="most_frequent&#39;vc.25.0" expl="loop invariant preservation">
-   <proof prover="0"><undone/></proof>
-   <proof prover="1"><undone/></proof>
+   <proof prover="0"><result status="failure" time="0.00"/></proof>
+   <proof prover="1"><result status="failure" time="0.00"/></proof>
    </goal>
   </transf>
   </goal>
   <goal name="most_frequent&#39;vc.22" expl="loop invariant preservation">
-  <proof prover="0"><undone/></proof>
-  <proof prover="1"><undone/></proof>
+  <proof prover="0"><result status="failure" time="0.00"/></proof>
+  <proof prover="1"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="most_frequent&#39;vc.5" expl="loop invariant init">
-  <proof prover="0"><undone/></proof>
-  <proof prover="1"><undone/></proof>
+  <proof prover="0"><result status="failure" time="0.00"/></proof>
+  <proof prover="1"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="most_frequent&#39;vc.33" expl="loop invariant preservation">
   <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="208509"/></proof>
   <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
   <transf name="split_vc" >
    <goal name="most_frequent&#39;vc.33.0" expl="loop invariant preservation">
-   <proof prover="0"><undone/></proof>
-   <proof prover="1"><undone/></proof>
+   <proof prover="0"><result status="failure" time="0.00"/></proof>
+   <proof prover="1"><result status="failure" time="0.00"/></proof>
    </goal>
   </transf>
   </goal>
   <goal name="most_frequent&#39;vc.23" expl="loop invariant preservation">
-  <proof prover="0"><undone/></proof>
-  <proof prover="1"><undone/></proof>
+  <proof prover="0"><result status="failure" time="0.00"/></proof>
+  <proof prover="1"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="most_frequent&#39;vc.20" expl="loop invariant preservation">
   <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="149725"/></proof>
@@ -741,16 +741,16 @@
     <goal name="most_frequent&#39;vc.20.0.0" expl="loop invariant preservation">
     <transf name="split_all_full" >
      <goal name="most_frequent&#39;vc.20.0.0.0" expl="loop invariant preservation">
-     <proof prover="0"><undone/></proof>
-     <proof prover="1"><undone/></proof>
+     <proof prover="0"><result status="failure" time="0.00"/></proof>
+     <proof prover="1"><result status="failure" time="0.00"/></proof>
      </goal>
     </transf>
     </goal>
    </transf>
    </goal>
    <goal name="most_frequent&#39;vc.9.0" expl="loop invariant preservation">
-   <proof prover="0"><undone/></proof>
-   <proof prover="1"><undone/></proof>
+   <proof prover="0"><result status="failure" time="0.00"/></proof>
+   <proof prover="1"><result status="failure" time="0.00"/></proof>
    </goal>
   </transf>
   </goal>
@@ -759,22 +759,22 @@
   <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
   <transf name="split_vc" >
    <goal name="most_frequent&#39;vc.18.0" expl="loop invariant preservation">
-   <proof prover="0"><undone/></proof>
-   <proof prover="1"><undone/></proof>
+   <proof prover="0"><result status="failure" time="0.00"/></proof>
+   <proof prover="1"><result status="failure" time="0.00"/></proof>
    </goal>
    <goal name="most_frequent&#39;vc.14.1" expl="loop invariant preservation">
-   <proof prover="0"><undone/></proof>
-   <proof prover="1"><undone/></proof>
+   <proof prover="0"><result status="failure" time="0.00"/></proof>
+   <proof prover="1"><result status="failure" time="0.00"/></proof>
    </goal>
    <goal name="most_frequent&#39;vc.14.0" expl="loop invariant preservation">
-   <proof prover="0"><undone/></proof>
-   <proof prover="1"><undone/></proof>
+   <proof prover="0"><result status="failure" time="0.00"/></proof>
+   <proof prover="1"><result status="failure" time="0.00"/></proof>
    </goal>
   </transf>
   </goal>
   <goal name="most_frequent&#39;vc.29" expl="loop invariant preservation">
-  <proof prover="0"><undone/></proof>
-  <proof prover="1"><undone/></proof>
+  <proof prover="0"><result status="failure" time="0.00"/></proof>
+  <proof prover="1"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="most_frequent&#39;vc.28" expl="loop invariant preservation">
   <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="265498"/></proof>
@@ -787,16 +787,16 @@
     <goal name="most_frequent&#39;vc.28.0.0" expl="loop invariant preservation">
     <transf name="split_all_full" >
      <goal name="most_frequent&#39;vc.28.0.0.0" expl="loop invariant preservation">
-     <proof prover="0"><undone/></proof>
-     <proof prover="1"><undone/></proof>
+     <proof prover="0"><result status="failure" time="0.00"/></proof>
+     <proof prover="1"><result status="failure" time="0.00"/></proof>
      </goal>
     </transf>
     </goal>
    </transf>
    </goal>
    <goal name="most_frequent&#39;vc.11.0" expl="loop invariant preservation">
-   <proof prover="0"><undone/></proof>
-   <proof prover="1"><undone/></proof>
+   <proof prover="0"><result status="failure" time="0.00"/></proof>
+   <proof prover="1"><result status="failure" time="0.00"/></proof>
    </goal>
   </transf>
   </goal>
@@ -805,26 +805,26 @@
   <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
   <transf name="split_vc" >
    <goal name="most_frequent&#39;vc.11.0" expl="index in array bounds">
-   <proof prover="0"><undone/></proof>
-   <proof prover="1"><undone/></proof>
+   <proof prover="0"><result status="failure" time="0.00"/></proof>
+   <proof prover="1"><result status="failure" time="0.00"/></proof>
    </goal>
    <goal name="most_frequent&#39;vc.11.1" expl="index in array bounds">
-   <proof prover="0"><undone/></proof>
-   <proof prover="1"><undone/></proof>
+   <proof prover="0"><result status="failure" time="0.00"/></proof>
+   <proof prover="1"><result status="failure" time="0.00"/></proof>
    </goal>
    <goal name="most_frequent&#39;vc.8.0" expl="loop invariant preservation">
-   <proof prover="0"><undone/></proof>
-   <proof prover="1"><undone/></proof>
+   <proof prover="0"><result status="failure" time="0.00"/></proof>
+   <proof prover="1"><result status="failure" time="0.00"/></proof>
    </goal>
    <goal name="most_frequent&#39;vc.8.1" expl="loop invariant preservation">
-   <proof prover="0"><undone/></proof>
-   <proof prover="1"><undone/></proof>
+   <proof prover="0"><result status="failure" time="0.00"/></proof>
+   <proof prover="1"><result status="failure" time="0.00"/></proof>
    </goal>
   </transf>
   </goal>
   <goal name="most_frequent&#39;vc.8" expl="loop invariant init">
-  <proof prover="0"><undone/></proof>
-  <proof prover="1"><undone/></proof>
+  <proof prover="0"><result status="failure" time="0.00"/></proof>
+  <proof prover="1"><result status="failure" time="0.00"/></proof>
   </goal>
  </transf>
  </goal>
@@ -850,32 +850,6 @@
  </goal>
 </theory>
 </file>
-<file format="whyml" proved="true">
-<path name=".."/><path name=".."/><path name="why3_examples"/><path name="programs-btree.mlw"/>
-<theory name="Bintree_insert" proved="true">
- <goal name="memt&#39;vc" expl="VC for memt" proved="true">
- <proof prover="1"><result status="valid" time="0.01" steps="51"/></proof>
- </goal>
- <goal name="leq&#39;vc" expl="VC for leq" proved="true">
- <proof prover="1"><result status="valid" time="0.04" steps="500"/></proof>
- </goal>
- <goal name="geq&#39;vc" expl="VC for geq" proved="true">
- <proof prover="1"><result status="valid" time="0.06" steps="916"/></proof>
- </goal>
- <goal name="sortedBT&#39;vc" expl="VC for sortedBT" proved="true">
- <proof prover="1"><result status="valid" time="0.01" steps="47"/></proof>
- </goal>
- <goal name="size&#39;vc" expl="VC for size" proved="true">
- <proof prover="1"><result status="valid" time="0.00" steps="46"/></proof>
- </goal>
- <goal name="num_occ&#39;vc" expl="VC for num_occ" proved="true">
- <proof prover="1"><result status="valid" time="0.01" steps="70"/></proof>
- </goal>
- <goal name="add&#39;vc" expl="VC for add" proved="true">
- <proof prover="1"><result status="valid" time="0.12" steps="1120"/></proof>
- </goal>
-</theory>
-</file>
 <file format="whyml">
 <path name=".."/><path name=".."/><path name="why3_examples"/><path name="selsort.mlw"/>
 <theory name="SelectionSort_jsp">
@@ -886,5 +860,38 @@
  <goal name="selection_sort_sort&#39;vc" expl="VC for selection_sort_sort">
  </goal>
 </theory>
+</file>
+<file format="whyml">
+<path name=".."/><path name="btree.why"/>
+<theory name="BTree">
+ <goal name="memt&#39;vc" expl="VC for memt">
+ </goal>
+ <goal name="leq&#39;vc" expl="VC for leq">
+ </goal>
+ <goal name="geq&#39;vc" expl="VC for geq">
+ </goal>
+ <goal name="sortedBT&#39;vc" expl="VC for sortedBT">
+ </goal>
+ <goal name="size&#39;vc" expl="VC for size">
+ </goal>
+ <goal name="num_occBT&#39;vc" expl="VC for num_occBT">
+ </goal>
+</theory>
+</file>
+<file format="whyml">
+<path name=".."/><path name="ex1.why"/>
+<theory name="Top">
+ <goal name="euclid&#39;vc" expl="VC for euclid">
+ </goal>
+</theory>
+</file>
+<file format="whyml" proved="true">
+<path name=".."/><path name="ex2.why"/>
+</file>
+<file format="whyml" proved="true">
+<path name=".."/><path name="ex3.why"/>
+</file>
+<file format="whyml" proved="true">
+<path name=".."/><path name="ex4.why"/>
 </file>
 </why3session>
