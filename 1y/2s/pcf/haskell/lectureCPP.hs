@@ -76,6 +76,7 @@ dcode = map (\c -> if isAlpha c then (if isLower c then shift_3a c else shift_3A
 -- without using recursion
 qSort :: [Int] -> [Int]
 qSort = undefined
+    where stack = []
 
 -- Implement the solution to the Hanoi problem
 -- Think how to implement it in your favorite language
@@ -89,40 +90,70 @@ hanoi = undefined
 -- The datatype of leaf trees
 data LTree a = Leaf a | Fork (LTree a, LTree a) deriving Show
 
+outLTree :: LTree a -> Either a (LTree a, LTree a)
+outLTree (Leaf a) = Left a
+outLTree (Fork t) = Right t
+
+inLTree :: Either a (LTree a, LTree a) -> LTree a
+inLTree = either Leaf Fork
+
+cataLTree :: (Either a (b,b) -> b) -> LTree a -> b
+cataLTree f = let cf = cataLTree f in f . bimap id (bimap cf cf) . outLTree 
+
 -- Implement the function that increments all values
 -- in a given leaf tree
 incr :: LTree Int -> LTree Int
-incr = undefined
+incr = cataLTree (inLTree . bimap succ id)
 
 -- Implement the function that counts the number of leafs
 -- in a leaf tree 
 count :: LTree Int -> Int
-count = undefined
+count = cataLTree (either id (uncurry (+)))
 
 -- The datatype of binary trees
 data BTree a = Empty | Node a (BTree a, BTree a) deriving Show
 
+outBTree :: BTree a -> Either () (a, (BTree a, BTree a))
+outBTree Empty = Left ()
+outBTree (Node a b) = Right (a,b)
+
+inBTree :: Either () (a, (BTree a, BTree a)) -> BTree a
+inBTree = either (const Empty) (uncurry Node)
+
+cataBTree :: (Either () (a, (b, b)) -> b) -> BTree a -> b
+cataBTree f = let cf = cataBTree f in f . bimap id (bimap id (bimap cf cf)) . outBTree 
+
 -- Implement the function that increments all values
 -- in a given binary tree
 bincr :: BTree Int -> BTree Int
-bincr = undefined
+bincr = cataBTree (inBTree . bimap id (first succ))
 
 -- Implement the function that counts the number of leafs
 -- in a leaf tree 
 bcount :: BTree Int -> Int
-bcount = undefined
+bcount = cataBTree (either (const 0) ((uncurry (+) . second (uncurry (+)))))
 
 
 -- The datatype of "full" trees
 data FTree a b = Tip a | Join b (FTree a b, FTree a b) deriving Show
 
+outFTree :: FTree a b -> Either a (b, (FTree a b, FTree a b))
+outFTree (Tip a) = Left a
+outFTree (Join b f) = Right (b,f)
+
+inFTree :: Either a (b, (FTree a b, FTree a b)) -> FTree a b
+inFTree = either Tip (uncurry Join)
+
+cataFTree :: (Either a (b, (c, c)) -> c) -> FTree a b -> c
+cataFTree f = let cf = cataFTree f in f . bimap id (bimap id (bimap cf cf)) . outFTree 
+
 -- Implement the function that sends a full tree into a leaf tree
 fTree2LTree :: FTree a b -> LTree a
-fTree2LTree = undefined
+fTree2LTree = cataFTree (either Leaf (Fork . snd))
 
 -- Implement the function that sends a full tree into a binary tree
 fTree2BTree :: FTree a b -> BTree b 
-fTree2BTree = undefined
+fTree2BTree = cataFTree (either (const Empty) (uncurry Node))
 
 
 -- Implement the semantics of the following very simple 
@@ -133,10 +164,23 @@ type AExp = FTree (Either Vars Int) Ops
 type AState = Vars -> Int
 
 semA :: (AExp, AState) -> Int 
-semA = undefined
+semA (e,s) = cataFTree (either (either s id) (uncurry h)) e
+    where h Sum = uncurry (+)
+          h Mult = uncurry (*)
 
 -- The datatype of "rose" trees
 data RTree a b = Rtip a | Rjoin b [RTree a b] deriving Show
+
+outRTree :: RTree a b -> Either a (b, [RTree a b])
+outRTree (Rtip a) = Left a
+outRTree (Rjoin b r) = Right (b,r)
+
+inRTree :: Either a (b, [RTree a b]) -> RTree a b
+inRTree = either Rtip (uncurry Rjoin)
+
+cataRTree :: (Either a (b, [c]) -> c) -> RTree a b -> c
+cataRTree f = let cf = cataRTree f in f . bimap id (bimap id (map cf)) . outRTree 
+
 
 -- Implement the semantics of the following very simple 
 -- language of Boolean Expressions
@@ -145,7 +189,10 @@ type BExp = RTree (Either Vars Bool) BOps
 type BState = Vars -> Bool
 
 semB :: (BExp, BState) -> Bool
-semB = undefined
+semB (e,s) = cataRTree (either (either s id) (uncurry h))  e
+    where h Disj = or
+          h Conj = and
+          h Neg = not . and
 
 -- Improve the two previous programming languages by defining
 -- data types specific to them
