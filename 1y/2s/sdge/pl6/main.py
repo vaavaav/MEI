@@ -13,14 +13,17 @@ executor = ThreadPoolExecutor(max_workers=1)
 
 state : State
 handler : Callable[[Any], None]
+node_id : str | None 
 
 def handle_init(msg):
-    global handler, state
+    global handler, state, node_id
     if msg.body.type == 'init':
         node_id = msg.body.node_id
-        state = State(node_id)
-        handler = state.handle
         reply(msg, type='init_ok')
+    elif msg.body.type == 'topology' and node_id != None:
+        state = State(node_id, msg.body.topology.__dict__[node_id])
+        handler = state.handle
+        reply(msg, type='topology_ok')
     else:
         logging.warning('unknown message type %s', msg.body.type)
 

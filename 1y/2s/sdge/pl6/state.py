@@ -1,3 +1,4 @@
+from os import remove
 from typing import Any
 import logging
 import random
@@ -10,14 +11,16 @@ PULSE = 1 # (seconds)
 SHUFFLE_LENGTH  = 5 # max number of neighbours per node 
 
 class State():
-    _nodes  : dict[str, int]
+    _nodes: dict[str, int]
     _node_id: str
     _messages: dict[Any, Any]
+    _cache_cyclon: dict[str, list[str]]
 
-    def __init__(self, node_id: str) -> None:
+    def __init__(self, node_id: str, nodes: list[str]) -> None:
         self._node_id = node_id
-        self._nodes = {}
+        self._nodes = dict.fromkeys(nodes, 0)
         self._messages = {}
+        self._cache_cyclon = {}
         Thread(target=self.update).start()
         
     def handle(self, msg) -> None:
@@ -25,10 +28,6 @@ class State():
             getattr(self, 'handle_' + msg.body.type)(msg)
         except AttributeError:
             logging.warning('unknown message type %s', msg.body.type)
-    
-    def handle_topology(self, msg) -> None:
-        self._nodes = dict.fromkeys(msg.body.topology[self._node_id], 0)
-        reply(msg, type='topology_ok')
     
     def handle_broadcast(self, msg) -> None:
         if msg.body.message not in self._messages.keys():
@@ -72,25 +71,47 @@ class State():
         # 4. Send the updated subset to peer Q.
         send(self._node_id, oldest_node, type='shuffle', nodes=random_nodes)
 
+        # (4.2) save in cache so that later you can remove the ones sent if there is no space available
+        self._cache_cyclon[oldest_node] = list(random_nodes.keys())
+
     def handle_shuffle(self, msg) -> None:
 
         random_nodes = dict(random.sample(list(self._nodes.items()), k=min(len(self._nodes), SHUFFLE_LENGTH - 1)))
         
-        if len(msg.body.nodes) + len(self._nodes) > SHUFFLE_LENGTH :
-            for n in random_nodes.keys():
-                self._nodes.pop(n)
+        # insert only NEW entries
+        for x in msg.body.nodes.items():
+            if x[0] not in self._nodes: 
+                self._nodes[x[0]] = x[1]
 
-        # todo: remove duplicates
-
-        for e in msg.body.nodes.items():
-            self._nodes[e[0]] = e[1]
+        # remove needed elems to have space for NEW entries
+        for x,_ in zip(random_nodes, range(SHUFFLE_LENGTH, len(self._nodes))):
+            self._nodes.pop(x)
 
         reply(msg, type='shuffle_ok', nodes=random_nodes)
 
 
 
     def handle_shuffle_ok(self, msg) -> None:
-        
+        # 5. Receive from Q a subset of no more that i of its own entries.
+        entries = msg.body.nodes
+        # 6. Discard entries pointing at P and entries already contained in P’s cache.
+        entries.pop(self._node_id)
+        for e in entries:
+            if e in self._node_id:
+                entries.pop(e)
+        '''
+         7. Update P's cache to include all remaining entries, by firstly using empty
+            cache slots (if any), and secondly replacing entries among the ones sent
+            to Q.
+        '''
+        for x in entries.items():
+          self._nodes[x[0]] = x[1]
+        # remove needed elems to have space for NEW entries
+        for x,_ in zip(self._cache_cyclon[msg.src], range(SHUFFLE_LENGTH, len(self._nodes))):
+            self._nodes.pop(x)
+        self._cache_cyclon.pop(msg.src)
+
+            
 
     def update(self) -> None:
         while True:
