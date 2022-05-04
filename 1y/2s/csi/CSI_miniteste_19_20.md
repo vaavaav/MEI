@@ -1,29 +1,60 @@
 # Questão 1
 
-- inv_12 indica que a alternativa é injetiva (visto que id já é injetiva e ser mais injetivo que id é ser injetivo).
-
-- inv_3 
-
 ```
-dE . [V, V'] ⊆ [Di, dC]
 
-≡ [dE . V, dE . V'] ⊆ [Di, dC]
+π1 . R ⊆ P . <F, π2>
 
-≡ dE . V ⊆ Di /\ dE . V' ⊆ dC
+≡ {Pointwise (5.11); (5.19)}
 
-≡ {shunting} 
+<∀ d, a, al :: <∃ nf,d' : d π1 (d',nf) : (d',nf) R (a,al)> => <∃ c,al' : d P (c,al') : (c,al') <F, π2> (a,al) > >
 
-V ⊆ dE° . Di /\ V' ⊆ dE/dC
+≡ {(A.2); (A.6)}
 
-≡ {guardanapo}
+<∀ d, a, al :: (d,nf) R (a,al) => <∃ c : d P (c, al') : c F (a,al) /\ al' π2 (a,al) > >
 
-<∀ e,p : e V p : (dE e) Di p>
-<∀ e,c : e V' c : (dE e) = (dC c)>
+≡ {(A.2); (A.6)}
+
+<∀ d, a, al :: (d,nf) R (a,al) => c F (a,al) /\ d P (c, al)>
 
 ```
 
-Os votos em partidos só são válidos sse os distritos onde os eleitores votaram são distritos onde o partido concorreu.
+Para toda a disciplina, aluno e ano letivo, se um aluno teve uma nota final a uma disciplina num dado ano letivo, então necessariamente existe um curso frequentado por esse aluno e ao qual pertence essa disciplina, nesse mesmo ano letivo.
 
-**E**
+---
 
-Os votos em candidatos só são válidos sse o distrito onde os eleitores votaram coincide com o distrito onde ele concorreu.
+- `π1 . R` dá as notas finais e disciplinas associadas a um aluno para um ano letivo.
+Dizer que isto é simples é dizer que um aluno, num ano letivo, tem apenas uma nota final a uma unica disciplina.
+
+Isto não é relevante.
+
+...
+
+# Questão 3
+
+```
+
+[<R,S>,<Q,V>] = <[R,Q],[S,V]>
+
+≡ {(5.114)}
+
+<R,S> = <[R,Q],[S,V]> . i1
+<Q,V> = <[R,Q],[S,V]> . i2
+
+≡ {(5.105)}
+
+<R,S> = <[R,Q] . i1, [S,V] . i1>
+<Q,V> = <[R,Q] . i2,[S,V] . i2>
+
+≡ {(5.114)}
+
+<R,S> = <R,S>
+<Q,V> = <Q,V>
+
+≡ {}
+
+TRUE
+
+
+```
+
+
