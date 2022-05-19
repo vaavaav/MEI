@@ -14,5 +14,5 @@
 | :-:              | :-:          |  :-:  |
 | Test             | TBA          |  ? % |
 | Lab Guide 2      | 20           |  ? % |
-| Lab Guide 3      | TBA           |  ? % |
+| Lab Guide 3      | 20           |  ? % |
 | Lab Guide 4      | TBA           |  ? % |
