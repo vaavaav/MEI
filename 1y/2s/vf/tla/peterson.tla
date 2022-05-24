@@ -35,5 +35,5 @@ LockoutFreedom == ((pc[0] = "wait" ~> pc[0] = "crit") /\ (pc[1] = "wait" ~> pc[1
 
 =============================================================================
 \* Modification History
-\* Last modified Fri Apr 29 11:12:52 WEST 2022 by vaavaav
+\* Last modified Fri May 20 01:01:29 WEST 2022 by vaavaav
 \* Created Fri Apr 29 10:16:40 WEST 2022 by vaavaav

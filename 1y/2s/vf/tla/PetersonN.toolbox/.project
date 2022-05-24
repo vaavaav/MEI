@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>two_phase</name>
+	<name>PetersonN</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -16,14 +16,9 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>tcommit.tla</name>
+			<name>PetersonN.tla</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/tcommit.tla</locationURI>
-		</link>
-		<link>
-			<name>two_phase.tla</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/two_phase.tla</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/PetersonN.tla</locationURI>
 		</link>
 	</linkedResources>
 </projectDescription>
