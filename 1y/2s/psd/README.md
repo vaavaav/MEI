@@ -1,4 +1,4 @@
-**PSD** : **P**aradigmas de**S**istemas **D**istribuídos
+**PSD** : **P**aradigmas de **S**istemas **D**istribuídos
 # Distributed Systems Paradigms
 
 ## Contacts
