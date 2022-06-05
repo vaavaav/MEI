@@ -12,7 +12,7 @@
 
 | Assessment       | Grade (0-20) | Ratio |
 | :-:              | :-:          |  :-:  |
-| Test             | TBA          |  ? % |
+| Test             | 13.7          |  ? % |
 | Lab Guide 2      | 20           |  ? % |
 | Lab Guide 3      | 20           |  ? % |
 | Lab Guide 4      | TBA           |  ? % |
