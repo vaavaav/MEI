@@ -1,0 +1,656 @@
+@!@!@STARTMSG 2262:0 @!@!@
+TLC2 Version 2.16 of 31 December 2020 (rev: cdddf55)
+@!@!@ENDMSG 2262 @!@!@
+@!@!@STARTMSG 2187:0 @!@!@
+Running breadth-first search Model-Checking with fp 73 and seed -2271777173055469159 with 2 workers on 4 cores with 546MB heap and 1227MB offheap memory [pid: 4266] (Linux 5.17.9-arch1-1 amd64, AdoptOpenJDK 14.0.1 x86_64, OffHeapDiskFPSet, DiskStateQueue).
+@!@!@ENDMSG 2187 @!@!@
+@!@!@STARTMSG 2220:0 @!@!@
+Starting SANY...
+@!@!@ENDMSG 2220 @!@!@
+Parsing file /home/vaavaav/vf_t3/ex1.toolbox/Model_1/MC.tla
+Parsing file /home/vaavaav/vf_t3/ex1.toolbox/Model_1/ex1.tla
+Parsing file /usr/share/java/tla-toolbox/plugins/org.lamport.tlatools_1.0.0.202012311918/tla2sany/StandardModules/TLC.tla
+Parsing file /usr/share/java/tla-toolbox/plugins/org.lamport.tlatools_1.0.0.202012311918/tla2sany/StandardModules/Integers.tla
+Parsing file /usr/share/java/tla-toolbox/plugins/org.lamport.tlatools_1.0.0.202012311918/tla2sany/StandardModules/Sequences.tla
+Parsing file /usr/share/java/tla-toolbox/plugins/org.lamport.tlatools_1.0.0.202012311918/tla2sany/StandardModules/Naturals.tla
+Parsing file /usr/share/java/tla-toolbox/plugins/org.lamport.tlatools_1.0.0.202012311918/tla2sany/StandardModules/FiniteSets.tla
+Semantic processing of module Naturals
+Semantic processing of module Integers
+Semantic processing of module Sequences
+Semantic processing of module ex1
+Semantic processing of module FiniteSets
+Semantic processing of module TLC
+Semantic processing of module MC
+@!@!@STARTMSG 2219:0 @!@!@
+SANY finished.
+@!@!@ENDMSG 2219 @!@!@
+@!@!@STARTMSG 2185:0 @!@!@
+Starting... (2022-05-20 10:58:25)
+@!@!@ENDMSG 2185 @!@!@
+@!@!@STARTMSG 2212:0 @!@!@
+Implied-temporal checking--satisfiability problem has 1 branches.
+@!@!@ENDMSG 2212 @!@!@
+@!@!@STARTMSG 2189:0 @!@!@
+Computing initial states...
+@!@!@ENDMSG 2189 @!@!@
+@!@!@STARTMSG 2190:0 @!@!@
+Finished computing initial states: 1 distinct state generated at 2022-05-20 10:58:26.
+@!@!@ENDMSG 2190 @!@!@
+@!@!@STARTMSG 2200:0 @!@!@
+Progress(13) at 2022-05-20 10:58:26: 241 states generated, 112 distinct states found, 0 states left on queue.
+@!@!@ENDMSG 2200 @!@!@
+@!@!@STARTMSG 2192:0 @!@!@
+Checking temporal properties for the complete state space with 112 total distinct states at (2022-05-20 10:58:26)
+@!@!@ENDMSG 2192 @!@!@
+@!@!@STARTMSG 2116:1 @!@!@
+Temporal properties were violated.
+
+@!@!@ENDMSG 2116 @!@!@
+@!@!@STARTMSG 2264:1 @!@!@
+The following behavior constitutes a counter-example:
+
+@!@!@ENDMSG 2264 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+1: <Initial predicate>
+/\ flags = <<0, 0, 0>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+2: <idle line 19, col 12 to line 21, col 31 of module ex1>
+/\ flags = <<0, 1, 0>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+3: <idle line 19, col 12 to line 21, col 31 of module ex1>
+/\ flags = <<0, 1, 1>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+4: <wait0 line 23, col 13 to line 26, col 32 of module ex1>
+/\ flags = <<0, 3, 1>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+5: <check line 34, col 13 to line 39, col 47 of module ex1>
+/\ flags = <<0, 2, 1>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+6: <wait0 line 23, col 13 to line 26, col 32 of module ex1>
+/\ flags = <<0, 2, 3>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+7: <check line 34, col 13 to line 39, col 47 of module ex1>
+/\ flags = <<0, 2, 4>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+8: <idle line 19, col 12 to line 21, col 31 of module ex1>
+/\ flags = <<1, 2, 4>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+9: <wait1 line 29, col 13 to line 32, col 32 of module ex1>
+/\ flags = <<1, 4, 4>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+10: <wait2 line 41, col 13 to line 44, col 27 of module ex1>
+/\ flags = <<1, 4, 4>>
+/\ isCritical = <<FALSE, TRUE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+11: <critical line 46, col 16 to line 49, col 61 of module ex1>
+/\ flags = <<1, 0, 4>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+12: <wait2 line 41, col 13 to line 44, col 27 of module ex1>
+/\ flags = <<1, 0, 4>>
+/\ isCritical = <<FALSE, FALSE, TRUE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+13: <critical line 46, col 16 to line 49, col 61 of module ex1>
+/\ flags = <<1, 0, 0>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+14: <wait0 line 23, col 13 to line 26, col 32 of module ex1>
+/\ flags = <<3, 0, 0>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+15: <check line 34, col 13 to line 39, col 47 of module ex1>
+/\ flags = <<4, 0, 0>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+16: <idle line 19, col 12 to line 21, col 31 of module ex1>
+/\ flags = <<4, 1, 0>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+17: <wait2 line 41, col 13 to line 44, col 27 of module ex1>
+/\ flags = <<4, 1, 0>>
+/\ isCritical = <<TRUE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+18: <critical line 46, col 16 to line 49, col 61 of module ex1>
+/\ flags = <<0, 1, 0>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+19: <idle line 19, col 12 to line 21, col 31 of module ex1>
+/\ flags = <<0, 1, 1>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+20: <wait0 line 23, col 13 to line 26, col 32 of module ex1>
+/\ flags = <<0, 3, 1>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+21: <check line 34, col 13 to line 39, col 47 of module ex1>
+/\ flags = <<0, 2, 1>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+22: <wait0 line 23, col 13 to line 26, col 32 of module ex1>
+/\ flags = <<0, 2, 3>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+23: <check line 34, col 13 to line 39, col 47 of module ex1>
+/\ flags = <<0, 2, 4>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+24: <idle line 19, col 12 to line 21, col 31 of module ex1>
+/\ flags = <<1, 2, 4>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+25: <wait1 line 29, col 13 to line 32, col 32 of module ex1>
+/\ flags = <<1, 4, 4>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+26: <wait2 line 41, col 13 to line 44, col 27 of module ex1>
+/\ flags = <<1, 4, 4>>
+/\ isCritical = <<FALSE, TRUE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+27: <critical line 46, col 16 to line 49, col 61 of module ex1>
+/\ flags = <<1, 0, 4>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+28: <wait2 line 41, col 13 to line 44, col 27 of module ex1>
+/\ flags = <<1, 0, 4>>
+/\ isCritical = <<FALSE, FALSE, TRUE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+29: <idle line 19, col 12 to line 21, col 31 of module ex1>
+/\ flags = <<1, 1, 4>>
+/\ isCritical = <<FALSE, FALSE, TRUE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+30: <critical line 46, col 16 to line 49, col 61 of module ex1>
+/\ flags = <<1, 1, 0>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+31: <idle line 19, col 12 to line 21, col 31 of module ex1>
+/\ flags = <<1, 1, 1>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+32: <wait0 line 23, col 13 to line 26, col 32 of module ex1>
+/\ flags = <<1, 1, 3>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+33: <check line 34, col 13 to line 39, col 47 of module ex1>
+/\ flags = <<1, 1, 2>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+34: <wait0 line 23, col 13 to line 26, col 32 of module ex1>
+/\ flags = <<3, 1, 2>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+35: <check line 34, col 13 to line 39, col 47 of module ex1>
+/\ flags = <<2, 1, 2>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+36: <wait0 line 23, col 13 to line 26, col 32 of module ex1>
+/\ flags = <<2, 3, 2>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+37: <check line 34, col 13 to line 39, col 47 of module ex1>
+/\ flags = <<2, 4, 2>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+38: <wait1 line 29, col 13 to line 32, col 32 of module ex1>
+/\ flags = <<2, 4, 4>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+39: <wait1 line 29, col 13 to line 32, col 32 of module ex1>
+/\ flags = <<4, 4, 4>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+40: <wait2 line 41, col 13 to line 44, col 27 of module ex1>
+/\ flags = <<4, 4, 4>>
+/\ isCritical = <<TRUE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+41: <critical line 46, col 16 to line 49, col 61 of module ex1>
+/\ flags = <<0, 4, 4>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+42: <wait2 line 41, col 13 to line 44, col 27 of module ex1>
+/\ flags = <<0, 4, 4>>
+/\ isCritical = <<FALSE, TRUE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+43: <critical line 46, col 16 to line 49, col 61 of module ex1>
+/\ flags = <<0, 0, 4>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+44: <idle line 19, col 12 to line 21, col 31 of module ex1>
+/\ flags = <<0, 1, 4>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+45: <wait2 line 41, col 13 to line 44, col 27 of module ex1>
+/\ flags = <<0, 1, 4>>
+/\ isCritical = <<FALSE, FALSE, TRUE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+46: <critical line 46, col 16 to line 49, col 61 of module ex1>
+/\ flags = <<0, 1, 0>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+47: <idle line 19, col 12 to line 21, col 31 of module ex1>
+/\ flags = <<0, 1, 1>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+48: <wait0 line 23, col 13 to line 26, col 32 of module ex1>
+/\ flags = <<0, 3, 1>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+49: <check line 34, col 13 to line 39, col 47 of module ex1>
+/\ flags = <<0, 2, 1>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+50: <wait0 line 23, col 13 to line 26, col 32 of module ex1>
+/\ flags = <<0, 2, 3>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+51: <idle line 19, col 12 to line 21, col 31 of module ex1>
+/\ flags = <<1, 2, 3>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+52: <check line 34, col 13 to line 39, col 47 of module ex1>
+/\ flags = <<1, 2, 2>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+53: <wait0 line 23, col 13 to line 26, col 32 of module ex1>
+/\ flags = <<3, 2, 2>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+54: <check line 34, col 13 to line 39, col 47 of module ex1>
+/\ flags = <<4, 2, 2>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+55: <wait1 line 29, col 13 to line 32, col 32 of module ex1>
+/\ flags = <<4, 2, 4>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+56: <wait2 line 41, col 13 to line 44, col 27 of module ex1>
+/\ flags = <<4, 2, 4>>
+/\ isCritical = <<TRUE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+57: <wait1 line 29, col 13 to line 32, col 32 of module ex1>
+/\ flags = <<4, 4, 4>>
+/\ isCritical = <<TRUE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+58: <critical line 46, col 16 to line 49, col 61 of module ex1>
+/\ flags = <<0, 4, 4>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+59: <wait2 line 41, col 13 to line 44, col 27 of module ex1>
+/\ flags = <<0, 4, 4>>
+/\ isCritical = <<FALSE, TRUE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+60: <critical line 46, col 16 to line 49, col 61 of module ex1>
+/\ flags = <<0, 0, 4>>
+/\ isCritical = <<FALSE, FALSE, FALSE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+61: <wait2 line 41, col 13 to line 44, col 27 of module ex1>
+/\ flags = <<0, 0, 4>>
+/\ isCritical = <<FALSE, FALSE, TRUE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+62: <idle line 19, col 12 to line 21, col 31 of module ex1>
+/\ flags = <<0, 1, 4>>
+/\ isCritical = <<FALSE, FALSE, TRUE>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2122:4 @!@!@
+2: Back to state: <critical line 46, col 16 to line 49, col 61 of module ex1>
+
+@!@!@ENDMSG 2122 @!@!@
+@!@!@STARTMSG 2267:0 @!@!@
+Finished checking temporal properties in 00s at 2022-05-20 10:58:26
+@!@!@ENDMSG 2267 @!@!@
+@!@!@STARTMSG 2201:0 @!@!@
+The coverage statistics at 2022-05-20 10:58:26
+@!@!@ENDMSG 2201 @!@!@
+@!@!@STARTMSG 2773:0 @!@!@
+<Init line 51, col 1 to line 51, col 4 of module ex1>: 2:2
+@!@!@ENDMSG 2773 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 51, col 9 to line 52, col 43 of module ex1: 2
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<idle line 19, col 1 to line 19, col 7 of module ex1>: 42:128
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 19, col 12 to line 19, col 23 of module ex1: 624
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 19, col 12 to line 19, col 19 of module ex1: 496
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 20, col 12 to line 20, col 43 of module ex1: 128
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 21, col 12 to line 21, col 31 of module ex1: 128
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<wait0 line 23, col 1 to line 23, col 8 of module ex1>: 20:45
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 23, col 13 to line 23, col 24 of module ex1: 529
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 23, col 13 to line 23, col 20 of module ex1: 484
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 24, col 30 to line 24, col 49 of module ex1: 415
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 24, col 30 to line 24, col 37 of module ex1: 280
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 24, col 43 to line 24, col 49 of module ex1: 280
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 24, col 23 to line 24, col 26 of module ex1: 120
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 25, col 13 to line 25, col 44 of module ex1: 45
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 26, col 13 to line 26, col 32 of module ex1: 45
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<wait1 line 29, col 1 to line 29, col 8 of module ex1>: 9:55
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 29, col 13 to line 29, col 24 of module ex1: 519
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 29, col 13 to line 29, col 20 of module ex1: 473
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 30, col 29 to line 30, col 40 of module ex1: 316
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 30, col 29 to line 30, col 36 of module ex1: 261
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 31, col 13 to line 31, col 44 of module ex1: 55
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 32, col 13 to line 32, col 32 of module ex1: 55
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 30, col 22 to line 30, col 25 of module ex1: 87
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<check line 34, col 1 to line 34, col 8 of module ex1>: 22:38
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 34, col 13 to line 34, col 24 of module ex1: 505
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 34, col 13 to line 34, col 20 of module ex1: 467
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 35, col 13 to line 35, col 32 of module ex1: 38
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 36, col 16 to line 36, col 43 of module ex1: 38
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 36, col 32 to line 36, col 43 of module ex1: 92
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 36, col 25 to line 36, col 28 of module ex1: 38
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 37, col 16 to line 37, col 47 of module ex1: 21
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 39, col 16 to line 39, col 47 of module ex1: 17
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<wait2 line 41, col 1 to line 41, col 8 of module ex1>: 18:90
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 41, col 13 to line 41, col 24 of module ex1: 546
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 41, col 13 to line 41, col 20 of module ex1: 456
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 42, col 14 to line 42, col 51 of module ex1: 47
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 42, col 34 to line 42, col 51 of module ex1: 159
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 42, col 34 to line 42, col 41 of module ex1: 99
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 42, col 47 to line 42, col 51 of module ex1: 99
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 42, col 23 to line 42, col 30 of module ex1: 123
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 43, col 13 to line 43, col 57 of module ex1: 90
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 44, col 13 to line 44, col 27 of module ex1: 90
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<critical line 46, col 1 to line 46, col 11 of module ex1>: 0:33
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 46, col 16 to line 46, col 28 of module ex1: 33
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 46, col 16 to line 46, col 25 of module ex1: 445
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 46, col 27 to line 46, col 27 of module ex1: 445
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 47, col 17 to line 47, col 56 of module ex1: 9
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 47, col 37 to line 47, col 56 of module ex1: 95
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 47, col 37 to line 47, col 44 of module ex1: 58
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 47, col 50 to line 47, col 56 of module ex1: 58
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 47, col 26 to line 47, col 33 of module ex1: 49
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 48, col 16 to line 48, col 47 of module ex1: 33
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 49, col 16 to line 49, col 61 of module ex1: 33
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2774:0 @!@!@
+<TypeOK line 13, col 1 to line 13, col 6 of module ex1>
+@!@!@ENDMSG 2774 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 13, col 11 to line 14, col 58 of module ex1: 112
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 13, col 12 to line 13, col 44 of module ex1: 112
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 13, col 28 to line 13, col 44 of module ex1: 336
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 13, col 21 to line 13, col 24 of module ex1: 112
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 14, col 12 to line 14, col 57 of module ex1: 112
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 14, col 28 to line 14, col 57 of module ex1: 336
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 14, col 21 to line 14, col 24 of module ex1: 112
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2774:0 @!@!@
+<Action line 70, col 24 to line 70, col 82 of module ex1>
+@!@!@ENDMSG 2774 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 70, col 24 to line 70, col 82 of module ex1: 112
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 70, col 41 to line 70, col 82 of module ex1: 1008
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 70, col 42 to line 70, col 63 of module ex1: 1008
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||line 70, col 42 to line 70, col 46 of module ex1: 1008
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||line 70, col 51 to line 70, col 63 of module ex1: 672
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 70, col 69 to line 70, col 82 of module ex1: 56
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 70, col 35 to line 70, col 38 of module ex1: 112
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2202:0 @!@!@
+End of statistics.
+@!@!@ENDMSG 2202 @!@!@
+@!@!@STARTMSG 2200:0 @!@!@
+Progress(13) at 2022-05-20 10:58:26: 241 states generated (7,077 s/min), 112 distinct states found (3,289 ds/min), 0 states left on queue.
+@!@!@ENDMSG 2200 @!@!@
+@!@!@STARTMSG 2199:0 @!@!@
+241 states generated, 112 distinct states found, 0 states left on queue.
+@!@!@ENDMSG 2199 @!@!@
+@!@!@STARTMSG 2186:0 @!@!@
+Finished in 2053ms at (2022-05-20 10:58:26)
+@!@!@ENDMSG 2186 @!@!@
