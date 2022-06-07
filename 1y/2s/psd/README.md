@@ -12,5 +12,5 @@
 
 | Assessment       | Grade (0-20) | Ratio |
 | :-:              | :-:          |  :-:  |
-| Test             | TBA          |  60 % |
+| Test             | 16.4         |  60 % |
 | Pratical Project | TBA          |  40 % |
