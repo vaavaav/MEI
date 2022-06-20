@@ -12,5 +12,7 @@
 | Assessment | Grade (0-20) | Ratio |
 | :-:        | :-:          |  :-:  |
 | First Test | 19.4         |  50 % |
-| Second Test| TBA          |  50 % |
+| Second Test| 12.4         |  50 % |
+| Improvement Exam | TBA    |  100% iff its grade >= (19.4 + 12.4) / 2 else 0|
+
 
