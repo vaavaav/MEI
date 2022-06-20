@@ -13,6 +13,6 @@
 | :-:        | :-:          |  :-:  |
 | First Test | 19.4         |  50 % |
 | Second Test| 12.4         |  50 % |
-| Improvement Exam | TBA    |  100% iff its grade > (19.4 + 12.4) / 2 else 0|
+| Improvement Exam | TBA    | replaces the overall grade for the subject if it is higher |
 
 
