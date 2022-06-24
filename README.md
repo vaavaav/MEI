@@ -40,7 +40,7 @@ This personal repository contains information about my overall progress in the c
 
 | Initials| Designation (PT)| Designation (EN)| Final Grade|
 | :------:| :-----------| :-----------| :-----------:|
-| [**PSD**](1y/2s/psd)   | Paradigmas de Sistemas Distribuídos | Distributed Systems Paradigms | TBA |
-| [**SDGE**](1y/2s/sdge) | Sistemas Distribuídos em Grande Escala | Large-Scale Distributed Systems | TBA |
+| [**PSD**](1y/2s/psd)   | Paradigmas de Sistemas Distribuídos | Distributed Systems Paradigms | 16 |
+| [**SDGE**](1y/2s/sdge) | Sistemas Distribuídos em Grande Escala | Large-Scale Distributed Systems | 16 |
 | [**TF**](1y/2s/tf)     | Tolerância a Faltas | Fault Tolerance | TBA |
 
