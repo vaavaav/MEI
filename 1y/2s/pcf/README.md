@@ -14,5 +14,5 @@
 | :-:        | :-:   |  :-:  |
 | Assynchronous test (2 homeworks) | 18.64  |  20 % |
 | Group Assignment  (Uppaal)       | 19.02  |  40 % |
-| Group Assignment  (Haskell)      | TBA  |  40 % |
+| Group Assignment  (Haskell)      | 18.69  |  40 % |
 
