@@ -15,4 +15,4 @@
 | Test             | 13.7         |  ? % |
 | Lab Guide 2      | 20           |  ? % |
 | Lab Guide 3      | 20           |  ? % |
-| Lab Guide 4      | ¯\_(ツ)_/¯   |  ? % |
+| Lab Guide 4      | ¯\\_(ツ)_/¯   |  ? % |
