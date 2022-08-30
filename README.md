@@ -49,6 +49,6 @@ This personal repository contains information about my overall progress in the c
 
 ## 2<sup>nd</sup> Year (2022/2023)
 
-### Dissertation: "TBA"
+### Dissertation: TBA
 
 ### 1<sup>st</sup> Semester: Informatics Project
