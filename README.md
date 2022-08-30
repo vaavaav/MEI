@@ -44,3 +44,11 @@ This personal repository contains information about my overall progress in the c
 | [**SDGE**](1y/2s/sdge) | Sistemas Distribuídos em Grande Escala | Large-Scale Distributed Systems | 16 |
 | [**TF**](1y/2s/tf)     | Tolerância a Faltas | Fault Tolerance | 16 |
 
+---
+
+
+## 2<sup>nd</sup> Year (2022/2023)
+
+### Dissertation: "TBA"
+
+### 1<sup>st</sup> Semester: Informatics Project
