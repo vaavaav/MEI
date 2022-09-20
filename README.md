@@ -49,6 +49,12 @@ This personal repository contains information about my overall progress in the c
 
 ## 2<sup>nd</sup> Year (2022/2023)
 
-### Dissertation: TBA
+### Dissertation: Programmable and adaptable caching system
+
+#### Description
+
+The use of volatile storage (caching) in current computing infrastructures has become critical to ensure good performance (i.e., low latency, high throughput). In particular, these infrastructures are now composed of multiple levels of caching, which serve requests with different access patterns, granularities, and sizes. However, these systems are typically configured monolithically and with partial visibility into computing resources, leading to sub-optimal performance and inefficient resource management.
+
+This thesis intends to develop a new type of volatile storage, which is programmable and adaptable, and which acts with global visibility of the system, maximizing the performance and utilization of computational resources.
 
 ### 1<sup>st</sup> Semester: Informatics Project
