@@ -58,3 +58,15 @@ The use of volatile storage (caching) in current computing infrastructures has b
 This thesis intends to develop a new type of volatile storage, which is programmable and adaptable, and which acts with global visibility of the system, maximizing the performance and utilization of computational resources.
 
 ### 1<sup>st</sup> Semester: Informatics Project
+
+Typology: University
+
+#### Evalutation:
+
+- Goals/results: 35% - 40%
+- Systematic reading survey: 30% - 35%
+- Presentation/documentation: 25% - 30%
+
+Extra: 5 criteria, and their respective weight in the grade, defined by the team
+
+In the end, each team decides how to the individual scores based on the collective score.
