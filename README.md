@@ -65,7 +65,7 @@ In the end, each team decides how to the individual scores based on the collecti
 
 Final grade: 20/20
 
-### 1<sup>st</sup> & 2<sup>nd</sup> Semester: Dissertation: Programmable and adaptable caching system
+### 1<sup>st</sup> & 2<sup>nd</sup> Semester: Master Thesis - Programmable and adaptable caching system
 
 #### Description
 
